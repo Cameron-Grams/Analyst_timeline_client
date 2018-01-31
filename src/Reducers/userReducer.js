@@ -7,11 +7,12 @@ const initialState = {
 const UserReducer = ( state = initialState, action ) => {
     switch ( action.type ){
         case 'SUCCESSFUL_AUTHENTICTION':{
+            console.log( '[ userReducer, 10 ] ', action );
             return{
                 ...state,
-                userId: action.id,
-                name: action.name,
-                timelines: action.timelines
+                userId: action.response.id,
+                name: action.response.name,
+                timelines: action.response.analysis
             }
         }
         default:{
@@ -21,3 +22,5 @@ const UserReducer = ( state = initialState, action ) => {
         }
     }
 }
+
+export default UserReducer; 

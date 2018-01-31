@@ -1,8 +1,31 @@
+
 .App {
   text-align: center;
-  background-color: grey;
+}
+
+.routingLink{
+  text-decoration: none;
+  color: white;
+}
+
+ul{
+  list-style: none; 
+}
+
+.third{
+    vertical-align: center;
+    display: inline-block;
+    width: 33.3%;
+}
+
+.form{
+  width: 40%;
+  margin: 10% auto;
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 9px;
 }
 
 .formElement{
-  color: red; 
+  margin: 10px;
 }
