@@ -6,6 +6,7 @@ import { history } from './store';
 
 import LandingPage from './Components/LandingPage'; 
 import Login from './Containers/Login/login'; 
+import Timelines from './Containers/Timelines/Timelines'; 
 
 class App extends Component {
   render() {
@@ -15,6 +16,7 @@ class App extends Component {
         <Switch >      
         <Route exact path="/" component={ LandingPage } />
         <Route exact path="/login" component={ Login } />
+        <Route exact path="/user-timelines" component={ Timelines } />
         </Switch>
       </ConnectedRouter>
       </div>
