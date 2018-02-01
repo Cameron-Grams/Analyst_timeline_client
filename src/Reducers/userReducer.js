@@ -15,6 +15,15 @@ const UserReducer = ( state = initialState, action ) => {
                 timelines: action.response.analysis
             }
         }
+
+        case 'LOGOUT_SESSION':{
+            return {...state,
+            userId: 0,
+            name: "none",
+            timelines: []
+            }
+        }
+        
         default:{
             return{
                 ...state
