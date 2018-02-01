@@ -2,12 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux'; 
 import Loader from '../../Components/Loader';
 import Header from '../Header/Header'; 
+import TimelineSelection from './TimelineSelection';
 
 const Timelines = ( props ) => {
 
+    console.log( '[ Timelines ] own props ', props.id ); 
     const pending = props.appState.requestAuthentication ? 
         <Loader /> :
-        <div> Return user Timelines </div>;
+        <TimelineSelection />
 
     return(
         <div>
@@ -18,9 +20,10 @@ const Timelines = ( props ) => {
 };
 
 
-const mapStateToProps = ( state ) => ( {
+const mapStateToProps = ( state, ownProps ) => ( {
     appState: state.appState,
-    user: state.user
+    user: state.user,
+    id: ownProps.match.params.userId
 } );
 
 export default connect( mapStateToProps )( Timelines );

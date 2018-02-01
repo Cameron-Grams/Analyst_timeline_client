@@ -9,7 +9,7 @@ const Header = ( props ) => {
         <div className="header" >
             <Button className={ "header-third header-leftControl" } 
                 buttonLable={ "All Timelines" } 
-                sendPath={ "/user-timelines" } />
+                sendPath={ `/user-timelines/${ props.user.userId }` } />
 
             <div className="header-third header-centerText">
                 <h1 className="userName">{ props.name }</h1>
@@ -23,4 +23,8 @@ const Header = ( props ) => {
     )
 }
 
-export default connect( null, { logoutUserSession } )( Header ); 
+const mapStateToProps = ( state ) => ( {
+    user: state.user
+} )
+
+export default connect( mapStateToProps, { logoutUserSession } )( Header ); 

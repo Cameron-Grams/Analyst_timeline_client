@@ -21,7 +21,7 @@ const handleSuccessUserAuthentication = (response, dispatch) => {
         type: actionTypes.autenticationSuccess,
         response
     });
-    dispatch(push( `/user-timelines`))
+    dispatch(push( `/user-timelines/${ response.id }`))
 };
 
 export function sendAuthentication( values ){

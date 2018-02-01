@@ -17,7 +17,7 @@ class App extends Component {
         <Switch >      
         <Route exact path="/" component={ LandingPage } />
         <Route exact path="/login" component={ Login } />
-        <ProtectedRoute exact path="/user-timelines" component={ Timelines } />
+        <ProtectedRoute path="/user-timelines/:userId" component={ Timelines } />
 
         </Switch>
       </ConnectedRouter>

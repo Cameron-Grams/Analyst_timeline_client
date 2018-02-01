@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Button from '../../components/Button';
-import { getTimeline } from '../../actions/timelineActions';
+import Button from '../../Components/Button';
+import { getSelectedTimeline } from '../../Actions/timelineActions';
 import BuildOptions from './selectBuilder'; 
-import './timelinesCSS.css'; 
 
 let ThemeSelection = ( props ) => {
 
@@ -34,5 +33,5 @@ const mapStateToProps = ( state ) => ( {
 } );
 
 
-export default connect( mapStateToProps, { getTimeline } )( ThemeSelection ); 
+export default connect( mapStateToProps, { getSelectedTimeline } )( ThemeSelection ); 
 
