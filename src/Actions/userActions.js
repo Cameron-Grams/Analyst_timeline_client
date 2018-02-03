@@ -11,17 +11,13 @@ export function logoutUserSession(){
     }
 }
 
-
-
-
 const handleSuccessUserAuthentication = (response, dispatch) => {
     sessionStorage.setItem( "token", response.token )
-    console.log( '[ userActions ] response ', response ); 
     dispatch({
         type: actionTypes.autenticationSuccess,
         response
     });
-    dispatch(push( `/user-timelines/${ response.id }`))
+    dispatch(push( '/user-timelines') ); 
 };
 
 export function sendAuthentication( values ){
@@ -42,4 +38,43 @@ export function sendAuthentication( values ){
         onFailure: actionTypes.userAuthenticationFailed,
         promise
     }
+}
+
+
+
+const handleSuccessUserBasicInfo = ( response, dispatch ) => {
+    dispatch({
+        type: actionTypes.returnUserBasicInfo,
+        response
+    });
+    dispatch(push( '/user-timelines') ); 
+}
+
+
+export function fetchBasicInfo(){
+    const sendToken = sessionStorage.getItem( "token" );
+    console.log( '[ userActions ] sendToken =', sendToken ); 
+
+    const promise = fetch( `${ endpoint }/api/users/basicInfo`,
+        {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify( { token: sendToken } ),
+         } );   
+        
+    
+    return {
+        onRequest: actionTypes.requestBasicInfo,
+        onSuccess: handleSuccessUserBasicInfo,
+        onFailure: actionTypes.userBasicInfoFailed,
+        promise
+    }
+
+
+
+
+
 }

@@ -1,14 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
-import Loader from '../../Components/Loader';
+import Waiting from '../../Components/Waiting';
 import Header from '../Header/Header'; 
 import TimelineSelection from './TimelineSelection';
 
 const Timelines = ( props ) => {
-
-    console.log( '[ Timelines ] own props ', props.id ); 
+    console.log( '[ Timelines userId ] id: ', props.user.id ); 
     const pending = props.appState.requestAuthentication ? 
-        <Loader /> :
+        <Waiting /> :
         <TimelineSelection />
 
     return(

@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux'
 import { history } from './store';
 import ProtectedRoute from './Containers/ProtectedToken/ProtectedRoute';
+import ProfileLoader from './Helpers/ProfileLoader';
 
 import LandingPage from './Components/LandingPage'; 
 import Login from './Containers/Login/login'; 
@@ -15,10 +16,11 @@ class App extends Component {
       <div className="App">
       <ConnectedRouter history={ history }>  
         <Switch >      
-        <Route exact path="/" component={ LandingPage } />
-        <Route exact path="/login" component={ Login } />
-        <ProtectedRoute path="/user-timelines/:userId" component={ Timelines } />
-
+          < ProfileLoader >
+            <Route exact path="/" component={ LandingPage } />
+            <Route exact path="/login" component={ Login } />
+            <ProtectedRoute path="/user-timelines" component={ Timelines } />
+          </ProfileLoader >
         </Switch>
       </ConnectedRouter>
       </div>

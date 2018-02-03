@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Button from '../../Components/Button';
+// import Button from '../../Components/Button';    will need this for add timeline
 import { getSelectedTimeline } from '../../Actions/timelineActions';
 import BuildOptions from './selectBuilder'; 
 
