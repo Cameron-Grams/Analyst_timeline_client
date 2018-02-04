@@ -9,6 +9,7 @@ import ProfileLoader from './Helpers/ProfileLoader';
 import LandingPage from './Components/LandingPage'; 
 import Login from './Containers/Login/login'; 
 import Timelines from './Containers/Timelines/Timelines'; 
+import Dashboard from './Containers/Dashboard/Dashboard'; 
 
 class App extends Component {
   render() {
@@ -20,6 +21,8 @@ class App extends Component {
             <Route exact path="/" component={ LandingPage } />
             <Route exact path="/login" component={ Login } />
             <ProtectedRoute path="/user-timelines" component={ Timelines } />
+            <ProtectedRoute path="/dashboard" component={ Dashboard } />
+
           </ProfileLoader >
         </Switch>
       </ConnectedRouter>

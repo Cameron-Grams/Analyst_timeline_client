@@ -1,7 +1,10 @@
 const initialState = {
     requestAuthentication: false,
     isAuthenticated: false,
-    failedAuthentication: false
+    failedAuthentication: false,
+    showTimeline: true,
+    showAllEntries: false,
+    singleEntry: false
 }
 
 const AppStateReducer = ( state = initialState, action ) => {

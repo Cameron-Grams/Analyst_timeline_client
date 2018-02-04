@@ -13,14 +13,20 @@ const handleSuccessTimelineInfo = ( response, dispatch ) => {
 
 export function getSelectedTimeline( values ){
 
-    const promise = fetch( `${ endpoint }/api/timelines/${ values }`,
+    console.log( '[ timelineActions ] values sending ', values ); 
+
+    const sendValue = {
+        index: values
+    }
+
+    const promise = fetch( `${ endpoint }/api/timelines`,
         {
         method: 'POST',
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify( values ),
+        body: JSON.stringify( sendValue ),
          } );   
         
     
