@@ -15,11 +15,8 @@ import { showAllEntries,
         } from '../../Actions/appStateActions';
 import { addEntryToTimeline } from '../../Actions/timelineActions';
 
-          /*
-import HorizontalTimelineContent from './HorizontalTimelineContent';
+import HorizontalTimelineContainer from './HorizontalTimelineContainer';
 
-import './dashboard.css';
-*/
 
 const Dashboard = ( props ) => {
     let userName =  props.user.name;
@@ -27,8 +24,14 @@ const Dashboard = ( props ) => {
     let entriesOnTheme = props.timeline.data;
 
     const timeline = props.appState.showTimeline ? 
-        <div>Future Timeline Component</div>:
-          <div></div>;
+        <HorizontalTimelineContainer
+            indexClick={(index) => {
+              this.setState({ value: index, previous: this.state.value });
+            }}
+            content={ props.timeline.data }
+            synchEntry={ props.synchCurrentEntry } />  
+        :
+        <div></div>;
 
 
     const elements =  props.appState.showAllEntries ? 
@@ -90,7 +93,8 @@ export default connect( mapStateToProps,
       editEntry, 
       addEntry, 
       addEntryToTimeline,
-      returnMainTimeline
+      returnMainTimeline,
+      synchCurrentEntry
     })( Dashboard ); 
 
 
