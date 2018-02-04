@@ -9,12 +9,14 @@ let ThemeSelection = ( props ) => {
     const userTimelines =  props.user.timelines.length > 0 ?  props.user.timelines: [];
 
     const selectedTimeline = ( values ) => {
+        console.log( '[TimelineSelection ] values ', values );
+
         props.getSelectedTimeline( values.selectTimeline ); 
     }
 
     return(
         <div className="timelineSelector" >
-            <h1>Themes available</h1>
+            <h1>Timeline Themes Available</h1>
 
            <BuildOptions 
              className={ "timelineOptions" }  

@@ -53,7 +53,6 @@ const handleSuccessUserBasicInfo = ( response, dispatch ) => {
 
 export function fetchBasicInfo(){
     const sendToken = sessionStorage.getItem( "token" );
-    console.log( '[ userActions ] sendToken =', sendToken ); 
 
     const promise = fetch( `${ endpoint }/api/users/basicInfo`,
         {
@@ -72,9 +71,4 @@ export function fetchBasicInfo(){
         onFailure: actionTypes.userBasicInfoFailed,
         promise
     }
-
-
-
-
-
 }

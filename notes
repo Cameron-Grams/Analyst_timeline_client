@@ -1,2 +1,5 @@
 needed to change the default react-router-redux to "react-router-redux": "^5.0.0-alpha.9",
 
+3 Feb
+- ProfileLoader and the boolean values
+

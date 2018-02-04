@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import TimelineSelection from './TimelineSelection';
 
 const Timelines = ( props ) => {
-    console.log( '[ Timelines userId ] id: ', props.user.id ); 
+
     const pending = props.appState.requestAuthentication ? 
         <Waiting /> :
         <TimelineSelection />

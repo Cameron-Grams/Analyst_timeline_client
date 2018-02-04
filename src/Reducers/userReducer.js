@@ -16,7 +16,6 @@ const UserReducer = ( state = initialState, action ) => {
         }
 
         case 'SUCCESSFUL_BASIC_USER_INFO':{
-            console.log( '[ userReducer, successful basic info ] ', action );
             return{ 
                 ...state,
                 userId: action.response.id,
