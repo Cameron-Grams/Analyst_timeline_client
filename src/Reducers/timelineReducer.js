@@ -4,7 +4,6 @@ const initialState = {
     id: 0,
     title: "",
     data: [],
-    currentEntry: {}
 }
 
 const TimelineReducer = ( state = initialState, action ) => {
@@ -16,7 +15,6 @@ const TimelineReducer = ( state = initialState, action ) => {
                 id: action.response.id, 
                 title: action.response.title, 
                 data: action.response.entries,
-                currentEntry: action.response.entries[ 0 ]
             }
         }
 

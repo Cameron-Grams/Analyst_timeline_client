@@ -9,10 +9,10 @@ const Header = ( props ) => {
         <div className="header" >
             <Button className={ "header-third header-leftControl" } 
                 buttonLable={ "All Timelines" } 
-                sendPath={ `/user-timelines/${ props.user.userId }` } />
+                sendPath={ '/user-timelines' } />
 
             <div className="header-third header-centerText">
-                <h1 className="userName">{ props.name }</h1>
+                <h1 className="userName">{ props.user.name }</h1>
             </div>
 
             <Button className={ "header-third header-rightControl" } 

@@ -13,8 +13,6 @@ const handleSuccessTimelineInfo = ( response, dispatch ) => {
 
 export function getSelectedTimeline( values ){
 
-    console.log( '[ timelineActions ] values sending ', values ); 
-
     const sendValue = {
         index: values
     }
@@ -34,6 +32,34 @@ export function getSelectedTimeline( values ){
         onRequest: actionTypes.requestTimeline,
         onSuccess: handleSuccessTimelineInfo,
         onFailure: actionTypes.timlineRequestFailed,
+        promise
+    }
+}
+
+
+
+const submittedNewEntry = ( response, dispatch ) => {
+    dispatch( {
+        type: actionTypes.formSubmit
+    } )
+}
+
+export function addEntryToTimeline( values, timelineId ){
+    const promise = fetch( `${ endpoint }/api/timelines/new-entry/${ timelineId }`,
+        {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify( values ),
+         } );   
+        
+    
+    return {
+        onRequest: actionTypes.newEntrySubmitted,
+        onSuccess: submittedNewEntry,
+        onFailure: actionTypes.newEntryFailure,
         promise
     }
 }

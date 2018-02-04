@@ -4,18 +4,18 @@ import DashboardElement from '../../Components/DashboardElement';
 import Header from '../Header/Header';
 import Options from '../../Components/OptionsButton';
 import DisplayEntries from '../../Components/EntriesDisplay'; 
+import EntryForm from '../Entries/EntryForm'; 
 
-/*
+
 import { showAllEntries, 
          editEntry, 
          addEntry, 
          synchCurrentEntry 
-        } from '../../actions/appStateActions';
-import { addEntryToTimeline,
-         getTimeline } from '../../actions/timelineActions';
+        } from '../../Actions/appStateActions';
+import { addEntryToTimeline } from '../../Actions/timelineActions';
 
+          /*
 import HorizontalTimelineContent from './HorizontalTimelineContent';
-import EntryForm from '../Entries/EntryForm'; 
 
 import './dashboard.css';
 */
@@ -44,7 +44,7 @@ const Dashboard = ( props ) => {
             <div></div>;
 
     function returnEntry( values ){
-        props.addEntryToTimeline( values ); 
+        props.addEntryToTimeline( values, props.timeline.id ); 
     }
 
 
@@ -82,9 +82,7 @@ export default connect( mapStateToProps,
     { showAllEntries,  
       editEntry, 
       addEntry, 
-      synchCurrentEntry,
-      addEntryToTimeline,
-      getTimeline
+      addEntryToTimeline
     })( Dashboard ); 
 
 
