@@ -9,6 +9,8 @@ let EntryForm = ( props ) => {
     const { handleSubmit } = props;
 
     return(
+      <div>
+
         <form onSubmit={ handleSubmit }>
 
           <Field className={ "formElement" } name="title" label={ "Title for the Entry" } component={ renderField } type="text" />
@@ -24,6 +26,7 @@ let EntryForm = ( props ) => {
           <button type="submit">Send Entry</button>
 
         </form>
+      </div>
     )
 }
 
@@ -35,7 +38,6 @@ EntryForm = reduxForm({
 EntryForm = connect(
     ( state, props ) => {
       const initialValues = {};
-
       if ( props.useCurrentEntry ){
          initialValues.title = state.appState.currentEntry.title; 
          initialValues.what = state.appState.currentEntry.what; 

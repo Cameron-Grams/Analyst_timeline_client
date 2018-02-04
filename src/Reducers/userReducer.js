@@ -24,6 +24,12 @@ const UserReducer = ( state = initialState, action ) => {
             }
         }
 
+        case 'USER_REGISTRATION_SUCCESS':{
+            return{
+                ...state,
+            }
+        }
+
         case 'LOGOUT_SESSION':{
             return {...state,
             userId: 0,

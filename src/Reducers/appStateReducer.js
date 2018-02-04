@@ -87,6 +87,8 @@ const AppStateReducer = ( state = initialState, action ) => {
                 singleEntry: true
             }
         }
+
+        case 'RETURN_MAIN_TIMELINE':
         case 'SUBMIT_ENTRY_FORM':{
             return{
                 ...state,
@@ -95,6 +97,8 @@ const AppStateReducer = ( state = initialState, action ) => {
                 showTimeline: true
             }
         }
+
+                
 
         default:{
             return{

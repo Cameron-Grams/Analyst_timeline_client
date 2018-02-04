@@ -12,21 +12,35 @@ export const returnUserBasicInfo = 'SUCCESSFUL_BASIC_USER_INFO';
 
 export const userBasicInfoFailed = 'USER_BASIC_INFO_FAILED'; 
 
+export const registerUserSuccess = 'USER_REGISTRATION_SUCCESS'; 
+
+export const registrationUserTriggered = 'USER_REGISTRATION_TRIGGERED'; // not used  
+
+export const registrationUserFailure = 'USER_REGISTRATION_FAILURE';  // not used 
+
+
+
 //===========Timeline Actions =====================
-export const requestTimeline = 'REQUEST_TIMELINE'; 
+export const requestTimeline = 'REQUEST_TIMELINE';  // not used 
 
 export const handleSuccessTimelineInfo = 'SUCCESSFUL_TIMELINE_REQUEST';
 
-export const timlineRequestFailed = 'TIMELINE_REQUEST_FAILED'; 
+export const timlineRequestFailed = 'TIMELINE_REQUEST_FAILED'; //not used  
 
 
 
 
-export const newEntrySubmitted = 'NEW_ENTRY_SUMITTED'; 
+export const newEntrySubmitted = 'NEW_ENTRY_SUBMITTED'; //not used  
 
-export const submittedNewEntry = 'SUBMITTED_NEW_ENTRY'; 
+export const submittedNewEntry = 'SUBMITTED_NEW_ENTRY'; // not used  
 
-export const newEntryFailure = 'NEW_ENTRY_FAILURE'; 
+export const newEntryFailure = 'NEW_ENTRY_FAILURE'; //not used  
+
+export const newTimelineCreated = 'NEW_TIMELINE_CREATED'; 
+
+export const createTimelineTriggered = 'CREATE_TIMELINE_STARTED'; // not used 
+
+export const createTimelineFailure = 'CREATE_TIMELINE_FAILURE'; // not used 
 
 
 //==========App State Actions =====================
@@ -43,5 +57,5 @@ export const addEntry = 'ADD_ENTRY';
 
 export const formSubmit = 'SUBMIT_ENTRY_FORM';
 
-
+export const returnMainTimeline = 'RETURN_MAIN_TIMELINE'; 
 

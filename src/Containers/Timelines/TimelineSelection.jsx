@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import Button from '../../Components/Button';    will need this for add timeline
+import Button from '../../Components/Button';   
 import { getSelectedTimeline } from '../../Actions/timelineActions';
 import BuildOptions from './selectBuilder'; 
 
@@ -9,8 +9,6 @@ let ThemeSelection = ( props ) => {
     const userTimelines =  props.user.timelines.length > 0 ?  props.user.timelines: [];
 
     const selectedTimeline = ( values ) => {
-        console.log( '[TimelineSelection ] values ', values );
-
         props.getSelectedTimeline( values.selectTimeline ); 
     }
 
@@ -23,7 +21,10 @@ let ThemeSelection = ( props ) => {
              optionsArray={ userTimelines } 
              onSubmit={ selectedTimeline } /> 
 
-          
+            <Button
+             className={ "timelineOptions"}
+             sendPath={ '/create-timeline'}
+             buttonLable={ 'Add New Timeline' } /> 
 
         </div>
     )

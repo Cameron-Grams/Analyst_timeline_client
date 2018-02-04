@@ -63,3 +63,35 @@ export function addEntryToTimeline( values, timelineId ){
         promise
     }
 }
+
+
+
+
+const newTimelineCreated = ( response, dispatch ) => {
+    dispatch( { 
+        type: actionTypes.newTimelineCreated
+    })
+    dispatch( push( '/user-timelines' ) );
+}
+
+export function createNewTimeline( values ){
+      const promise = fetch( `${ endpoint }/api/timelines/new-timeline`,
+        {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            },
+        body: JSON.stringify( values )
+        } 
+      );   
+        
+    
+    return {
+        onRequest: actionTypes.createTimelineTriggered,
+        onSuccess: newTimelineCreated,
+        onFailure: actionTypes.createTimelineFailure,
+        promise
+    }
+
+}

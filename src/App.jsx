@@ -8,7 +8,9 @@ import ProfileLoader from './Helpers/ProfileLoader';
 
 import LandingPage from './Components/LandingPage'; 
 import Login from './Containers/Login/login'; 
+import Register from './Containers/Register/Register'; 
 import Timelines from './Containers/Timelines/Timelines'; 
+import CreateTimeline from './Containers/Timelines/CreateTimeline'; 
 import Dashboard from './Containers/Dashboard/Dashboard'; 
 
 class App extends Component {
@@ -20,7 +22,10 @@ class App extends Component {
           < ProfileLoader >
             <Route exact path="/" component={ LandingPage } />
             <Route exact path="/login" component={ Login } />
+            <Route exact path="/register" component={ Register } />
+
             <ProtectedRoute path="/user-timelines" component={ Timelines } />
+            <ProtectedRoute path="/create-timeline" component={ CreateTimeline } />
             <ProtectedRoute path="/dashboard" component={ Dashboard } />
 
           </ProfileLoader >

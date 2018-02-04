@@ -1,5 +1,3 @@
-import * as actionTypes from '../Actions/actionTypes'; 
-
 const initialState = {
     id: 0,
     title: "",
@@ -15,6 +13,12 @@ const TimelineReducer = ( state = initialState, action ) => {
                 id: action.response.id, 
                 title: action.response.title, 
                 data: action.response.entries,
+            }
+        }
+
+        case 'NEW_TIMELINE_CREATED':{
+            return{
+                ...state,
             }
         }
 

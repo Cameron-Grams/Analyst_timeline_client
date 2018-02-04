@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'; 
 import LoginForm from './LoginForm'; 
 import { sendAuthentication } from '../../Actions/userActions'; 
+import Button from '../../Components/Button';
 
 
 const Login = ( props ) => {  
@@ -15,11 +16,15 @@ const Login = ( props ) => {
         <div></div>;
 
     return(
-    <div> 
-        <h1>Place Holder Login</h1>
-        <LoginForm onSubmit={ authenticateUser } />
-        { failedLogin } 
-    </div>
+        <div> 
+            <h1>Log In to Work</h1>
+            <LoginForm onSubmit={ authenticateUser } />
+            <Button
+              sendPath={'/register' }
+              buttonLable={ 'Register New User' } 
+            />
+            { failedLogin } 
+        </div>
     )
 }
 

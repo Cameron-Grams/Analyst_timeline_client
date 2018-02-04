@@ -40,8 +40,6 @@ export function sendAuthentication( values ){
     }
 }
 
-
-
 const handleSuccessUserBasicInfo = ( response, dispatch ) => {
     dispatch({
         type: actionTypes.returnUserBasicInfo,
@@ -49,8 +47,6 @@ const handleSuccessUserBasicInfo = ( response, dispatch ) => {
     });
     dispatch(push( '/user-timelines') ); 
 }
-
-
 export function fetchBasicInfo(){
     const sendToken = sessionStorage.getItem( "token" );
 
@@ -72,3 +68,38 @@ export function fetchBasicInfo(){
         promise
     }
 }
+
+
+const handleSuccessUserRegistration = ( response, dispatch ) => {
+
+    dispatch({
+        type: actionTypes.registerUserSuccess,
+        response
+    });
+    dispatch(push('/login'))
+}
+
+export function registerNewUser( values ){
+
+    const promise = fetch( `${ endpoint }/api/users/register`,
+        {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+        },
+        body: JSON.stringify( values ),
+         } 
+    );   
+
+    return {
+        onRequest: actionTypes.registrationUserTriggered,
+        onSuccess: handleSuccessUserRegistration,
+        onFailure: actionTypes.registrationUserFailure,
+        promise
+    }
+}
+
+
+
+

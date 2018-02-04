@@ -10,7 +10,8 @@ import EntryForm from '../Entries/EntryForm';
 import { showAllEntries, 
          editEntry, 
          addEntry, 
-         synchCurrentEntry 
+         synchCurrentEntry, 
+         returnMainTimeline
         } from '../../Actions/appStateActions';
 import { addEntryToTimeline } from '../../Actions/timelineActions';
 
@@ -37,16 +38,22 @@ const Dashboard = ( props ) => {
             /> : <div></div>;
 
     const entryForm = props.appState.singleEntry ? 
-        <EntryForm
-            useCurrentEntry={ props.appState.showCurrentEntry }
-            onSubmit={ returnEntry }
-        /> :
+        <div>
+            <button onClick={ returnMain } >Return Main Timeline</button>
+            <EntryForm
+                useCurrentEntry={ props.appState.showCurrentEntry }
+                onSubmit={ returnEntry }
+            /> 
+        </div>:
             <div></div>;
 
     function returnEntry( values ){
         props.addEntryToTimeline( values, props.timeline.id ); 
     }
 
+    function returnMain(){
+        props.returnMainTimeline();
+    }
 
     return( 
         <div>
@@ -82,7 +89,8 @@ export default connect( mapStateToProps,
     { showAllEntries,  
       editEntry, 
       addEntry, 
-      addEntryToTimeline
+      addEntryToTimeline,
+      returnMainTimeline
     })( Dashboard ); 
 
 

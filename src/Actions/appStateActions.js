@@ -34,6 +34,12 @@ export function formSubmit(){
     };
 };
 
+export function returnMainTimeline(){
+    return{
+        type: 'RETURN_MAIN_TIMELINE' 
+    };
+};
+
 
 
 
