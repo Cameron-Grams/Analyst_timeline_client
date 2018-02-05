@@ -8,7 +8,7 @@ const CheckToken = require( '../../Helpers/testToken' );
 class ProfileLoader extends Component {
 
     currentUserCheck(){
-        return this.props.user.userId === 0;
+        return this.props.user.userId === null;
     }
 
     componentDidMount() {
@@ -20,7 +20,7 @@ class ProfileLoader extends Component {
     render() {
         return (
             <div>
-                { ( CheckToken &&  this.currentUserCheck() ) ?
+                { ( CheckToken &&  !( this.currentUserCheck() ) ) ?
                     < Waiting /> 
                 :
                     <div>{this.props.children}</div>

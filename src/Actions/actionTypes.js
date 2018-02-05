@@ -27,6 +27,9 @@ export const handleSuccessTimelineInfo = 'SUCCESSFUL_TIMELINE_REQUEST';
 
 export const timlineRequestFailed = 'TIMELINE_REQUEST_FAILED'; //not used  
 
+export const loadCurrentEntry = 'LOAD_CURRENT_ENTRY';
+
+export const synchCurrentEntry = 'SYNCH_CURRENT_ENTRY'; 
 
 
 
@@ -47,9 +50,6 @@ export const createTimelineFailure = 'CREATE_TIMELINE_FAILURE'; // not used
 
 export const showAllEntries = 'SHOW_ALL_ENTRIES'; 
 
-export const loadCurrentEntry = 'LOAD_CURRENT_ENTRY';
-
-export const synchCurrentEntry = 'SYNCH_CURRENT_ENTRY'; 
 
 export const editEntry = 'EDIT_ENTRY'; 
 

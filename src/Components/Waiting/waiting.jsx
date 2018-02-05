@@ -3,7 +3,9 @@ import './waiting.css';
 
 const Waiting = () => {
     return(
-        <div className="waitingLoaderHolder"></div>
+        <div className="waitingLoaderHolder">
+           <div className="loader"></div> 
+        </div>
     )
 }
 

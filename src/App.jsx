@@ -19,7 +19,7 @@ class App extends Component {
       <div className="App">
       <ConnectedRouter history={ history }>  
         <Switch >      
-          < ProfileLoader >
+          <ProfileLoader >
             <Route exact path="/" component={ LandingPage } />
             <Route exact path="/login" component={ Login } />
             <Route exact path="/register" component={ Register } />
@@ -27,8 +27,7 @@ class App extends Component {
             <ProtectedRoute path="/user-timelines" component={ Timelines } />
             <ProtectedRoute path="/create-timeline" component={ CreateTimeline } />
             <ProtectedRoute path="/dashboard" component={ Dashboard } />
-
-          </ProfileLoader >
+          </ProfileLoader>
         </Switch>
       </ConnectedRouter>
       </div>

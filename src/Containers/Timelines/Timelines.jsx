@@ -6,7 +6,7 @@ import TimelineSelection from './TimelineSelection';
 
 const Timelines = ( props ) => {
 
-    const pending = props.appState.requestAuthentication ? 
+    const pending = props.appState.isAuthenticated ? 
         <Waiting /> :
         <TimelineSelection />
 

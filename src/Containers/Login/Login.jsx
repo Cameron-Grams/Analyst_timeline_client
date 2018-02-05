@@ -11,7 +11,7 @@ const Login = ( props ) => {
         props.sendAuthentication( values ); 
     }
 
-    const failedLogin = props.appState.failedAuthentication ?
+    const failedLogin = props.appState.hasFailedAuthentication ?
         <div><h3>Try to log in again</h3></div> :
         <div></div>;
 

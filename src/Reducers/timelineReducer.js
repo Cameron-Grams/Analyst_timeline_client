@@ -1,7 +1,8 @@
 const initialState = {
-    id: 0,
-    title: "",
+    id: null,
+    title: null,
     data: [],
+    currentEntry: {},
 }
 
 const TimelineReducer = ( state = initialState, action ) => {
@@ -13,6 +14,7 @@ const TimelineReducer = ( state = initialState, action ) => {
                 id: action.response.id, 
                 title: action.response.title, 
                 data: action.response.entries,
+                currentEntry: action.response.entries[ 0 ]
             }
         }
 
@@ -21,6 +23,24 @@ const TimelineReducer = ( state = initialState, action ) => {
                 ...state,
             }
         }
+
+
+        case 'LOAD_CURRENT_ENTRY':{
+            return{
+                ...state,
+                title: action.title,
+                what: action.what
+            }
+        }
+
+ 
+        case 'SYNCH_CURRENT_ENTRY':{
+            return{
+                ...state,
+                currentEntry: action.newEntry
+            }
+        }
+
 
         default:{
             return{

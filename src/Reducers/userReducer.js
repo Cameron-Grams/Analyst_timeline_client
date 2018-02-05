@@ -1,6 +1,6 @@
 const initialState = {
-    userId: 0,
-    name: "none",
+    userId: null,
+    name: null,
     timelines: []
 }
 
@@ -32,9 +32,9 @@ const UserReducer = ( state = initialState, action ) => {
 
         case 'LOGOUT_SESSION':{
             return {...state,
-            userId: 0,
-            name: "none",
-            timelines: []
+            userId: initialState.userId,
+            name: initialState.name,
+            timelines: initialState.timelines
             }
         }
         

@@ -3,103 +3,107 @@ import { connect } from 'react-redux';
 import DashboardElement from '../../Components/dashboardElement';
 import Header from '../Header/Header';
 import Options from '../../Components/optionsButton';
-import DisplayEntries from '../../Components/entriesDisplay'; 
-import EntryForm from '../Entries/EntryForm'; 
+import DisplayEntries from '../../Components/entriesDisplay';
+import EntryForm from '../Entries/EntryForm';
 
 
-import { showAllEntries, 
-         editEntry, 
-         addEntry, 
-         synchCurrentEntry, 
-         returnMainTimeline
-        } from '../../Actions/appStateActions';
-import { addEntryToTimeline } from '../../Actions/timelineActions';
+import {
+    showAllEntries,
+    editEntry,
+    addEntry,
+    returnMainTimeline
+} from '../../Actions/appStateActions';
+import {
+    addEntryToTimeline,
+    synchCurrentEntry
+} from '../../Actions/timelineActions';
 
 import HorizontalTimelineContainer from './HorizontalTimelineContainer';
 
 
-const Dashboard = ( props ) => {
-    let userName =  props.user.name;
+const Dashboard = (props) => {
+    let userName = props.user.name;
     let summaryDescription = props.timeline.title;
     let entriesOnTimeline = props.timeline.data;
 
-    const timeline = props.appState.showTimeline ? 
+    const timeline = props.appState.hasShowTimeline ?
         <HorizontalTimelineContainer
             indexClick={(index) => {
-              this.setState({ value: index, previous: this.state.value });
+                this.setState({ value: index, previous: this.state.value });
             }}
-            content={ props.timeline.data }
-            synchEntry={ props.synchCurrentEntry } />  
+            content={props.timeline.data}
+            synchEntry={props.synchCurrentEntry} />
         :
         <div></div>;
 
-    const elements =  props.appState.showAllEntries ? 
+    const elements = props.appState.showAllEntries ?
         <DisplayEntries
-            elementTitle={ 'Entries on the timeline' }
-            entriesArray={ entriesOnTimeline }  
-            loadCurrentEntry={ props.synchCurrentEntry }
-            editingCurrentEntry={ bringUpClicked }
-            /> : <div></div>;
+            elementTitle={'Entries on the timeline'}
+            entriesArray={entriesOnTimeline}
+            loadCurrentEntry={props.synchCurrentEntry}
+            editingCurrentEntry={bringUpClicked}
+        /> : <div></div>;
 
-    const entryForm = props.appState.singleEntry ? 
+    const entryForm = props.appState.isShowSingleEntry ?
         <div>
-            <button onClick={ returnMain } >Return Main Timeline</button>
+            <button onClick={returnMain} >Return Main Timeline</button>
             <EntryForm
-                useCurrentEntry={ props.appState.showCurrentEntry }
-                onSubmit={ returnEntry }
-            /> 
-        </div>:
-            <div></div>;
+                useCurrentEntry={props.appState.hasShowCurrentEntry}
+                onSubmit={returnEntry}
+            />
+        </div> :
+        <div></div>;
 
-    function returnEntry( values ){
-        props.addEntryToTimeline( values, props.timeline.id ); 
+    function returnEntry(values) {
+        props.addEntryToTimeline(values, props.timeline.id);
     }
 
-    function returnMain(){
+    function returnMain() {
         props.returnMainTimeline();
     }
 
-    function bringUpClicked(){
-        props.editEntry(); 
+    function bringUpClicked() {
+        props.editEntry();
     }
 
-    return( 
+    return (
         <div>
-        <Header userName={ userName }  />
+            <Header userName={userName} />
 
-        <DashboardElement
-            elementTitle={ 'Title of the Timeline' }
-            elementContent={ summaryDescription }  /> 
+            <DashboardElement
+                elementTitle={'Title of the Timeline'}
+                elementContent={summaryDescription} />
 
-        <Options 
-            displayState={ props.appState.showAllEntries }
-            visibleEntries={ props.showAllEntries }
-            editingShownEntry={ props.editEntry }
-            addNewEntry={ props.addEntry } /> 
-        
-        { timeline }
-        { entryForm }
-        { elements }
+            <Options
+                displayState={props.appState.hasShowAllEntries}
+                visibleEntries={props.showAllEntries}
+                editingShownEntry={props.editEntry}
+                addNewEntry={props.addEntry} />
+
+            {timeline}
+            {entryForm}
+            {elements}
 
 
         </div>
     )
 }
- 
 
-const mapStateToProps = ( state ) => ( {
+
+const mapStateToProps = (state) => ({
     timeline: state.timeline,
     user: state.user,
     appState: state.appState
-} )
+})
 
-export default connect( mapStateToProps, 
-    { showAllEntries,  
-      editEntry, 
-      addEntry, 
-      addEntryToTimeline,
-      returnMainTimeline,
-      synchCurrentEntry
-    })( Dashboard ); 
+export default connect(mapStateToProps,
+    {
+        showAllEntries,
+        editEntry,
+        addEntry,
+        addEntryToTimeline,
+        returnMainTimeline,
+        synchCurrentEntry
+    })(Dashboard);
 
 

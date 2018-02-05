@@ -1,11 +1,11 @@
 const initialState = {
-    currentEntry: {},
-    requestAuthentication: false,
+    hasRequestAuthentication: false,
     isAuthenticated: false,
-    failedAuthentication: false,
-    showTimeline: true,
-    showAllEntries: false,
-    singleEntry: false
+    hasFailedAuthentication: false,
+    hasShowTimeline: true,
+    hasShowAllEntries: false,
+    isShowSingleEntry: false,
+    hasShowCurrentEntry: false
 }
 
 const AppStateReducer = ( state = initialState, action ) => {
@@ -15,7 +15,7 @@ const AppStateReducer = ( state = initialState, action ) => {
         case 'REQUEST_AUTHENTICATION':{
             return{
                 ...state,
-                requestAuthentication: true
+                hasRequestAuthentication: true
             }
         }
 
@@ -23,7 +23,7 @@ const AppStateReducer = ( state = initialState, action ) => {
         case 'SUCCESSFUL_AUTHENTICTION':{
             return{
                 ...state,
-                requestAuthentication: false,
+                hasRequestAuthentication: false,
                 isAuthenticated: true,
             }
         }
@@ -32,59 +32,33 @@ const AppStateReducer = ( state = initialState, action ) => {
         case 'USER_FAILED_AUTHENTICATION':{
             return{
                 ...state,
-                requestAuthentication: false,
+                hasRequestAuthentication: false,
                 isAuthenticated: false,
-                failedAuthentication: true
+                hasFailedAuthentication: true
             }
         }
 
-
-
-        case 'SUCCESSFUL_TIMELINE_REQUEST':{
-            return{
-                ...state,
-                currentEntry: action.response.entries[ 0 ]
-            }
-        }
-
-
-
-        case 'SYNCH_CURRENT_ENTRY':{
-            return{
-                ...state,
-                currentEntry: action.newEntry
-            }
-        }
-
-        case 'LOAD_CURRENT_ENTRY':{
-            return{
-                ...state,
-                title: action.title,
-                what: action.what
-            }
-        }
-
-        case 'SHOW_ALL_ENTRIES': {
+       case 'SHOW_ALL_ENTRIES': {
             return {
                 ...state,
-                showAllEntries: !state.showAllEntries
+                hasShowAllEntries: !state.hasShowAllEntries
             }
         }
         case 'EDIT_ENTRY':{
             return{
                 ...state,
-                showAllEntries: false,
-                showTimeline: false,
-                singleEntry: true,
-                showCurrentEntry: true
+                hasShowAllEntries: false,
+                hasShowTimeline: false,
+                isShowSingleEntry: true,
+                hasShowCurrentEntry: true
             }
         }
         case 'ADD_ENTRY':{
             return{
                 ...state,
-                showAllEntries: false,
-                showTimeline: false,
-                singleEntry: true
+                hasShowAllEntries: false,
+                hasShowTimeline: false,
+                isShowSingleEntry: true
             }
         }
 
@@ -92,9 +66,9 @@ const AppStateReducer = ( state = initialState, action ) => {
         case 'SUBMIT_ENTRY_FORM':{
             return{
                 ...state,
-                singleEntry: false,
-                showCurrentEntry: false,
-                showTimeline: true
+                isShowSingleEntry: false,
+                hasShowCurrentEntry: false,
+                hasShowTimeline: true
             }
         }
 

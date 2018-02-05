@@ -3,6 +3,24 @@ import { push } from 'react-router-redux';
 
 const endpoint = "http://localhost:3030"; 
 
+export function loadCurrentEntry( entry ){
+    return{
+        type: 'LOAD_CURRENT_ENTRY',
+        entry
+    }
+}
+
+export function synchCurrentEntry( newEntry ){
+    return{
+        type: 'SYNCH_CURRENT_ENTRY',
+        newEntry
+    }
+}
+
+
+
+
+
 const handleSuccessTimelineInfo = ( response, dispatch ) => {
     dispatch( { 
         type: 'SUCCESSFUL_TIMELINE_REQUEST',

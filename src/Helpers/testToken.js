@@ -1,5 +1,7 @@
 const TestToken = ( ) => {
-    if ( sessionStorage.getItem('token') ){
+    const tokenNow = sessionStorage.getItem('token');
+    if ( tokenNow ){
+        console.log( 'current token is ', tokenNow ); 
         return true;
     }
     return false; 

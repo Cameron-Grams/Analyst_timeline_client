@@ -1,7 +1,7 @@
 import React from 'react'; 
 import { connect } from 'react-redux'; 
 import { Field, reduxForm } from 'redux-form';
-import { loadCurrentEntry } from '../../Actions/appStateActions';
+import { loadCurrentEntry } from '../../Actions/timelineActions';
 import renderField from '../../Components/renderField'; 
 
 let EntryForm = ( props ) => {
@@ -56,12 +56,12 @@ EntryForm = connect(
     ( state, props ) => {
       const initialValues = {};
       if ( props.useCurrentEntry ){
-         initialValues.title = state.appState.currentEntry.title; 
-         initialValues.what = state.appState.currentEntry.what; 
-         initialValues.who = state.appState.currentEntry.who; 
-         initialValues.where = state.appState.currentEntry.where; 
-         initialValues.content = state.appState.currentEntry.content; 
-         initialValues.source = state.appState.currentEntry.source;
+         initialValues.title = state.timeline.currentEntry.title; 
+         initialValues.what = state.timeline.currentEntry.what; 
+         initialValues.who = state.timeline.currentEntry.who; 
+         initialValues.where = state.timeline.currentEntry.where; 
+         initialValues.content = state.timeline.currentEntry.content; 
+         initialValues.source = state.timeline.currentEntry.source;
       }
     return {
       initialValues
