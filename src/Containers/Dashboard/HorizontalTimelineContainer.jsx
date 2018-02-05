@@ -46,7 +46,6 @@ export default class HorizontalTimelineContent extends React.Component {
 
   synchEntry = ( index ) => {
     const subjObj = this.props.content[ index ]; 
-    console.log( '[ HorizontalTimelineContainer ] called with index ', index ); 
     this.props.synchEntry( {  ...subjObj  } ); 
   }
 

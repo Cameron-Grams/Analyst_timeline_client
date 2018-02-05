@@ -33,7 +33,6 @@ const Dashboard = ( props ) => {
         :
         <div></div>;
 
-    console.log( '[ Dashboard ] entries on timeline ', entriesOnTimeline ); 
     const elements =  props.appState.showAllEntries ? 
         <DisplayEntries
             elementTitle={ 'Entries on the timeline' }
