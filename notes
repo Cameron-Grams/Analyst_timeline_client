@@ -3,3 +3,25 @@ needed to change the default react-router-redux to "react-router-redux": "^5.0.0
 3 Feb
 - ProfileLoader and the boolean values
 
+TODO:
+-dates:
+  -configure on current entry display
+  -build date loader for new entries;   UNIX date number... 
+
+-Error messages
+  -improper input
+    -validation of input
+
+-MongoDB...
+
+-Styling...
+
+-Backend:
+  -organize dates within arrays to accomodate new entries
+  -format correctly for new entries and timelines
+    -id's... 
+
+-Tests...
+
+-Tokens and JWT
+

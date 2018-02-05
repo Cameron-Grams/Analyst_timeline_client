@@ -1,6 +1,6 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import renderField from '../../Helpers/renderField';
+import renderField from '../../Components/renderField';
 
 let LoginForm = props => {
 

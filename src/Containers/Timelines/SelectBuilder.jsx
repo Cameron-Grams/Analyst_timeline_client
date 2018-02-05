@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import Button from '../../Components/Button';
+import Button from '../../Components/button';
 
 let BuildOptions = ( props ) => {
     const { handleSubmit } = props;
@@ -19,7 +19,7 @@ let BuildOptions = ( props ) => {
 
            <Button
              className={ "timelineOptions"}
-             whenClicked={ handleSubmit }
+             clickHandler={ handleSubmit }
              sendPath={ "/dashboard" }
              buttonLable={ 'Select Timeline' } /> 
         </form>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Waiting.css'; 
+import './waiting.css'; 
 
 const Waiting = () => {
     return(

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Button = ( props ) => (  
             <div className={ props.className } >
-            <button onClick={ props.whenClicked } >
+            <button onClick={ props.clickHandler } >
                 <Link className="routingLink" to={ props.sendPath } >
                 { props.buttonLable } 
                 </Link>

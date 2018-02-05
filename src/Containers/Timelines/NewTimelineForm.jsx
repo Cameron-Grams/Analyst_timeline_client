@@ -1,6 +1,6 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
-import Button from '../../Components/Button';
+import Button from '../../Components/button';
 
 let NewTimelineForm = props => {
     

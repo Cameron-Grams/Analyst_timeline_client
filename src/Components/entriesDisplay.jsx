@@ -1,14 +1,12 @@
 import React from 'react';
-import EntryElement from './EntryElement';
+import EntryElement from './entryElement';
 
 const DisplayEntries = ( props ) => {
 
     function entryClicked( str ){
-        console.log( ` the ${ str } entry was clicked ` );
         let result = props.entriesArray.find( entry => {
             return entry.entryId === str
         } );
-        console.log( ' [ EntriesDisplay ] result of entry clicked ', result ); 
         props.loadCurrentEntry( result ); 
         props.editingCurrentEntry(); 
     }
@@ -33,5 +31,4 @@ const DisplayEntries = ( props ) => {
 }
 
 export default DisplayEntries; 
-//                { props.entriesArray.map( ( entry, i ) => <li key={ i } > { entry.who }:   { entry.what } </li> ) }
 

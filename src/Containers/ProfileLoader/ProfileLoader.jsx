@@ -1,18 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
-import { fetchBasicInfo } from '../Actions/userActions'; 
-import Waiting from '../Components/Waiting'; 
+import { fetchBasicInfo } from '../../Actions/userActions'; 
+import Waiting from '../../Components/Waiting/waiting'; 
+
+const CheckToken = require( '../../Helpers/testToken' ); 
 
 class ProfileLoader extends Component {
+
+    currentUserCheck(){
+        return this.props.user.userId === 0;
+    }
+
     componentDidMount() {
-        if (sessionStorage.getItem('token') && ( this.props.user.userId === 0 ) ) {
+        if ( CheckToken  && this.currentUserCheck() ) {
             this.props.fetchBasicInfo()
         }
     }
+
     render() {
         return (
             <div>
-                {sessionStorage.getItem('token') && ( this.props.user.userId === 0 ) ?
+                { ( CheckToken &&  this.currentUserCheck() ) ?
                     < Waiting /> 
                 :
                     <div>{this.props.children}</div>

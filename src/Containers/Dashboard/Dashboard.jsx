@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import DashboardElement from '../../Components/DashboardElement';
+import DashboardElement from '../../Components/dashboardElement';
 import Header from '../Header/Header';
-import Options from '../../Components/OptionsButton';
-import DisplayEntries from '../../Components/EntriesDisplay'; 
+import Options from '../../Components/optionsButton';
+import DisplayEntries from '../../Components/entriesDisplay'; 
 import EntryForm from '../Entries/EntryForm'; 
 
 

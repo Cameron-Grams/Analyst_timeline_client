@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {  logoutUserSession } from '../../Actions/userActions'; 
-import Button from '../../Components/Button'; 
+import Button from '../../Components/button'; 
 
 
 const Header = ( props ) => {
@@ -17,7 +17,7 @@ const Header = ( props ) => {
 
             <Button className={ "header-third header-rightControl" } 
                 buttonLable={ "Log Out" } 
-                whenClicked={ props.logoutUserSession } 
+                clickHandler={ props.logoutUserSession } 
                 sendPath={ "/login" } />
         </div>
     )

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
-import Waiting from '../../Components/Waiting';
+import Waiting from '../../Components/Waiting/waiting';
 import Header from '../Header/Header'; 
 import TimelineSelection from './TimelineSelection';
 

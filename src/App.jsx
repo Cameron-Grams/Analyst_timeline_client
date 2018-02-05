@@ -4,10 +4,10 @@ import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux'
 import { history } from './store';
 import ProtectedRoute from './Containers/ProtectedToken/ProtectedRoute';
-import ProfileLoader from './Helpers/ProfileLoader';
+import ProfileLoader from './Containers/ProfileLoader/ProfileLoader';
 
-import LandingPage from './Components/LandingPage'; 
-import Login from './Containers/Login/login'; 
+import LandingPage from './Components/landingPage'; 
+import Login from './Containers/Login/Login'; 
 import Register from './Containers/Register/Register'; 
 import Timelines from './Containers/Timelines/Timelines'; 
 import CreateTimeline from './Containers/Timelines/CreateTimeline'; 

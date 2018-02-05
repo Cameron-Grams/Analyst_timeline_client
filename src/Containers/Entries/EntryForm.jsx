@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'; 
 import { Field, reduxForm } from 'redux-form';
 import { loadCurrentEntry } from '../../Actions/appStateActions';
-import renderField from '../../Helpers/renderField'; 
+import renderField from '../../Components/renderField'; 
 
 let EntryForm = ( props ) => {
 
