@@ -21,7 +21,7 @@ import HorizontalTimelineContainer from './HorizontalTimelineContainer';
 const Dashboard = ( props ) => {
     let userName =  props.user.name;
     let summaryDescription = props.timeline.title;
-    let entriesOnTheme = props.timeline.data;
+    let entriesOnTimeline = props.timeline.data;
 
     const timeline = props.appState.showTimeline ? 
         <HorizontalTimelineContainer
@@ -33,11 +33,13 @@ const Dashboard = ( props ) => {
         :
         <div></div>;
 
-
+    console.log( '[ Dashboard ] entries on timeline ', entriesOnTimeline ); 
     const elements =  props.appState.showAllEntries ? 
         <DisplayEntries
             elementTitle={ 'Entries on the timeline' }
-            entriesArray={ entriesOnTheme }  
+            entriesArray={ entriesOnTimeline }  
+            loadCurrentEntry={ props.synchCurrentEntry }
+            editingCurrentEntry={ bringUpClicked }
             /> : <div></div>;
 
     const entryForm = props.appState.singleEntry ? 
@@ -56,6 +58,10 @@ const Dashboard = ( props ) => {
 
     function returnMain(){
         props.returnMainTimeline();
+    }
+
+    function bringUpClicked(){
+        props.editEntry(); 
     }
 
     return( 
