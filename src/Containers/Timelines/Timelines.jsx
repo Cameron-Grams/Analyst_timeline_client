@@ -7,9 +7,9 @@ import TimelineSelection from './TimelineSelection';
 const Timelines = ( props ) => {
 
     const pending = props.appState.isAuthenticated ? 
-        <Waiting /> :
-        <TimelineSelection />
-
+         <TimelineSelection />
+         :  <Waiting />; 
+        
     return(
         <div>
             <Header name={ props.user.name } /> 

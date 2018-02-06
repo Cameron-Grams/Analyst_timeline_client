@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchBasicInfo } from '../../Actions/userActions'; 
 import Waiting from '../../Components/Waiting/waiting'; 
 
-const CheckToken = require( '../../Helpers/testToken' ); 
+// const CheckToken = require( '../../Helpers/testToken' ); // not working...
 
 class ProfileLoader extends Component {
 
@@ -12,7 +12,8 @@ class ProfileLoader extends Component {
     }
 
     componentDidMount() {
-        if ( CheckToken  && this.currentUserCheck() ) {
+
+        if ( sessionStorage.getItem('token')  && ( this.props.user.userId === null ) ) {
             this.props.fetchBasicInfo()
         }
     }
@@ -20,7 +21,7 @@ class ProfileLoader extends Component {
     render() {
         return (
             <div>
-                { ( CheckToken &&  !( this.currentUserCheck() ) ) ?
+                { ( sessionStorage.getItem('token') &&  ( this.props.user.userId === null ) ) ?
                     < Waiting /> 
                 :
                     <div>{this.props.children}</div>

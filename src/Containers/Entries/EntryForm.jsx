@@ -4,9 +4,15 @@ import { Field, reduxForm } from 'redux-form';
 import { loadCurrentEntry } from '../../Actions/timelineActions';
 import renderField from '../../Components/renderField'; 
 
+import DatePicker from 'react-date-picker';
+
+
 let EntryForm = ( props ) => {
 
     const { handleSubmit } = props;
+
+    let date = new Date(); 
+    const onChange = ( values ) => { date = values }; 
 
     return(
       <div>
@@ -19,24 +25,14 @@ let EntryForm = ( props ) => {
           <Field className={ "formElement" } name="where" label={ "Where did this happen?" } component={ renderField } type="text" />
           <Field className={ "formElement" } name="source" label={ "References?" } component={ renderField } type="text" />
           <Field className={ "formElement" } name="content" label={ "Enter why this is significant" } component={ renderField } type="textarea" />
-          <Field className={ "formElement" } name="date" label={ "when did this occur?" } component={ renderField } type="textarea" />
-          <div>
-            <Field name="month" component="select">
-              <option value="Error">Enter the Month</option>
-              <option value="January">January</option>
-              <option value="Febuary">Febuary</option>
-              <option value="March">March</option>
-              <option value="April">April</option>
-              <option value="May">May</option>
-              <option value="June">June</option>
-              <option value="July">July</option>
-              <option value="August">August</option>
-              <option value="September">September</option>
-              <option value="October">October</option>
-              <option value="November">November</option>
-              <option value="December">December</option>
-            </Field>
-          </div>            
+          <Field className={ "formElement" } name="dateOld" label={ "when did this occur?" } component={ renderField } type="textarea" />
+
+          <DatePicker
+            className={ "date-picker_font" } 
+            onChange={ onChange }
+            value={ date }
+          />
+
 
           <p>Need to work on the date, date must be a string that can be parsed</p>
           <p>When has to be an object with year, month and day properties</p>
@@ -73,4 +69,6 @@ EntryForm = connect(
 
   
   export default EntryForm
+
+//  https://www.npmjs.com/package/react-date-picker
 

@@ -45,6 +45,14 @@ ul{
   margin: 10px;
 }
 
+button.react-calendar{
+  color: black; 
+}
+
+.date-picker_font{
+  color: black;
+}
+
 /* Timeline css */
 .timelineOptions{
   margin: 10px;
