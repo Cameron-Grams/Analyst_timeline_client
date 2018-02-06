@@ -3,16 +3,14 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { loadCurrentEntry } from '../../Actions/timelineActions';
 import renderField from '../../Components/renderField'; 
+import renderDatePicker from '../../Components/renderDatePicker'; 
+import moment from 'moment';
 
-import DatePicker from 'react-date-picker';
 
 
 let EntryForm = ( props ) => {
 
     const { handleSubmit } = props;
-
-    let date = new Date(); 
-    const onChange = ( values ) => { date = values }; 
 
     return(
       <div>
@@ -25,17 +23,23 @@ let EntryForm = ( props ) => {
           <Field className={ "formElement" } name="where" label={ "Where did this happen?" } component={ renderField } type="text" />
           <Field className={ "formElement" } name="source" label={ "References?" } component={ renderField } type="text" />
           <Field className={ "formElement" } name="content" label={ "Enter why this is significant" } component={ renderField } type="textarea" />
-          <Field className={ "formElement" } name="dateOld" label={ "when did this occur?" } component={ renderField } type="textarea" />
+          
+          <p>Enter the date of the event below</p>
 
-          <DatePicker
-            className={ "date-picker_font" } 
-            onChange={ onChange }
-            value={ date }
+          <Field
+            label={ "when did this occur?" }
+            name="date"
+            inputValueFormat="YYYY/MM/DD"
+            dateFormat="L"
+            dateFormatCalendar="dddd"
+            fixedHeight
+            showMonthDropdown
+            showYearDropdown
+            dropdownMode="select"
+            normalize={value => (value ? moment(value).format('YYYY/MM/DD') : null)}
+            component={renderDatePicker}
           />
 
-
-          <p>Need to work on the date, date must be a string that can be parsed</p>
-          <p>When has to be an object with year, month and day properties</p>
           <button type="submit">Send Entry</button>
 
         </form>
