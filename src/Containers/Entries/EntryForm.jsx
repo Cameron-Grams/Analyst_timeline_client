@@ -16,6 +16,7 @@ let EntryForm = ( props ) => {
       <div>
 
         <form onSubmit={ handleSubmit }>
+          <button type="submit">Send Entry</button>
 
           <Field className={ "formElement" } name="title" label={ "Title for the Entry" } component={ renderField } type="text" />
           <Field className={ "formElement" } name="what" label={ "Enter what occurred" } component={ renderField } type="text" />
@@ -24,11 +25,12 @@ let EntryForm = ( props ) => {
           <Field className={ "formElement" } name="source" label={ "References?" } component={ renderField } type="text" />
           <Field className={ "formElement" } name="content" label={ "Enter why this is significant" } component={ renderField } type="textarea" />
           
-          <p>Enter the date of the event below</p>
+          <p>Enter the date of the event below ( YYYY/MM/DD )</p>
 
           <Field
             label={ "when did this occur?" }
             name="date"
+            placeholderText={ "YYYY/MM/DD" }
             inputValueFormat="YYYY/MM/DD"
             dateFormat="L"
             dateFormatCalendar="dddd"
@@ -40,8 +42,7 @@ let EntryForm = ( props ) => {
             component={renderDatePicker}
           />
 
-          <button type="submit">Send Entry</button>
-
+          
         </form>
       </div>
     )
