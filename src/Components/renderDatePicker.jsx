@@ -37,7 +37,6 @@ export default class renderDatePicker extends React.Component {
     this.setState({
       selectedDate: date,
     });
-
     this.props.input.onChange(date);
   }
 

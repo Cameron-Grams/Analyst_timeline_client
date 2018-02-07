@@ -25,12 +25,12 @@ let EntryForm = ( props ) => {
           <Field className={ "formElement" } name="source" label={ "References?" } component={ renderField } type="text" />
           <Field className={ "formElement" } name="content" label={ "Enter why this is significant" } component={ renderField } type="textarea" />
           
-          <p>Enter the date of the event below ( YYYY/MM/DD )</p>
+          <p>Enter the date of the event below using the Calendar</p>
 
           <Field
             label={ "when did this occur?" }
             name="date"
-            placeholderText={ "YYYY/MM/DD" }
+            placeholderText={ "Click and use Calendar" }
             inputValueFormat="YYYY/MM/DD"
             dateFormat="L"
             dateFormatCalendar="dddd"
