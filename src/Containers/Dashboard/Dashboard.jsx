@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import DashboardElement from '../../Components/dashboardElement';
+import DashboardElement from '../../Components/DashboardElement/dashboardElement';
 import Header from '../Header/Header';
-import Options from '../../Components/optionsButton';
-import DisplayEntries from '../../Components/entriesDisplay';
+import Options from '../../Components/OptionsButton/optionsButton';
+import DisplayEntries from '../../Components/Entries/entriesDisplay';
 import EntryForm from '../Entries/EntryForm';
-
+import './Dashboard.css'; 
 
 import {
     showAllEntries,
@@ -46,7 +46,7 @@ const Dashboard = (props) => {
 
     const entryForm = props.appState.isShowSingleEntry ?
         <div>
-            <button onClick={returnMain} >Return Main Timeline</button>
+            <button className={ "returnTimelinesBUtton" } onClick={returnMain} >Return Main Timeline</button>
             <EntryForm
                 useCurrentEntry={props.appState.hasShowCurrentEntry}
                 onSubmit={returnEntry}

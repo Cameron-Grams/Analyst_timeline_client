@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {  logoutUserSession } from '../../Actions/userActions'; 
-import Button from '../../Components/button'; 
-
+import Button from '../../Components/Button/button'; 
+import './Header.css'; 
 
 const Header = ( props ) => {
     return(

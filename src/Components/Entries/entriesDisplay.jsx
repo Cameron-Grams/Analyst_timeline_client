@@ -1,5 +1,6 @@
 import React from 'react';
 import EntryElement from './entryElement';
+import './entries.css'; 
 
 const DisplayEntries = ( props ) => {
 

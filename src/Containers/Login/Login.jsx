@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'; 
 import LoginForm from './LoginForm'; 
 import { sendAuthentication } from '../../Actions/userActions'; 
-import Button from '../../Components/button';
+import Button from '../../Components/Button/button';
 
 
 const Login = ( props ) => {  

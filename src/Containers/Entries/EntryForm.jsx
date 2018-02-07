@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux'; 
 import { Field, reduxForm } from 'redux-form';
 import { loadCurrentEntry } from '../../Actions/timelineActions';
-import renderField from '../../Components/renderField'; 
-import renderDatePicker from '../../Components/renderDatePicker'; 
+import renderField from '../../Components/RenderField/renderField'; 
+import renderDatePicker from '../../Components/RenderDatePicker/renderDatePicker'; 
 import moment from 'moment';
-
+import './EntryForm.css'; 
 
 
 let EntryForm = ( props ) => {

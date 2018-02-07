@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Button from '../../Components/button';   
+import Button from '../../Components/Button/button';   
 import { getSelectedTimeline } from '../../Actions/timelineActions';
 import BuildOptions from './SelectBuilder'; 
+import './Timelines.css'; 
 
 let ThemeSelection = ( props ) => {
 

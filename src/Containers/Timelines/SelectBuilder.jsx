@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import Button from '../../Components/button';
+import Button from '../../Components/Button/button';
 
 let BuildOptions = ( props ) => {
     const { handleSubmit } = props;

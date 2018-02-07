@@ -6,7 +6,7 @@ import { history } from './store';
 import ProtectedRoute from './Containers/ProtectedToken/ProtectedRoute';
 import ProfileLoader from './Containers/ProfileLoader/ProfileLoader';
 
-import LandingPage from './Components/landingPage'; 
+import LandingPage from './Components/LandingPage/landingPage'; 
 import Login from './Containers/Login/Login'; 
 import Register from './Containers/Register/Register'; 
 import Timelines from './Containers/Timelines/Timelines'; 

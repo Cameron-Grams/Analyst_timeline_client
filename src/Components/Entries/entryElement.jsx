@@ -1,4 +1,5 @@
 import React from 'react';
+import './entries.css';
 
 const EntryElement = ( props ) => {
     const elementId = props.whichElement; 
