@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; 
 import { fetchBasicInfo } from '../../Actions/userActions'; 
+import { getSelectedTimeline,  toUserTimelines } from '../../Actions/timelineActions';
 import Waiting from '../../Components/Waiting/waiting'; 
 
 // const CheckToken = require( '../../Helpers/testToken' ); // not working...
@@ -12,9 +13,16 @@ class ProfileLoader extends Component {
     }
 
     componentDidMount() {
+        const token = sessionStorage.getItem('token');
+        const timeline =  sessionStorage.getItem( 'currentTimeline' );
 
-        if ( sessionStorage.getItem('token')  && ( this.props.user.userId === null ) ) {
+        if (  token && ( this.props.user.userId === null ) ) {
             this.props.fetchBasicInfo()
+            if ( timeline ){
+                console.log( '[ ProfileLoader ] currentTimeline is ', sessionStorage.getItem( 'currentTimeline' )     ); 
+                return this.props.getSelectedTimeline( timeline )
+            }
+            this.props.toUserTimelines();
         }
     }
 
@@ -35,4 +43,4 @@ const mapStateToProps = ( state ) => ( {
     user: state.user
 } );
 
-export default connect( mapStateToProps, { fetchBasicInfo } )( ProfileLoader ); 
+export default connect( mapStateToProps, { fetchBasicInfo, getSelectedTimeline, toUserTimelines } )( ProfileLoader ); 

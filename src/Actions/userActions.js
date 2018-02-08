@@ -45,8 +45,8 @@ const handleSuccessUserBasicInfo = ( response, dispatch ) => {
         type: actionTypes.returnUserBasicInfo,
         response
     });
-    dispatch(push( '/user-timelines') ); 
 }
+
 export function fetchBasicInfo(){
     const sendToken = sessionStorage.getItem( "token" );
 

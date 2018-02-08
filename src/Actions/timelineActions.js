@@ -17,15 +17,20 @@ export function synchCurrentEntry( newEntry ){
     }
 }
 
-
+export function toUserTimelines(){
+    push( '/user-timelines'); 
+}
 
 
 
 const handleSuccessTimelineInfo = ( response, dispatch ) => {
+    console.log( '[ timelineActions ] response ', response ); 
+    sessionStorage.setItem( "currentTimeline", response.id ); 
+
     dispatch( { 
         type: 'SUCCESSFUL_TIMELINE_REQUEST',
         response } );
-    dispatch( push( '/dashboard' ) ); 
+    dispatch( push( `/dashboard/${ response.id }` ) ); 
 }
 
 

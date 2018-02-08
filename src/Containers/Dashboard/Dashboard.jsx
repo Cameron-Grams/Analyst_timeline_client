@@ -46,7 +46,7 @@ const Dashboard = (props) => {
 
     const entryForm = props.appState.isShowSingleEntry ?
         <div>
-            <button className={ "returnTimelinesBUtton" } onClick={returnMain} >Return Main Timeline</button>
+            <button className={ "returnTimelinesButton" } onClick={returnMain} >Return Main Timeline</button>
             <EntryForm
                 useCurrentEntry={props.appState.hasShowCurrentEntry}
                 onSubmit={returnEntry}

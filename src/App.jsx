@@ -26,7 +26,7 @@ class App extends Component {
 
             <ProtectedRoute path="/user-timelines" component={ Timelines } />
             <ProtectedRoute path="/create-timeline" component={ CreateTimeline } />
-            <ProtectedRoute path="/dashboard" component={ Dashboard } />
+            <ProtectedRoute path="/dashboard/:timelineId" component={ Dashboard } />
           </ProfileLoader>
         </Switch>
       </ConnectedRouter>

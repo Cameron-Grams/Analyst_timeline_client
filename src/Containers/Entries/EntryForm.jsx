@@ -12,6 +12,10 @@ let EntryForm = ( props ) => {
 
     const { handleSubmit } = props;
 
+    const updateDate = props.useCurrentEntry ? 
+        <p>Current date on record: { props.initialValues.date }</p>
+        : ''; 
+
     return(
       <div>
 
@@ -25,6 +29,8 @@ let EntryForm = ( props ) => {
           <Field className={ "formElement" } name="source" label={ "References?" } component={ renderField } type="text" />
           <Field className={ "formElement" } name="content" label={ "Enter why this is significant" } component={ renderField } type="textarea" />
           
+          { updateDate } 
+
           <p>Enter the date of the event below using the Calendar</p>
 
           <Field
@@ -57,10 +63,12 @@ EntryForm = connect(
     ( state, props ) => {
       const initialValues = {};
       if ( props.useCurrentEntry ){
+         initialValues.entryId = state.timeline.currentEntry.entryId; 
          initialValues.title = state.timeline.currentEntry.title; 
          initialValues.what = state.timeline.currentEntry.what; 
          initialValues.who = state.timeline.currentEntry.who; 
          initialValues.where = state.timeline.currentEntry.where; 
+         initialValues.date = state.timeline.currentEntry.date; 
          initialValues.content = state.timeline.currentEntry.content; 
          initialValues.source = state.timeline.currentEntry.source;
       }
