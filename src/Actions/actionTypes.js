@@ -23,7 +23,7 @@ export const registrationUserFailure = 'USER_REGISTRATION_FAILURE';  // not used
 //===========Timeline Actions =====================
 export const requestTimeline = 'REQUEST_TIMELINE';  // not used 
 
-export const handleSuccessTimelineInfo = 'SUCCESSFUL_TIMELINE_REQUEST';
+export const getSelectedTimelineSuccess = 'FETCH_SELECTED_TIMELINE_SUCCESS';
 
 export const timlineRequestFailed = 'TIMELINE_REQUEST_FAILED'; //not used  
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
+import { connect} from 'react-redux';
 import Button from '../../Components/Button/button';   
 import { getSelectedTimeline } from '../../Actions/timelineActions';
 import BuildOptions from './SelectBuilder'; 
@@ -10,7 +11,10 @@ let ThemeSelection = ( props ) => {
     const userTimelines =  props.user.timelines.length > 0 ?  props.user.timelines: [];
 
     const selectedTimeline = ( values ) => {
-        props.getSelectedTimeline( values.selectTimeline ); 
+
+        props.redirect( `/dashboard/${ values.selectTimeline }`)
+
+//        props.getSelectedTimeline( values.selectTimeline ); 
     }
 
     return(
@@ -37,5 +41,5 @@ const mapStateToProps = ( state ) => ( {
 } );
 
 
-export default connect( mapStateToProps, { getSelectedTimeline } )( ThemeSelection ); 
+export default connect( mapStateToProps, { getSelectedTimeline, redirect: push } )( ThemeSelection ); 
 

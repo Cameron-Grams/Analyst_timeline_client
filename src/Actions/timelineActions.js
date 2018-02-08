@@ -23,15 +23,15 @@ export function toUserTimelines(){
 
 
 
-const handleSuccessTimelineInfo = ( response, dispatch ) => {
-    console.log( '[ timelineActions ] response ', response ); 
-    sessionStorage.setItem( "currentTimeline", response.id ); 
 
-    dispatch( { 
-        type: 'SUCCESSFUL_TIMELINE_REQUEST',
-        response } );
-    dispatch( push( `/dashboard/${ response.id }` ) ); 
+
+const handleGetSelectedTimelineFailure = ( response, dispatch ) => {
+    dispatch( {
+        type: actionTypes.timlineRequestFailed, 
+    })
+    dispatch( push( '/user-timelines' ) )
 }
+
 
 
 export function getSelectedTimeline( values ){
@@ -53,8 +53,8 @@ export function getSelectedTimeline( values ){
     
     return {
         onRequest: actionTypes.requestTimeline,
-        onSuccess: handleSuccessTimelineInfo,
-        onFailure: actionTypes.timlineRequestFailed,
+        onSuccess: actionTypes.getSelectedTimelineSuccess,
+        onFailure: handleGetSelectedTimelineFailure,
         promise
     }
 }

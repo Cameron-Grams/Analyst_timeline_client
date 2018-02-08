@@ -1,3 +1,5 @@
+import * as actionTypes from '../Actions/actionTypes'; 
+
 const initialState = {
     hasRequestAuthentication: false,
     isAuthenticated: false,
@@ -5,11 +7,27 @@ const initialState = {
     hasShowTimeline: true,
     hasShowAllEntries: false,
     isShowSingleEntry: false,
-    hasShowCurrentEntry: false
+    hasShowCurrentEntry: false,
+    isFetchingSelectedTimeline: false
 }
 
 const AppStateReducer = ( state = initialState, action ) => {
     switch ( action.type ){
+        case 'REQUEST_TIMELINE':{
+            return{
+                ...state,
+                isFetchingSelectedTimeline: true
+            }
+        }
+
+        case actionTypes.getSelectedTimelineSuccess:
+        case 'TIMELINE_REQUEST_FAILED':{
+            return{
+                ...state,
+                isFetchingSelectedTimeline: initialState.isFetchingSelectedTimeline
+            }
+        }
+
 
         case 'REQUEST_USER_BASIC_INFO': 
         case 'REQUEST_AUTHENTICATION':{

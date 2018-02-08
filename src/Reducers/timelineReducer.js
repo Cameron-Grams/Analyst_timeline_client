@@ -1,3 +1,5 @@
+import * as actionTypes from '../Actions/actionTypes'; 
+
 const initialState = {
     id: null,
     title: null,
@@ -8,7 +10,7 @@ const initialState = {
 const TimelineReducer = ( state = initialState, action ) => {
 
     switch ( action.type ){
-        case 'SUCCESSFUL_TIMELINE_REQUEST':{
+        case actionTypes.getSelectedTimelineSuccess:{  
             return{
                 ...state,
                 id: action.response.id, 
@@ -17,7 +19,7 @@ const TimelineReducer = ( state = initialState, action ) => {
                 currentEntry: action.response.entries[ 0 ]
             }
         }
-
+// actionTypes.timlineRequestFailed
         case 'NEW_TIMELINE_CREATED':{
             return{
                 ...state,

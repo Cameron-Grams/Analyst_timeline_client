@@ -14,15 +14,10 @@ class ProfileLoader extends Component {
 
     componentDidMount() {
         const token = sessionStorage.getItem('token');
-        const timeline =  sessionStorage.getItem( 'currentTimeline' );
 
         if (  token && ( this.props.user.userId === null ) ) {
             this.props.fetchBasicInfo()
-            if ( timeline ){
-                console.log( '[ ProfileLoader ] currentTimeline is ', sessionStorage.getItem( 'currentTimeline' )     ); 
-                return this.props.getSelectedTimeline( timeline )
-            }
-            this.props.toUserTimelines();
+            
         }
     }
 

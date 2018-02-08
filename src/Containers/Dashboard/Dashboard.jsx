@@ -5,6 +5,9 @@ import Header from '../Header/Header';
 import Options from '../../Components/OptionsButton/optionsButton';
 import DisplayEntries from '../../Components/Entries/entriesDisplay';
 import EntryForm from '../Entries/EntryForm';
+import Waiting from '../../Components/Waiting/waiting'; 
+
+
 import './Dashboard.css'; 
 
 import {
@@ -15,78 +18,92 @@ import {
 } from '../../Actions/appStateActions';
 import {
     addEntryToTimeline,
-    synchCurrentEntry
+    synchCurrentEntry,
+    getSelectedTimeline
 } from '../../Actions/timelineActions';
 
 import HorizontalTimelineContainer from './HorizontalTimelineContainer';
 
 
-const Dashboard = (props) => {
-    let userName = props.user.name;
-    let summaryDescription = props.timeline.title;
-    let entriesOnTimeline = props.timeline.data;
+class Dashboard extends React.Component{
 
-    const timeline = props.appState.hasShowTimeline ?
-        <HorizontalTimelineContainer
-            indexClick={(index) => {
-                this.setState({ value: index, previous: this.state.value });
-            }}
-            content={props.timeline.data}
-            synchEntry={props.synchCurrentEntry} />
-        :
-        <div></div>;
-
-    const elements = props.appState.hasShowAllEntries ?
-        <DisplayEntries
-            elementTitle={'Entries on the timeline'}
-            entriesArray={entriesOnTimeline}
-            loadCurrentEntry={props.synchCurrentEntry}
-            editingCurrentEntry={bringUpClicked}
-        /> : <div></div>;
-
-    const entryForm = props.appState.isShowSingleEntry ?
-        <div>
-            <button className={ "returnTimelinesButton" } onClick={returnMain} >Return Main Timeline</button>
-            <EntryForm
-                useCurrentEntry={props.appState.hasShowCurrentEntry}
-                onSubmit={returnEntry}
-            />
-        </div> :
-        <div></div>;
-
-    function returnEntry(values) {
-        props.addEntryToTimeline(values, props.timeline.id);
+    constructor( props ){
+        super( props );
+        this.returnEntry = this.returnEntry.bind( this );
     }
 
-    function returnMain() {
-        props.returnMainTimeline();
+    componentDidMount(){
+        const endpoint = this.props.match.params.timelineId; 
+        this.props.getSelectedTimeline( endpoint ); 
     }
 
-    function bringUpClicked() {
-        props.editEntry();
+    returnEntry = (values) => {
+            this.props.addEntryToTimeline(values, this.props.timeline.id);
     }
 
-    return (
-        <div>
-            <Header userName={userName} />
+    render(){  
+        let userName = this.props.user.name;
+        let summaryDescription = this.props.timeline.title;
+        let entriesOnTimeline = this.props.timeline.data;
 
-            <DashboardElement
-                elementTitle={'Title of the Timeline'}
-                elementContent={summaryDescription} />
+        const timeline = this.props.appState.hasShowTimeline ?
+            <HorizontalTimelineContainer
+                indexClick={(index) => {
+                    this.setState({ value: index, previous: this.state.value });
+                }}
+                content={this.props.timeline.data}
+                synchEntry={this.props.synchCurrentEntry} />
+            :
+            <div></div>;
 
-            <Options
-                displayState={props.appState.hasShowAllEntries}
-                visibleEntries={props.showAllEntries}
-                editingShownEntry={props.editEntry}
-                addNewEntry={props.addEntry} />
+        const elements = this.props.appState.hasShowAllEntries ?
+            <DisplayEntries
+                elementTitle={'Entries on the timeline'}
+                entriesArray={entriesOnTimeline}
+                loadCurrentEntry={this.props.synchCurrentEntry}
+                editingCurrentEntry={ this.props.editEntry }
+            /> : <div></div>;
 
-            {timeline}
-            {entryForm}
-            {elements}
+        const entryForm = this.props.appState.isShowSingleEntry ?
+            <div>
+                <button className={ "returnTimelinesButton" } onClick={ this.props.returnMainTimeline } >Return Main Timeline</button>
+                <EntryForm
+                    useCurrentEntry={this.props.appState.hasShowCurrentEntry}
+                    onSubmit={ ( values ) => this.returnEntry( values ) }
+                />
+            </div> :
+            <div></div>;
+
+        
+
+        return (
+            <div>
+                { this.props.appState.isFetchingSelectTimeline   ?
+                    < Waiting /> 
+                :
+                   <div>
+                        <Header userName={userName} />
+
+                        <DashboardElement
+                            elementTitle={'Title of the Timeline'}
+                            elementContent={summaryDescription} />
+
+                        <Options
+                            displayState={this.props.appState.hasShowAllEntries}
+                            visibleEntries={this.props.showAllEntries}
+                            editingShownEntry={this.props.editEntry}
+                            addNewEntry={this.props.addEntry} />
+
+                        {timeline}
+                        {entryForm}
+                        {elements}
 
 
-        </div>
-    )
+                    </div>
+                }
+            </div>
+        )
+    }
 }
 
 
@@ -103,7 +120,8 @@ export default connect(mapStateToProps,
         addEntry,
         addEntryToTimeline,
         returnMainTimeline,
-        synchCurrentEntry
+        synchCurrentEntry,
+        getSelectedTimeline
     })(Dashboard);
 
 

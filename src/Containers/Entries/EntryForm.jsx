@@ -43,6 +43,7 @@ let EntryForm = ( props ) => {
             fixedHeight
             showMonthDropdown
             showYearDropdown
+            minYear={ 1500 }
             dropdownMode="select"
             normalize={value => (value ? moment(value).format('YYYY/MM/DD') : null)}
             component={renderDatePicker}

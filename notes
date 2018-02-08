@@ -7,7 +7,6 @@ needed to change the default react-router-redux to "react-router-redux": "^5.0.0
 TODO:
 -dates:
   -configure on current entry display
-  -build date loader for new entries;   UNIX date number... 
 
 -Error messages
   -improper input
