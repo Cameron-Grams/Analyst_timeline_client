@@ -13,7 +13,7 @@ const initialState = {
 
 const AppStateReducer = ( state = initialState, action ) => {
     switch ( action.type ){
-        case 'REQUEST_TIMELINE':{
+        case actionTypes.requestTimeline:{
             return{
                 ...state,
                 isFetchingSelectedTimeline: true
@@ -21,7 +21,7 @@ const AppStateReducer = ( state = initialState, action ) => {
         }
 
         case actionTypes.getSelectedTimelineSuccess:
-        case 'TIMELINE_REQUEST_FAILED':{
+        case actionTypes.timlineRequestFailed:{
             return{
                 ...state,
                 isFetchingSelectedTimeline: initialState.isFetchingSelectedTimeline
@@ -29,16 +29,16 @@ const AppStateReducer = ( state = initialState, action ) => {
         }
 
 
-        case 'REQUEST_USER_BASIC_INFO': 
-        case 'REQUEST_AUTHENTICATION':{
+        case actionTypes.requestBasicInfo: 
+        case actionTypes.requestAuthentication:{
             return{
                 ...state,
                 hasRequestAuthentication: true
             }
         }
 
-        case 'SUCCESSFUL_BASIC_USER_INFO':
-        case 'SUCCESSFUL_AUTHENTICTION':{
+        case actionTypes.returnUserBasicInfo:
+        case actionTypes.autenticationSuccess:{
             return{
                 ...state,
                 hasRequestAuthentication: false,
@@ -46,8 +46,8 @@ const AppStateReducer = ( state = initialState, action ) => {
             }
         }
 
-        case 'USER_BASIC_INFO_FAILED': 
-        case 'USER_FAILED_AUTHENTICATION':{
+        case actionTypes.userBasicInfoFailed: 
+        case actionTypes.userAuthenticationFailed:{
             return{
                 ...state,
                 hasRequestAuthentication: false,
@@ -56,13 +56,13 @@ const AppStateReducer = ( state = initialState, action ) => {
             }
         }
 
-       case 'SHOW_ALL_ENTRIES': {
+       case actionTypes.showAllEntries: {
             return {
                 ...state,
                 hasShowAllEntries: !state.hasShowAllEntries
             }
         }
-        case 'EDIT_ENTRY':{
+        case actionTypes.editEntry:{
             return{
                 ...state,
                 hasShowAllEntries: false,
@@ -71,7 +71,7 @@ const AppStateReducer = ( state = initialState, action ) => {
                 hasShowCurrentEntry: true
             }
         }
-        case 'ADD_ENTRY':{
+        case actionTypes.addEntry:{
             return{
                 ...state,
                 hasShowAllEntries: false,
@@ -80,8 +80,8 @@ const AppStateReducer = ( state = initialState, action ) => {
             }
         }
 
-        case 'RETURN_MAIN_TIMELINE':
-        case 'SUBMIT_ENTRY_FORM':{
+        case actionTypes.returnMainTimeline:
+        case actionTypes.formSubmit:{
             return{
                 ...state,
                 isShowSingleEntry: false,
@@ -89,8 +89,6 @@ const AppStateReducer = ( state = initialState, action ) => {
                 hasShowTimeline: true
             }
         }
-
-                
 
         default:{
             return{

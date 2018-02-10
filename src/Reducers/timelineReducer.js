@@ -19,38 +19,33 @@ const TimelineReducer = ( state = initialState, action ) => {
                 currentEntry: action.response.entries[ 0 ]
             }
         }
-// actionTypes.timlineRequestFailed
-        case 'NEW_TIMELINE_CREATED':{
+        
+        case actionTypes.newTimelineCreated:{
             return{
                 ...state,
             }
         }
 
-
-        case 'LOAD_CURRENT_ENTRY':{
+        case actionTypes.loadCurrentEntry:{
             return{
                 ...state,
                 title: action.title,
                 what: action.what
             }
         }
-
  
-        case 'SYNCH_CURRENT_ENTRY':{
+        case actionTypes.synchCurrentEntry:{
             return{
                 ...state,
                 currentEntry: action.newEntry
             }
         }
 
-
         default:{
             return{
                 ...state
             }
         }
-
-
     }
 
 }

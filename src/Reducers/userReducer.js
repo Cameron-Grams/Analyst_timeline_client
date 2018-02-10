@@ -1,3 +1,5 @@
+import * as actionTypes from '../Actions/actionTypes'; 
+
 const initialState = {
     userId: null,
     name: null,
@@ -6,7 +8,7 @@ const initialState = {
 
 const UserReducer = ( state = initialState, action ) => {
     switch ( action.type ){
-        case 'SUCCESSFUL_AUTHENTICTION':{
+        case actionTypes.autenticationSuccess:{
             return{
                 ...state,
                 userId: action.response.id,
@@ -15,7 +17,7 @@ const UserReducer = ( state = initialState, action ) => {
             }
         }
 
-        case 'SUCCESSFUL_BASIC_USER_INFO':{
+        case actionTypes.returnUserBasicInfo:{
             return{ 
                 ...state,
                 userId: action.response.id,
@@ -24,13 +26,13 @@ const UserReducer = ( state = initialState, action ) => {
             }
         }
 
-        case 'USER_REGISTRATION_SUCCESS':{
+        case actionTypes.registerUserSuccess:{
             return{
                 ...state,
             }
         }
 
-        case 'LOGOUT_SESSION':{
+        case actionTypes.logoutUserSession:{
             return {...state,
             userId: initialState.userId,
             name: initialState.name,

@@ -5,6 +5,9 @@ needed to change the default react-router-redux to "react-router-redux": "^5.0.0
 - use of token function and the tests for dashboard
 
 TODO:
+- Problem; configuration of date into the datepicker after selecting previous data: gettin NaN...
+
+
 -dates:
   -configure on current entry display
 
