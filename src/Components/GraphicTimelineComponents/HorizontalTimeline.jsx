@@ -69,8 +69,10 @@ class HorizontalTimeline extends React.Component {
       barPaddingLeft = events[0].distance;
     }
 
-    /*
-    let displayItems = () => (
+/*
+    let displayItems = 
+      this.props.isFetchingSelectedTimeline ?
+      <div><h2>Waiting</h2></div> :
       <EventsBar
         width={props.containerWidth}
         height={props.containerHeight}
@@ -85,14 +87,12 @@ class HorizontalTimeline extends React.Component {
         fillingMotion={props.fillingMotion}
         barPaddingRight={barPaddingRight}
         barPaddingLeft={barPaddingLeft}
-      /> || <div><h2>Waiting</h2></div>
-    )
+      />; 
 */
 
 
     return (
 //      { displayItems }
-
       <EventsBar
         width={props.containerWidth}
         height={props.containerHeight}
@@ -108,6 +108,8 @@ class HorizontalTimeline extends React.Component {
         barPaddingRight={barPaddingRight}
         barPaddingLeft={barPaddingLeft}
       />
+
+
     );
   };
 

@@ -37,15 +37,16 @@ let EntryForm = ( props ) => {
             label={ "when did this occur?" }
             name="date"
             placeholderText={ "Click and use Calendar" }
-            inputValueFormat="YYYY/MM/DD"
+            inputValueFormat="DD/MM/YYYY"
             dateFormat="L"
             dateFormatCalendar="dddd"
             fixedHeight
             showMonthDropdown
             showYearDropdown
-            minYear={ 1500 }
             dropdownMode="select"
-            normalize={value => (value ? moment(value).format('YYYY/MM/DD') : null)}
+            minDate={ moment().subtract( 400, "years" ) }
+            maxDate={ moment().add( 1, "years" ) }
+            normalize={value => (value ? moment(value).format('DD/MM/YYYY') : null)}
             component={renderDatePicker}
           />
 
