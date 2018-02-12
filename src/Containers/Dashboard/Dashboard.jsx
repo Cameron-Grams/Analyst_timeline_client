@@ -59,7 +59,7 @@ class Dashboard extends React.Component{
                 content={this.props.timeline.data}
                 synchEntry={this.props.synchCurrentEntry} />
             :
-            <div></div>;
+            false;
 
         const elements = this.props.appState.hasShowAllEntries ?
             <DisplayEntries
@@ -67,7 +67,7 @@ class Dashboard extends React.Component{
                 entriesArray={entriesOnTimeline}
                 loadCurrentEntry={this.props.synchCurrentEntry}
                 editingCurrentEntry={ this.props.editEntry }
-            /> : <div></div>;
+            /> : false;
 
         const entryForm = this.props.appState.isShowSingleEntry ?
             <div>
@@ -77,7 +77,7 @@ class Dashboard extends React.Component{
                     onSubmit={ ( values ) => this.returnEntry( values ) }
                 />
             </div> :
-            <div></div>;
+            false;
 
         
 
