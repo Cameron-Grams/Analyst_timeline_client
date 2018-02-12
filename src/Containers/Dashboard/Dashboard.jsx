@@ -33,12 +33,17 @@ class Dashboard extends React.Component{
     }
 
     componentDidMount(){
+        this.updateTimeline(); 
+    }
+
+    updateTimeline = () => {
         const endpoint = this.props.match.params.timelineId; 
         this.props.getSelectedTimeline( endpoint ); 
     }
-
+    
     returnEntry = (values) => {
-            this.props.addEntryToTimeline(values, this.props.timeline.id);
+        this.props.addEntryToTimeline(values, this.props.timeline.id);
+        this.updateTimeline(); 
     }
 
     render(){  
@@ -78,7 +83,7 @@ class Dashboard extends React.Component{
 
         return (
             <div>
-                { this.props.appState.isFetchingSelectTimeline   ?
+                { this.props.appState.isFetchingSelectedTimeline  ?
                     < Waiting /> 
                 :
                    <div>
@@ -94,12 +99,12 @@ class Dashboard extends React.Component{
                             editingShownEntry={this.props.editEntry}
                             addNewEntry={this.props.addEntry} />
 
-                        {timeline}
                         {entryForm}
                         {elements}
+                        {timeline}
 
 
-                    </div>
+                   </div>
                 }
             </div>
         )
@@ -124,4 +129,7 @@ export default connect(mapStateToProps,
         getSelectedTimeline
     })(Dashboard);
 
+/*
+                       
 
+*/
