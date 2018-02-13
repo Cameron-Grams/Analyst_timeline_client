@@ -21,18 +21,12 @@ export function toUserTimelines(){
     push( '/user-timelines'); 
 }
 
-
-
-
-
 const handleGetSelectedTimelineFailure = ( response, dispatch ) => {
     dispatch( {
         type: actionTypes.timlineRequestFailed, 
     })
     dispatch( push( '/user-timelines' ) )
 }
-
-
 
 export function getSelectedTimeline( values ){
 
@@ -49,7 +43,6 @@ export function getSelectedTimeline( values ){
         },
         body: JSON.stringify( sendValue ),
          } );   
-        
     
     return {
         onRequest: actionTypes.requestTimeline,
@@ -58,8 +51,6 @@ export function getSelectedTimeline( values ){
         promise
     }
 }
-
-
 
 const submittedNewEntry = ( response, dispatch ) => {
     dispatch( {
@@ -77,7 +68,6 @@ export function addEntryToTimeline( values, timelineId ){
         },
         body: JSON.stringify( values ),
          } );   
-        
     
     return {
         onRequest: actionTypes.newEntrySubmitted,
@@ -103,7 +93,6 @@ const submittedUpdateEntry = ( response, dispatch ) => {
         },
         body: JSON.stringify( values ),
          } );   
-        
     
     return {
         onRequest: actionTypes.updateEntryTriggered,
@@ -113,7 +102,6 @@ const submittedUpdateEntry = ( response, dispatch ) => {
     }
 
 }
-
 
 const newTimelineCreated = ( response, dispatch ) => {
     dispatch( { 
@@ -135,12 +123,10 @@ export function createNewTimeline( values ){
         } 
       );   
         
-    
     return {
         onRequest: actionTypes.createTimelineTriggered,
         onSuccess: newTimelineCreated,
         onFailure: actionTypes.createTimelineFailure,
         promise
     }
-
 }
