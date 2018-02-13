@@ -87,18 +87,44 @@ export function addEntryToTimeline( values, timelineId ){
     }
 }
 
+const submittedUpdateEntry = ( response, dispatch ) => {
+    dispatch( {
+        type: actionTypes.entryUpdated
+    } )
+}
 
+ export function updateEntryOnTimeline( values, timelineId ){
+    const promise = fetch( `${ endpoint }/api/timelines/update-entry/${ timelineId }`,
+        {
+        method: 'PATCH',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify( values ),
+         } );   
+        
+    
+    return {
+        onRequest: actionTypes.updateEntryTriggered,
+        onSuccess: submittedUpdateEntry,
+        onFailure: actionTypes.updateEntryFailure,
+        promise
+    }
+
+}
 
 
 const newTimelineCreated = ( response, dispatch ) => {
     dispatch( { 
-        type: actionTypes.newTimelineCreated
+        type: actionTypes.newTimelineCreated,
+        response
     })
     dispatch( push( '/user-timelines' ) );
 }
 
 export function createNewTimeline( values ){
-      const promise = fetch( `${ endpoint }/api/timelines/new-timeline`,
+      const promise = fetch( `${ endpoint }/api/users/new-timeline`,
         {
         method: 'POST',
         headers: {

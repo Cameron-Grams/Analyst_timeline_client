@@ -18,6 +18,7 @@ import {
 } from '../../Actions/appStateActions';
 import {
     addEntryToTimeline,
+    updateEntryOnTimeline,
     synchCurrentEntry,
     getSelectedTimeline
 } from '../../Actions/timelineActions';
@@ -42,7 +43,13 @@ class Dashboard extends React.Component{
     }
     
     returnEntry = (values) => {
-        this.props.addEntryToTimeline(values, this.props.timeline.id);
+        console.log( '[ dashboard ] with an entry id ', values.entryId );
+        if ( values.entryId !== undefined ){
+            this.props.updateEntryOnTimeline(values, this.props.timeline.id);
+        } else {
+            this.props.addEntryToTimeline(values, this.props.timeline.id);
+        }
+
         this.updateTimeline(); 
     }
 
@@ -124,6 +131,7 @@ export default connect(mapStateToProps,
         editEntry,
         addEntry,
         addEntryToTimeline,
+        updateEntryOnTimeline,
         returnMainTimeline,
         synchCurrentEntry,
         getSelectedTimeline

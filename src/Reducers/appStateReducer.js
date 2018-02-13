@@ -81,6 +81,7 @@ const AppStateReducer = ( state = initialState, action ) => {
         }
 
         case actionTypes.returnMainTimeline:
+        case actionTypes.entryUpdated:
         case actionTypes.formSubmit:{
             return{
                 ...state,

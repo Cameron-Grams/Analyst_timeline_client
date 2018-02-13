@@ -31,9 +31,9 @@ export const loadCurrentEntry = 'LOAD_CURRENT_ENTRY';
 
 export const synchCurrentEntry = 'SYNCH_CURRENT_ENTRY'; 
 
-export const newEntrySubmitted = 'NEW_ENTRY_SUBMITTED'; //not used  
+export const newEntrySubmitted = 'NEW_ENTRY_SUBMITTED';   
 
-export const submittedNewEntry = 'SUBMITTED_NEW_ENTRY'; // not used  
+export const submittedNewEntry = 'SUBMITTED_NEW_ENTRY';   
 
 export const newEntryFailure = 'NEW_ENTRY_FAILURE'; //not used  
 
@@ -42,6 +42,17 @@ export const newTimelineCreated = 'NEW_TIMELINE_CREATED';
 export const createTimelineTriggered = 'CREATE_TIMELINE_STARTED'; // not used 
 
 export const createTimelineFailure = 'CREATE_TIMELINE_FAILURE'; // not used 
+
+//-------------- update entries on timeline
+export const updateEntryTriggered = 'UPDATE_ENTRY_TRIGGERED';
+
+export const submittedUpdateEntry = 'SUBMITTED_UPDATE_ENTRY'; 
+
+export const updateEntryFailure = 'UPDATE_ENTRY_FAILURE'; 
+
+export const entryUpdated = 'ENTRY_UPDATED'; 
+
+
 
 
 //==========App State Actions =====================

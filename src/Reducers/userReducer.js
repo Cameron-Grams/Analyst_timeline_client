@@ -39,6 +39,22 @@ const UserReducer = ( state = initialState, action ) => {
             timelines: initialState.timelines
             }
         }
+
+        case actionTypes.newTimelineCreated:{
+            const serverResponse = action.response; 
+            const newTimelines = state.timelines; 
+            const updateTimelines = ( serverResponse ) => {
+                newTimelines.push( serverResponse ); 
+                return newTimelines; 
+            } 
+            const newTimelinesForUser = updateTimelines( serverResponse ); 
+
+            return{
+                ...state,
+                timelines: newTimelinesForUser
+            }
+        }
+
         
         default:{
             return{
