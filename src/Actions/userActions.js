@@ -47,7 +47,7 @@ const handleSuccessUserBasicInfo = ( response, dispatch ) => {
     });
 }
 
-export function fetchBasicInfo(){
+export function fetchBasicInfo( userId ){
     const sendToken = sessionStorage.getItem( "token" );
 
     const promise = fetch( `${ endpoint }/api/users/basicInfo`,
@@ -57,7 +57,7 @@ export function fetchBasicInfo(){
             Accept: 'application/json',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify( { token: sendToken } ),
+        body: JSON.stringify( { token: sendToken, userId: userId } ),
          } );   
         
     
