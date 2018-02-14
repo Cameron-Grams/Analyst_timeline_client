@@ -46,9 +46,10 @@ const UserReducer = ( state = initialState, action ) => {
                 timelines: [
                     ...state.timelines,
                     action.response
-                 ],
+                ]
             }
         }
+
         
         default:{
             return{
