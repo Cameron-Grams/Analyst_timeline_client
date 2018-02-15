@@ -54,7 +54,7 @@ const submittedNewEntry = ( response, dispatch ) => {
 }
 
 export function addEntryToTimeline( values, timelineId ){
-    const promise = fetch( `${ endpoint }/api/timelines/new-entry/${ timelineId }`,
+    const promise = fetch( `${ endpoint }/api/timelines/${ timelineId }`,
         {
         method: 'POST',
         headers: {
