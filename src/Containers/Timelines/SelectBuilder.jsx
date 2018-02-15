@@ -11,7 +11,7 @@ let BuildOptions = ( props ) => {
             <Field name="selectTimeline" component="select">
                 <option key={ 888 } value={ "Error" }>Please select timeline</option>
                 { props.optionsArray.map( ( option, i ) => 
-                    <option key={ i } value={ option.id } >
+                    <option key={ i } value={ option.timelineId } >
                       { option.title } 
                     </option> ) 
                 }

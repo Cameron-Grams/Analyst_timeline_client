@@ -11,10 +11,7 @@ let ThemeSelection = ( props ) => {
     const userTimelines =  props.user.timelines.length > 0 ?  props.user.timelines: [];
 
     const selectedTimeline = ( values ) => {
-
         props.redirect( `/dashboard/${ values.selectTimeline }`)
-
-//        props.getSelectedTimeline( values.selectTimeline ); 
     }
 
     return(

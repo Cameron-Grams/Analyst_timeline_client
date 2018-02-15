@@ -7,6 +7,7 @@ const EntryElement = ( props ) => {
         <div className="displayBox" onClick={ ( ) => props.clickHandler( elementId ) } >
             <p>{ props.elementTitle }</p>
             <p>{ props.elementContent }</p>
+            <p>{ props.elementDate }</p>
         </div>
     )
 };

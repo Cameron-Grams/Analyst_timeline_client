@@ -21,8 +21,9 @@ const DisplayEntries = ( props ) => {
                         <EntryElement
                             whichEntry={ entry.id } 
                             clickHandler={ () => entryClicked( entry.entryId ) }
-                            elementTitle={ `${ entry.when.year } ${ entry.who }` }
-                            elementContent={ entry.what }  /> 
+                            elementTitle={ `${ entry.title }` }
+                            elementContent={ entry.what } 
+                            elementDate={ entry.date } /> 
                         </li> 
                     ) 
                 }

@@ -28,12 +28,7 @@ const handleGetSelectedTimelineFailure = ( response, dispatch ) => {
     dispatch( push( '/user-timelines' ) )
 }
 
-export function getSelectedTimeline( values ){
-
-    const sendValue = {
-        index: values
-    }
-
+export function getSelectedTimeline( timelineId ){
     const promise = fetch( `${ endpoint }/api/timelines`,
         {
         method: 'POST',
@@ -41,7 +36,7 @@ export function getSelectedTimeline( values ){
             Accept: 'application/json',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify( sendValue ),
+        body: JSON.stringify( { timelineId: timelineId } ),
          } );   
     
     return {

@@ -47,8 +47,17 @@ const handleSuccessUserBasicInfo = ( response, dispatch ) => {
     });
 }
 
-export function fetchBasicInfo( userId ){
+export function fetchBasicInfo(){
     const sendToken = sessionStorage.getItem( "token" );
+
+    // mock the jwt
+    let userId; 
+    if ( sendToken === 'somestring'){
+        userId = "1"
+    } 
+    if ( sendToken === 'someOtherString' ){
+        userId = "2"
+    }
 
     const promise = fetch( `${ endpoint }/api/users/basicInfo`,
         {
