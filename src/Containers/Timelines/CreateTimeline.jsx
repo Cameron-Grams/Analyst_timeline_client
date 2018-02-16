@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 let CreateTimeline = ( props ) => {
 
     const sendNewTimeline = ( values ) => {
-        props.createNewTimeline( values );  
+        props.createNewTimeline( values, props.user.userId );  
     }
 
     return( 
@@ -16,6 +16,10 @@ let CreateTimeline = ( props ) => {
      )
 };
 
-CreateTimeline = connect( null, { createNewTimeline } )( CreateTimeline );
+const mapStateToProps = ( state ) => ( {
+    user: state.user
+} );
+
+CreateTimeline = connect( mapStateToProps, { createNewTimeline } )( CreateTimeline );
 
 export default CreateTimeline;

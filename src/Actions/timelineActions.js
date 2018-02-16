@@ -106,8 +106,8 @@ const newTimelineCreated = ( response, dispatch ) => {
     dispatch( push( '/user-timelines' ) );
 }
 
-export function createNewTimeline( values ){
-      const promise = fetch( `${ endpoint }/api/users/new-timeline`,
+export function createNewTimeline( values, userId ){
+      const promise = fetch( `${ endpoint }/api/timelines/new-timeline/${ userId }`,
         {
         method: 'POST',
         headers: {
