@@ -59,7 +59,8 @@ const AppStateReducer = ( state = initialState, action ) => {
        case actionTypes.showAllEntries: {
             return {
                 ...state,
-                hasShowAllEntries: !state.hasShowAllEntries
+                hasShowAllEntries: !state.hasShowAllEntries,
+                hasShowTimeline: !state.hasShowTimeline,
             }
         }
         case actionTypes.editEntry:{

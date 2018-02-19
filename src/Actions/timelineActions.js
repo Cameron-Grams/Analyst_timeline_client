@@ -79,9 +79,9 @@ const submittedUpdateEntry = ( response, dispatch ) => {
 }
 
  export function updateEntryOnTimeline( values, timelineId ){
-    const promise = fetch( `${ endpoint }/api/timelines/update-entry/${ timelineId }`,
+    const promise = fetch( `${ endpoint }/api/timelines/${ timelineId }`,
         {
-        method: 'PATCH',
+        method: 'PUT',
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',

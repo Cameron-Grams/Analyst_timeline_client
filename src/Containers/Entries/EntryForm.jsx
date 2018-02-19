@@ -71,6 +71,7 @@ EntryForm = connect(
          initialValues.who = state.timeline.currentEntry.who; 
          initialValues.where = state.timeline.currentEntry.where; 
          initialValues.date = state.timeline.currentEntry.date; 
+         initialValues.dateObject = state.timeline.currentEntry.dateObject; 
          initialValues.content = state.timeline.currentEntry.content; 
          initialValues.source = state.timeline.currentEntry.source;
       }
