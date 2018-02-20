@@ -11,7 +11,7 @@ const UserReducer = ( state = initialState, action ) => {
         case actionTypes.autenticationSuccess:{
             return{
                 ...state,
-                userId: action.response.userId,
+                userId: action.response._id,
                 name: action.response.name,
                 timelines: action.response.userTimelines
             }
@@ -20,7 +20,7 @@ const UserReducer = ( state = initialState, action ) => {
         case actionTypes.returnUserBasicInfo:{
             return{ 
                 ...state,
-                userId: action.response.id,
+                userId: action.response._id,
                 name: action.response.name,
                 timelines: action.response.userTimelines
             }

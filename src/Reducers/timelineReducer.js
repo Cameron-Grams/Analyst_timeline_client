@@ -13,10 +13,16 @@ const TimelineReducer = ( state = initialState, action ) => {
         case actionTypes.getSelectedTimelineSuccess:{  
             return{
                 ...state,
-                id: action.response.timelineId, 
+                id: action.response._id, 
                 title: action.response.title, 
-                data: action.response.Entries,
                 currentEntry: action.response.Entries[ 0 ]
+            }
+        }
+
+        case actionTypes.buildDataEntries:{
+            return{
+                ...state,
+                data: state.data.push( action.response.entry ) 
             }
         }
         

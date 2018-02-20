@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes'; 
 import { push } from 'react-router-redux';
+import { sendForFullEntries } from './entryActions'; 
 
 const endpoint = "http://localhost:3030"; 
 
@@ -28,6 +29,16 @@ const handleGetSelectedTimelineFailure = ( response, dispatch ) => {
     dispatch( push( '/user-timelines' ) )
 }
 
+const handleGetSelectedTimelineSuccess = ( response, dispatch ) => {
+    const allEntryIds = response.Entries; 
+    sendForFullEntries( allEntryIds ); 
+
+    dispatch( {
+        type: actionTypes.getSelectedTimelineSuccess
+    })
+}
+
+
 export function getSelectedTimeline( timelineId ){
     const promise = fetch( `${ endpoint }/api/timelines`,
         {
@@ -41,7 +52,7 @@ export function getSelectedTimeline( timelineId ){
     
     return {
         onRequest: actionTypes.requestTimeline,
-        onSuccess: actionTypes.getSelectedTimelineSuccess,
+        onSuccess: handleGetSelectedTimelineSuccess,
         onFailure: handleGetSelectedTimelineFailure,
         promise
     }

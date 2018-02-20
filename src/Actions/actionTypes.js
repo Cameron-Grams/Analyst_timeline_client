@@ -52,8 +52,12 @@ export const updateEntryFailure = 'UPDATE_ENTRY_FAILURE';
 
 export const entryUpdated = 'ENTRY_UPDATED'; 
 
+//---------------entries from DB ------------
+export const buildDataEntries = 'BUILD_DATA_ENTRIES'; 
 
+export const requestEntryFailure = 'REQUEST_ENTRIES_FAILURE'; 
 
+export const requestEntries = 'REQUEST_ENTRIES'; 
 
 //==========App State Actions =====================
 
