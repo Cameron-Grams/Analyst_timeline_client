@@ -29,16 +29,6 @@ const handleGetSelectedTimelineFailure = ( response, dispatch ) => {
     dispatch( push( '/user-timelines' ) )
 }
 
-const handleGetSelectedTimelineSuccess = ( response, dispatch ) => {
-    const allEntryIds = response.Entries; 
-    sendForFullEntries( allEntryIds ); 
-
-    dispatch( {
-        type: actionTypes.getSelectedTimelineSuccess
-    })
-}
-
-
 export function getSelectedTimeline( timelineId ){
     const promise = fetch( `${ endpoint }/api/timelines`,
         {
@@ -52,7 +42,7 @@ export function getSelectedTimeline( timelineId ){
     
     return {
         onRequest: actionTypes.requestTimeline,
-        onSuccess: handleGetSelectedTimelineSuccess,
+        onSuccess: actionTypes.getSelectedTimelineSuccess
         onFailure: handleGetSelectedTimelineFailure,
         promise
     }

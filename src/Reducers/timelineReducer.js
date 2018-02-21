@@ -15,17 +15,11 @@ const TimelineReducer = ( state = initialState, action ) => {
                 ...state,
                 id: action.response._id, 
                 title: action.response.title, 
-                currentEntry: action.response.Entries[ 0 ]
+                currentEntry: action.response.entries[ 0 ],
+                data: action.response.entries
             }
         }
 
-        case actionTypes.buildDataEntries:{
-            return{
-                ...state,
-                data: state.data.push( action.response.entry ) 
-            }
-        }
-        
         case actionTypes.newTimelineCreated:{
             return{
                 ...state,
