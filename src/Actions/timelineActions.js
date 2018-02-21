@@ -1,6 +1,5 @@
 import * as actionTypes from './actionTypes'; 
 import { push } from 'react-router-redux';
-import { sendForFullEntries } from './entryActions'; 
 
 const endpoint = "http://localhost:3030"; 
 
@@ -42,7 +41,7 @@ export function getSelectedTimeline( timelineId ){
     
     return {
         onRequest: actionTypes.requestTimeline,
-        onSuccess: actionTypes.getSelectedTimelineSuccess
+        onSuccess: actionTypes.getSelectedTimelineSuccess,
         onFailure: handleGetSelectedTimelineFailure,
         promise
     }
