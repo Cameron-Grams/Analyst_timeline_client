@@ -52,13 +52,13 @@ export function fetchBasicInfo(){
 
     const promise = fetch( `${ endpoint }/api/users/basicInfo`,
         {
-        method: 'POST',
+        method: 'GET',
         headers: {
             Accept: 'application/json',
+            Authorization: sendToken,
             'Content-Type': 'application/json',
-        },
-        body: JSON.stringify( { token: sendToken } ),
-         } );   
+        }
+    } );   
     
     return {
         onRequest: actionTypes.requestBasicInfo,
