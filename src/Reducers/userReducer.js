@@ -8,7 +8,11 @@ const initialState = {
 
 const UserReducer = ( state = initialState, action ) => {
     switch ( action.type ){
-        case actionTypes.autenticationSuccess:{
+
+        case actionTypes.autenticationSuccess:
+        case actionTypes.returnUserBasicInfo:{
+            console.log( '[ userReducer ] action response ', action.response ); 
+           
             return{
                 ...state,
                 userId: action.response._id,
@@ -17,15 +21,7 @@ const UserReducer = ( state = initialState, action ) => {
             }
         }
 
-        case actionTypes.returnUserBasicInfo:{
-            return{ 
-                ...state,
-                userId: action.response._id,
-                name: action.response.name,
-                timelines: action.response.userTimelines
-            }
-        }
-
+ 
         case actionTypes.registerUserSuccess:{
             return{
                 ...state,

@@ -29,11 +29,13 @@ const handleGetSelectedTimelineFailure = ( response, dispatch ) => {
 }
 
 export function getSelectedTimeline( timelineId ){
+    const sendToken = sessionStorage.getItem( "token" );
     const promise = fetch( `${ endpoint }/api/timelines`,
         {
         method: 'POST',
         headers: {
             Accept: 'application/json',
+            Authorization: sendToken,
             'Content-Type': 'application/json',
         },
         body: JSON.stringify( { timelineId: timelineId } ),
@@ -54,11 +56,13 @@ const submittedNewEntry = ( response, dispatch ) => {
 }
 
 export function addEntryToTimeline( values, timelineId ){
-    const promise = fetch( `${ endpoint }/api/timelines/${ timelineId }`,
+    const sendToken = sessionStorage.getItem( "token" );
+    const promise = fetch( `${ endpoint }/api/entries/${ timelineId }`,
         {
         method: 'POST',
         headers: {
             Accept: 'application/json',
+            Authorization: sendToken,
             'Content-Type': 'application/json',
         },
         body: JSON.stringify( values ),
@@ -79,11 +83,13 @@ const submittedUpdateEntry = ( response, dispatch ) => {
 }
 
  export function updateEntryOnTimeline( values, timelineId ){
-    const promise = fetch( `${ endpoint }/api/timelines/${ timelineId }`,
+    const sendToken = sessionStorage.getItem( "token" );
+    const promise = fetch( `${ endpoint }/api/entries/${ timelineId }`,
         {
         method: 'PUT',
         headers: {
             Accept: 'application/json',
+            Authorization: sendToken,
             'Content-Type': 'application/json',
         },
         body: JSON.stringify( values ),
@@ -107,16 +113,18 @@ const newTimelineCreated = ( response, dispatch ) => {
 }
 
 export function createNewTimeline( values, userId ){
-      const promise = fetch( `${ endpoint }/api/timelines/new-timeline/${ userId }`,
+    const sendToken = sessionStorage.getItem( "token" );
+    const promise = fetch( `${ endpoint }/api/timelines/${ userId }`,
         {
         method: 'POST',
         headers: {
             Accept: 'application/json',
+            Authorization: sendToken,
             'Content-Type': 'application/json',
             },
         body: JSON.stringify( values )
         } 
-      );   
+    );   
         
     return {
         onRequest: actionTypes.createTimelineTriggered,
