@@ -13,7 +13,7 @@ const UserReducer = ( state = initialState, action ) => {
                 ...state,
                 userId: action.response._id,
                 name: action.response.name,
-                timelines: action.response.userTimelines
+                timelines: action.response.timelines
             }
         }
 

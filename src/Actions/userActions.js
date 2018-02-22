@@ -12,6 +12,7 @@ export function logoutUserSession(){
 }
 
 const handleSuccessUserAuthentication = (response, dispatch) => {
+    console.log( '[ userActions ] successful auth ', response ); 
     sessionStorage.setItem( "token", response.token )
     dispatch({
         type: actionTypes.autenticationSuccess,
@@ -30,7 +31,6 @@ export function sendAuthentication( values ){
         },
         body: JSON.stringify( values ),
          } );   
-        
     
     return {
         onRequest: actionTypes.requestAuthentication,
@@ -50,15 +50,6 @@ const handleSuccessUserBasicInfo = ( response, dispatch ) => {
 export function fetchBasicInfo(){
     const sendToken = sessionStorage.getItem( "token" );
 
-    // mock the jwt
-    let userId; 
-    if ( sendToken === 'somestring'){
-        userId = "1"
-    } 
-    if ( sendToken === 'someOtherString' ){
-        userId = "2"
-    }
-
     const promise = fetch( `${ endpoint }/api/users/basicInfo`,
         {
         method: 'POST',
@@ -66,9 +57,8 @@ export function fetchBasicInfo(){
             Accept: 'application/json',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify( { token: sendToken, userId: userId } ),
+        body: JSON.stringify( { token: sendToken } ),
          } );   
-        
     
     return {
         onRequest: actionTypes.requestBasicInfo,
