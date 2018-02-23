@@ -9,8 +9,6 @@ const initialState = {
 
 const TimelineReducer = ( state = initialState, action ) => {
 
-    console.log( '[ timelineReducer ] new action ', action.response );
-
     switch ( action.type ){
         case actionTypes.getSelectedTimelineSuccess:{  
 

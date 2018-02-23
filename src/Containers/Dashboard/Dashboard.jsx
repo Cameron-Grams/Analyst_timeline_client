@@ -43,7 +43,6 @@ class Dashboard extends React.Component{
     }
     
     returnEntry = (values) => {
-        console.log( '[ dashboard ] received values for update ', values ); 
 
         if ( values.entryId !== undefined ){
             this.props.updateEntryOnTimeline(values, this.props.timeline.id);

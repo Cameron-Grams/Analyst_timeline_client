@@ -50,6 +50,7 @@ export function getSelectedTimeline( timelineId ){
 }
 
 const submittedNewEntry = ( response, dispatch ) => {
+    console.log( '[ timelineAction ] returned after new entry ', response ); 
     dispatch( {
         type: actionTypes.formSubmit
     } )
