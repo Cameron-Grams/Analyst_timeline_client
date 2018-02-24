@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import { connect } from 'react-redux';
 import DashboardElement from '../../Components/DashboardElement/dashboardElement';
 import Header from '../Header/Header';
@@ -40,16 +40,15 @@ class Dashboard extends React.Component{
     updateTimeline = () => {
         const endpoint = this.props.match.params.timelineId; 
         this.props.getSelectedTimeline( endpoint ); 
+        console.log( '[ 1-- dashboard ] called upate timeline ' ); 
     }
     
     returnEntry = (values) => {
-
         if ( values.entryId !== undefined ){
             this.props.updateEntryOnTimeline(values, this.props.timeline.id);
         } else {
             this.props.addEntryToTimeline(values, this.props.timeline.id);
         }
-
         this.updateTimeline(); 
     }
 

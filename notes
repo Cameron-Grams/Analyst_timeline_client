@@ -4,6 +4,13 @@ needed to change the default react-router-redux to "react-router-redux": "^5.0.0
 - ProfileLoader and the boolean values; method of restricting state of app...
 - use of token function and the tests for dashboard
 
+23 Feb
+- method for sorting entries on the timeline call of the timeline router
+
+
+
+
+-----------------------------------------------
 TODO:
 
 -Error messages

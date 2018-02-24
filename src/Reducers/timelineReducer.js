@@ -11,7 +11,7 @@ const TimelineReducer = ( state = initialState, action ) => {
 
     switch ( action.type ){
         case actionTypes.getSelectedTimelineSuccess:{  
-
+            console.log( '[ 3--timelineReducer ] received update with ', action.response ); 
             return{
                 ...state,
                 id: action.response._id, 
