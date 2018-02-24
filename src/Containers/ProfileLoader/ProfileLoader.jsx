@@ -14,9 +14,9 @@ class ProfileLoader extends Component {
     componentDidMount() {
         const token = sessionStorage.getItem('token');
 
-        if (  token && ( this.props.user.userId === undefined ) )  {
-            this.props.fetchBasicInfo()
-            
+        if (  token && ( this.props.user.userId === null ) )  {
+            console.log( '[ ProfileLoader ] attempting send...' );
+            this.props.fetchBasicInfo();
         }
     }
 
@@ -24,7 +24,7 @@ class ProfileLoader extends Component {
         return (
             <div>
                 { 
-                ( sessionStorage.getItem('token') && ( this.props.user.userId === undefined ) ) ?
+                ( sessionStorage.getItem('token') && ( this.props.user.userId === null ) ) ?
                     < Waiting /> 
                 :
                     <div>{this.props.children}</div>

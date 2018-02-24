@@ -7,8 +7,14 @@ needed to change the default react-router-redux to "react-router-redux": "^5.0.0
 23 Feb
 - method for sorting entries on the timeline call of the timeline router
 
+Problem:
+moving back to the user-timelines drops the userTimeline information; theory is this is because the user information is moved by the 
+token, and the token does not have access to all the user profile, specifically the timelines...
+>>>> Wrong, the issue was with the ids for the timelines, not the full collection member being returned...fixed....?
 
-
+Problem:
+the dashboard timeline graphic is still not updating after the new entry has been added to the timeline; theory is this is because
+the current DOM of the timeline has not re-rendered and drawn down the new data members
 
 -----------------------------------------------
 TODO:

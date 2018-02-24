@@ -1,8 +1,8 @@
 import * as actionTypes from '../Actions/actionTypes'; 
 
 const initialState = {
-    userId: undefined,
-    name: undefined,
+    userId: null,
+    name: null,
     timelines: []
 }
 
