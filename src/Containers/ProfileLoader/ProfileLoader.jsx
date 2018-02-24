@@ -4,8 +4,6 @@ import { fetchBasicInfo } from '../../Actions/userActions';
 import { getSelectedTimeline,  toUserTimelines } from '../../Actions/timelineActions';
 import Waiting from '../../Components/Waiting/waiting'; 
 
-// const CheckToken = require( '../../Helpers/testToken' ); // not working...
-
 class ProfileLoader extends Component {
 
     currentUserCheck(){
@@ -15,7 +13,7 @@ class ProfileLoader extends Component {
     componentDidMount() {
         const token = sessionStorage.getItem('token');
 
-        if (  token && ( this.props.user.userId === null ) ) {
+        if (  token && ( this.props.user.userId === ( null || undefined ) ) ) {
             this.props.fetchBasicInfo()
             
         }
@@ -24,7 +22,7 @@ class ProfileLoader extends Component {
     render() {
         return (
             <div>
-                { ( sessionStorage.getItem('token') &&  ( this.props.user.userId === null ) ) ?
+                { ( sessionStorage.getItem('token') &&  ( this.props.user.userId === ( null || undefined ) ) ) ?
                     < Waiting /> 
                 :
                     <div>{this.props.children}</div>

@@ -29,6 +29,9 @@ const handleGetSelectedTimelineFailure = ( response, dispatch ) => {
 }
 
 export function getSelectedTimeline( timelineId ){
+
+    console.log( '[ timelineAction ] getting timeline id ', timelineId );
+
     const sendToken = sessionStorage.getItem( "token" );
     const promise = fetch( `${ endpoint }/api/timelines`,
         {
@@ -50,7 +53,8 @@ export function getSelectedTimeline( timelineId ){
 }
 
 const submittedNewEntry = ( response, dispatch ) => {
-    console.log( '[ timelineAction ] returned after new entry ', response ); 
+ 
+    getSelectedTimeline( response._id ); 
     dispatch( {
         type: actionTypes.formSubmit
     } )

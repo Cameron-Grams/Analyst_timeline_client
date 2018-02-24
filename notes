@@ -5,36 +5,32 @@ needed to change the default react-router-redux to "react-router-redux": "^5.0.0
 - use of token function and the tests for dashboard
 
 TODO:
-- Problem; configuration of date into the datepicker after selecting previous data: gettin NaN...
-
-
--dates:
-  -configure on current entry display
 
 -Error messages
   -improper input
     -validation of input
 
--MongoDB...
 
 -Styling...
 
--Backend:
-  -organize dates within arrays to accomodate new entries
-    -update correct entry
-    -order the array of values to return
-    
-  -format correctly for new entries and timelines
-    -id's... 
 
 -Tests...
 
--Tokens and JWT
+
 
 -Delete entries....
 
 
 ========================
-ugly updates to user timelines
+
 
 update entries
+
+added sort of new entries on return; problem with the storage by id
+
+added undefined to the profile loader to ensure the /user-timelines endpoint reloaded with user 
+  info
+
+added a call to the getSelectedTimeline with the timeline id after adding a new entry iot ensure
+  the timeline rendered with the added entry
+
