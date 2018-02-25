@@ -37,6 +37,8 @@ const UserReducer = ( state = initialState, action ) => {
         }
 
         case actionTypes.newTimelineCreated:{
+            console.log( '[ userReducer ] action on new timeline created ', action.response ); 
+
             return{
                 ...state,
                 timelines: [

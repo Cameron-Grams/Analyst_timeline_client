@@ -22,6 +22,8 @@ const TimelineReducer = ( state = initialState, action ) => {
         }
 
         case actionTypes.newTimelineCreated:{
+            console.log( '[ timelineReducer ] state ', state, ' action ', action.response );
+
             return{
                 ...state,
             }
