@@ -11,6 +11,8 @@ Problem:
 moving back to the user-timelines drops the userTimeline information; theory is this is because the user information is moved by the 
 token, and the token does not have access to all the user profile, specifically the timelines...
 >>>> Wrong, the issue was with the ids for the timelines, not the full collection member being returned...fixed....?
+>>>> Second problem was the name of the property coming off of the db; needed to be sent timelines: userTimelines
+
 
 Problem:
 the dashboard timeline graphic is still not updating after the new entry has been added to the timeline; theory is this is because

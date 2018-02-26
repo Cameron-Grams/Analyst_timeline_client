@@ -47,6 +47,7 @@ class Dashboard extends React.Component{
         if ( values.entryId !== undefined ){
             this.props.updateEntryOnTimeline(values, this.props.timeline.id);
         } else {
+            console.log( '[ dashboard ] sending the new enty to add to the timeline ', values ); 
             this.props.addEntryToTimeline(values, this.props.timeline.id);
         }
         this.updateTimeline(); 
