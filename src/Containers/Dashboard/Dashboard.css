@@ -8,3 +8,12 @@
 .returnTimelinesButton{
   margin: 10px auto 10px; 
 }
+
+
+button.deleteEntryButton {
+  background-color: red;
+  color: white;
+  border: 1px solid transparent; 
+  font-size: 1.2em;
+}
+

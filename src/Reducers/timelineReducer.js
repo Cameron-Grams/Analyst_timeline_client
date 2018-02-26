@@ -11,7 +11,7 @@ const TimelineReducer = ( state = initialState, action ) => {
 
     switch ( action.type ){
         case actionTypes.formSubmit:
-        case actionTypes.entryUpdated:
+        case actionTypes.entryUpdated: // should this be handled differently on integration into state? 
         case actionTypes.getSelectedTimelineSuccess:{  
             return{
                 ...state,
@@ -22,10 +22,11 @@ const TimelineReducer = ( state = initialState, action ) => {
             }
         }
 
+        case actionTypes.entryDeleted:
         case actionTypes.newTimelineCreated:{
 
             return{
-                ...state,
+                ...state
             }
         }
 

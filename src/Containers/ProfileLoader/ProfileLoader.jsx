@@ -15,7 +15,6 @@ class ProfileLoader extends Component {
         const token = sessionStorage.getItem('token');
 
         if (  token && ( this.props.user.userId === null ) )  {
-            console.log( '[ ProfileLoader ] attempting send...' );
             this.props.fetchBasicInfo();
         }
     }

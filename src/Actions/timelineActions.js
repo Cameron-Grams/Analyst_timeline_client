@@ -50,64 +50,6 @@ export function getSelectedTimeline( timelineId ){
     }
 }
 
-const submittedNewEntry = ( response, dispatch ) => {
-    getSelectedTimeline( response._id ); 
-    dispatch( {
-        type: actionTypes.formSubmit,
-        response
-    } )
-}
-
-export function addEntryToTimeline( values, timelineId ){
-    const sendToken = sessionStorage.getItem( "token" );
-    const promise = fetch( `${ endpoint }/api/entries/${ timelineId }`,
-        {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            Authorization: sendToken,
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify( values ),
-         } );   
-    
-    return {
-        onRequest: actionTypes.newEntrySubmitted,
-        onSuccess: submittedNewEntry,
-        onFailure: actionTypes.newEntryFailure,
-        promise
-    }
-}
-
-const submittedUpdateEntry = ( response, dispatch ) => {
-    dispatch( {
-        type: actionTypes.entryUpdated,
-        response
-    } )
-}
-
- export function updateEntryOnTimeline( values, timelineId ){
-    const sendToken = sessionStorage.getItem( "token" );
-    const promise = fetch( `${ endpoint }/api/entries/update/${ timelineId }`,
-        {
-        method: 'PUT',
-        headers: {
-            Accept: 'application/json',
-            Authorization: sendToken,
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify( values ),
-         } );   
-    
-    return {
-        onRequest: actionTypes.updateEntryTriggered,
-        onSuccess: submittedUpdateEntry,
-        onFailure: actionTypes.updateEntryFailure,
-        promise
-    }
-
-}
-
 const newTimelineCreated = ( response, dispatch ) => {
     dispatch( { 
         type: actionTypes.newTimelineCreated,
@@ -136,4 +78,94 @@ export function createNewTimeline( values, userId ){
         onFailure: actionTypes.createTimelineFailure,
         promise
     }
+}
+
+
+const submittedNewEntry = ( response, dispatch ) => {
+    getSelectedTimeline( response._id ); 
+    dispatch( {
+        type: actionTypes.formSubmit,
+        response
+    } )
+}
+
+export function addEntryToTimeline( values, entryId ){
+    const sendToken = sessionStorage.getItem( "token" );
+    const promise = fetch( `${ endpoint }/api/entries/${ entryId }`,
+        {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            Authorization: sendToken,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify( values ),
+         } );   
+    
+    return {
+        onRequest: actionTypes.newEntrySubmitted,
+        onSuccess: submittedNewEntry,
+        onFailure: actionTypes.newEntryFailure,
+        promise
+    }
+}
+
+const submittedUpdateEntry = ( response, dispatch ) => {
+    dispatch( {
+        type: actionTypes.entryUpdated,
+        response
+    } )
+}
+
+ export function updateEntryOnTimeline( values, entryId ){
+    const sendToken = sessionStorage.getItem( "token" );
+    const promise = fetch( `${ endpoint }/api/entries/${ entryId }`,
+        {
+        method: 'PUT',
+        headers: {
+            Accept: 'application/json',
+            Authorization: sendToken,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify( values ),
+         } );   
+    
+    return {
+        onRequest: actionTypes.updateEntryTriggered,
+        onSuccess: submittedUpdateEntry,
+        onFailure: actionTypes.updateEntryFailure,
+        promise
+    }
+
+}
+
+const deletEntry = ( response, dispatch ) => {
+    console.log( ' [ timelineActions ] response ', response );
+
+    dispatch( {
+        type: actionTypes.entryDeleted,
+        response
+    } )
+}
+
+ export function deleteEntryOnTimeline( entryId, timelineId ){
+    const sendToken = sessionStorage.getItem( "token" );
+    const promise = fetch( `${ endpoint }/api/entries/${ entryId }`,
+        {
+        method: 'DELETE',
+        headers: {
+            Accept: 'application/json',
+            Authorization: sendToken,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify( { entryId: entryId,  timelineId: timelineId } ),
+         } );   
+    
+    return {
+        onRequest: actionTypes.deleteEntryTriggered,
+        onSuccess: deletEntry,
+        onFailure: actionTypes.deleteEntryFailure,
+        promise
+    }
+
 }

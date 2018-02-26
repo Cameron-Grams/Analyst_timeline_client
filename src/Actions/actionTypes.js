@@ -52,8 +52,12 @@ export const updateEntryFailure = 'UPDATE_ENTRY_FAILURE';
 
 export const entryUpdated = 'ENTRY_UPDATED'; 
 
-//---------------entries from DB ------------
+//---------------entries DELETED DB ------------
+export const entryDeleted = 'ENTRY_DELETED';
 
+export const deleteEntryTriggered = 'DELETE_ENTRY_TRIGGERED';
+
+export const deleteEntryFailure = 'DELETE_ENTRY_FAILURE'; 
 
 
 //==========App State Actions =====================

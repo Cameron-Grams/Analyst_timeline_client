@@ -19,6 +19,7 @@ import {
 import {
     addEntryToTimeline,
     updateEntryOnTimeline,
+    deleteEntryOnTimeline,
     synchCurrentEntry,
     getSelectedTimeline
 } from '../../Actions/timelineActions';
@@ -44,11 +45,16 @@ class Dashboard extends React.Component{
     
     returnEntry = (values) => {
         if ( values._id !== undefined ){
-            this.props.updateEntryOnTimeline(values, this.props.timeline.id);
+            this.props.updateEntryOnTimeline( { ...values, timelineId: this.props.timeline.id } );
         } else {
-            this.props.addEntryToTimeline(values, this.props.timeline.id);
+            this.props.addEntryToTimeline( { ...values, timelineId: this.props.timeline.id } );
         }
         this.updateTimeline(); 
+    }
+
+    deleteEntry = ( ) => {
+        console.log( '[ dashboard ] clicked delete entry...', this.props.timeline.currentEntry, ' on timeline ', this.props.timeline.id); 
+        this.props.deleteEntryOnTimeline( this.props.timeline.currentEntry._id, this.props.timeline.id ); 
     }
 
     render(){  
@@ -77,6 +83,7 @@ class Dashboard extends React.Component{
         const entryForm = this.props.appState.isShowSingleEntry ?
             <div>
                 <button className={ "returnTimelinesButton" } onClick={ this.props.returnMainTimeline } >Return Main Timeline</button>
+                <button className={ "deleteEntryButton" } onClick={ this.deleteEntry }>Delete Current Entry</button>
                 <EntryForm
                     useCurrentEntry={this.props.appState.hasShowCurrentEntry}
                     onSubmit={ ( values ) => this.returnEntry( values ) }
@@ -130,6 +137,7 @@ export default connect(mapStateToProps,
         addEntry,
         addEntryToTimeline,
         updateEntryOnTimeline,
+        deleteEntryOnTimeline,
         returnMainTimeline,
         synchCurrentEntry,
         getSelectedTimeline
