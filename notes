@@ -17,6 +17,14 @@ token, and the token does not have access to all the user profile, specifically 
 Problem:
 the dashboard timeline graphic is still not updating after the new entry has been added to the timeline; theory is this is because
 the current DOM of the timeline has not re-rendered and drawn down the new data members
+>>>>
+
+
+
+Problem:
+Inconsistent ordering of entries sorted chonologically; seen after first update remains the earliest on the timeline if a previous
+date was entered in the collection
+
 
 -----------------------------------------------
 TODO:

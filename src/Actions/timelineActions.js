@@ -30,8 +30,6 @@ const handleGetSelectedTimelineFailure = ( response, dispatch ) => {
 
 export function getSelectedTimeline( timelineId ){
 
-    console.log( '[ 2--timelineAction ] getting timeline id ', timelineId );
-
     const sendToken = sessionStorage.getItem( "token" );
     const promise = fetch( `${ endpoint }/api/timelines`,
         {
@@ -53,11 +51,10 @@ export function getSelectedTimeline( timelineId ){
 }
 
 const submittedNewEntry = ( response, dispatch ) => {
-    console.log( '[ timelineActions ] sending in new entry ', response._id );
-
     getSelectedTimeline( response._id ); 
     dispatch( {
-        type: actionTypes.formSubmit
+        type: actionTypes.formSubmit,
+        response
     } )
 }
 
@@ -84,13 +81,14 @@ export function addEntryToTimeline( values, timelineId ){
 
 const submittedUpdateEntry = ( response, dispatch ) => {
     dispatch( {
-        type: actionTypes.entryUpdated
+        type: actionTypes.entryUpdated,
+        response
     } )
 }
 
  export function updateEntryOnTimeline( values, timelineId ){
     const sendToken = sessionStorage.getItem( "token" );
-    const promise = fetch( `${ endpoint }/api/entries/${ timelineId }`,
+    const promise = fetch( `${ endpoint }/api/entries/update/${ timelineId }`,
         {
         method: 'PUT',
         headers: {

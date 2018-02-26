@@ -40,14 +40,12 @@ class Dashboard extends React.Component{
     updateTimeline = () => {
         const endpoint = this.props.match.params.timelineId; 
         this.props.getSelectedTimeline( endpoint ); 
-        console.log( '[ 1-- dashboard ] called upate timeline ' ); 
     }
     
     returnEntry = (values) => {
-        if ( values.entryId !== undefined ){
+        if ( values._id !== undefined ){
             this.props.updateEntryOnTimeline(values, this.props.timeline.id);
         } else {
-            console.log( '[ dashboard ] sending the new enty to add to the timeline ', values ); 
             this.props.addEntryToTimeline(values, this.props.timeline.id);
         }
         this.updateTimeline(); 

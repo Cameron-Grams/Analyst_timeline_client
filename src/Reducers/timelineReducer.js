@@ -10,8 +10,9 @@ const initialState = {
 const TimelineReducer = ( state = initialState, action ) => {
 
     switch ( action.type ){
+        case actionTypes.formSubmit:
+        case actionTypes.entryUpdated:
         case actionTypes.getSelectedTimelineSuccess:{  
-            console.log( '[ 3--timelineReducer ] received update with ', action.response ); 
             return{
                 ...state,
                 id: action.response._id, 
@@ -22,7 +23,6 @@ const TimelineReducer = ( state = initialState, action ) => {
         }
 
         case actionTypes.newTimelineCreated:{
-            console.log( '[ timelineReducer ] state ', state, ' action ', action.response );
 
             return{
                 ...state,

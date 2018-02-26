@@ -11,8 +11,6 @@ const UserReducer = ( state = initialState, action ) => {
 
         case actionTypes.autenticationSuccess:
         case actionTypes.returnUserBasicInfo:{
-            console.log( '[ userReducer ] action response ', action.response ); 
-           
             return{
                 ...state,
                 userId: action.response._id,
@@ -37,8 +35,6 @@ const UserReducer = ( state = initialState, action ) => {
         }
 
         case actionTypes.newTimelineCreated:{
-            console.log( '[ userReducer ] action on new timeline created ', action.response ); 
-
             return{
                 ...state,
                 timelines: [
