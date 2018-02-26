@@ -22,9 +22,14 @@ const TimelineReducer = ( state = initialState, action ) => {
             }
         }
 
-        case actionTypes.entryDeleted:
-        case actionTypes.newTimelineCreated:{
+        case actionTypes.entryDeleted:{
+            return{
+                ...state,
+                id: action.response.targetTimeline
+            }
+        }
 
+        case actionTypes.newTimelineCreated:{
             return{
                 ...state
             }

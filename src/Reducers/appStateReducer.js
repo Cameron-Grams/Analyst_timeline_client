@@ -81,6 +81,7 @@ const AppStateReducer = ( state = initialState, action ) => {
             }
         }
 
+        case actionTypes.deleteEntryTriggered:
         case actionTypes.returnMainTimeline:
         case actionTypes.entryUpdated:
         case actionTypes.formSubmit:{

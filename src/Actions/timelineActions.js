@@ -29,7 +29,7 @@ const handleGetSelectedTimelineFailure = ( response, dispatch ) => {
 }
 
 export function getSelectedTimeline( timelineId ){
-
+    console.log( '[ timelineActions ] get timeline ', timelineId ); 
     const sendToken = sessionStorage.getItem( "token" );
     const promise = fetch( `${ endpoint }/api/timelines`,
         {
@@ -140,7 +140,7 @@ const submittedUpdateEntry = ( response, dispatch ) => {
 }
 
 const deletEntry = ( response, dispatch ) => {
-    console.log( ' [ timelineActions ] response ', response );
+    console.log( ' [ timelineActions ]  delete response ', response );
     getSelectedTimeline( response.targetTimeline );
     dispatch( {
         type: actionTypes.entryDeleted,
