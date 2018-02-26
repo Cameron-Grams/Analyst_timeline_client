@@ -141,7 +141,7 @@ const submittedUpdateEntry = ( response, dispatch ) => {
 
 const deletEntry = ( response, dispatch ) => {
     console.log( ' [ timelineActions ] response ', response );
-
+    getSelectedTimeline( response.targetTimeline );
     dispatch( {
         type: actionTypes.entryDeleted,
         response

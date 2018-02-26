@@ -11,9 +11,12 @@
 
 
 button.deleteEntryButton {
-  background-color: red;
+  background-color: #911507;
   color: white;
   border: 1px solid transparent; 
   font-size: 1.2em;
 }
 
+button.deleteEntryButton:hover {
+  background-color: red;
+}
