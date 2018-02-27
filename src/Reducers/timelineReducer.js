@@ -11,8 +11,7 @@ const TimelineReducer = ( state = initialState, action ) => {
 
     switch ( action.type ){
         case actionTypes.formSubmit:
-        case actionTypes.entryUpdated: // should this be handled differently on integration into state? 
-        case actionTypes.getSelectedTimelineSuccess:{  
+            case actionTypes.getSelectedTimelineSuccess:{  
             return{
                 ...state,
                 id: action.response._id, 
@@ -22,10 +21,34 @@ const TimelineReducer = ( state = initialState, action ) => {
             }
         }
 
-        case actionTypes.entryDeleted:{
+        case actionTypes.entryUpdated:{
+            const entries = state.data.slice();
+            console.log( '[ timelineReducer ] entries ', entries );
+            const index = entries.findIndex( x => x._id === action.response._id );  
+
+            entries[ index ] = action.response;
+
             return{
                 ...state,
-                id: action.response.targetTimeline
+                data: entries,
+                currentEntry: entries[ 0 ]
+            }
+        }
+
+
+
+
+
+        case actionTypes.entryDeleted:{
+            const entries = state.data.slice();
+            console.log( '[ timelineReducer ] entries ', entries );
+            const index = entries.findIndex( x => x._id === action.response._id );  
+
+            entries.splice( index, 1 )
+            return{
+                ...state,
+                data: entries,
+                currentEntry: entries[ 0 ]
             }
         }
 

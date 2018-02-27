@@ -67,7 +67,7 @@ EntryForm = connect(
     ( state, props ) => {
       const initialValues = {};
       if ( props.useCurrentEntry ){
-         initialValues.entryId = state.timeline.currentEntry.entryId; 
+         initialValues._id = state.timeline.currentEntry._id; 
          initialValues.title = state.timeline.currentEntry.title; 
          initialValues.what = state.timeline.currentEntry.what; 
          initialValues.who = state.timeline.currentEntry.who; 
