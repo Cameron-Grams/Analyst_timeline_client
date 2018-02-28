@@ -17,13 +17,22 @@ token, and the token does not have access to all the user profile, specifically 
 Problem:
 the dashboard timeline graphic is still not updating after the new entry has been added to the timeline; theory is this is because
 the current DOM of the timeline has not re-rendered and drawn down the new data members
->>>>
+>>>> used slice to copy the data property and manually update it in the timeline reducer
 
 
 
 Problem:
 Inconsistent ordering of entries sorted chonologically; seen after first update remains the earliest on the timeline if a previous
-date was entered in the collection
+date was entered in the collection; Hisenbug...
+
+Problem:
+fewer than full list of entries produces an error on entering new entry; how to create a "required" feature
+
+Problem:
+enter vs select send on the create new timeline feature
+
+
+
 
 
 -----------------------------------------------
