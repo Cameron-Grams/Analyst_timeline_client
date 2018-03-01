@@ -9,3 +9,7 @@ import React from 'react';
   ); 
 
 export default renderField;
+
+/*
+// https://redux-form.com/7.2.3/examples/syncvalidation/
+*/
