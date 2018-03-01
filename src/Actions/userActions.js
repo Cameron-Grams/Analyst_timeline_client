@@ -12,7 +12,6 @@ export function logoutUserSession(){
 }
 
 const handleSuccessUserAuthentication = (response, dispatch) => {
-    console.log( '[ userActions ] successful auth ', response ); 
     sessionStorage.setItem( "token", response.token )
     dispatch({
         type: actionTypes.autenticationSuccess,

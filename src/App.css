@@ -41,6 +41,8 @@ button{
   font-size: 1.2em;
 }
 
-
+button:hover{
+  background-color: blue;
+}
 @media ( min-width: 760px ){
 }

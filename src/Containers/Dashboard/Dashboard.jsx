@@ -44,7 +44,6 @@ class Dashboard extends React.Component{
     }
     
     returnEntry = (values) => {
-        console.log( '[ dashboard ] returned entry with values ', values )
         if ( values._id !== undefined ){
             this.props.updateEntryOnTimeline( { ...values  }, values._id );
         } else {
@@ -54,7 +53,6 @@ class Dashboard extends React.Component{
     }
 
     deleteEntry = ( ) => {
-        console.log( '[ dashboard ] clicked delete entry...', this.props.timeline.currentEntry, ' on timeline ', this.props.timeline.id); 
         this.props.deleteEntryOnTimeline( this.props.timeline.currentEntry._id, this.props.timeline.id ); 
     }
 
@@ -84,10 +82,10 @@ class Dashboard extends React.Component{
         const entryForm = this.props.appState.isShowSingleEntry ?
             <div>
                 <button className={ "returnTimelinesButton" } onClick={ this.props.returnMainTimeline } >Return Main Timeline</button>
-                <button className={ "deleteEntryButton" } onClick={ this.deleteEntry }>Delete Current Entry</button>
                 <EntryForm
                     useCurrentEntry={this.props.appState.hasShowCurrentEntry}
                     onSubmit={ ( values ) => this.returnEntry( values ) }
+                    deleteCurrentEntry={ this.deleteEntry }
                 />
             </div> :
             false;

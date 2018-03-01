@@ -20,10 +20,10 @@ let EntryForm = ( props ) => {
 
     return(
       <div>
-
+          
         <form onSubmit={ handleSubmit }>
-          <button type="submit">Send Entry</button>
-
+          <button className={ "sendButton" } type="submit">Send Entry</button>
+          <button className={ "deleteEntryButton" } onClick={ props.deleteCurrentEntry } >Delete Entry</button>
           <Field className={ "formElement" } name="title" label={ "Title for the Entry" } component={ renderField } type="text" />
           <Field className={ "formElement" } name="what" label={ "Enter what occurred" } component={ renderField } type="text" />
           <Field className={ "formElement" } name="who" label={ "Enter who was involved" } component={ renderField } type="text" />

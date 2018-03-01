@@ -29,7 +29,6 @@ const handleGetSelectedTimelineFailure = ( response, dispatch ) => {
 }
 
 export function getSelectedTimeline( timelineId ){
-    console.log( '[ timelineActions ] get timeline ', timelineId ); 
     const sendToken = sessionStorage.getItem( "token" );
     const promise = fetch( `${ endpoint }/api/timelines`,
         {
