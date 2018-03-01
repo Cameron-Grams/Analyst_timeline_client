@@ -7,17 +7,31 @@ const initialState = {
     currentEntry: {},
 }
 
+
 const TimelineReducer = ( state = initialState, action ) => {
 
     switch ( action.type ){
         case actionTypes.formSubmit:
-            case actionTypes.getSelectedTimelineSuccess:{  
+        case actionTypes.getSelectedTimelineSuccess:{  
+            console.log( ' timelineReducer: response action for new TL ', action.response.entries[ 0 ] );
+
+            const dummyEntry = {
+                content: "Dummy val",
+                date: "1/1/2018",
+                dateObject: "2018-03-25T04:00:00.000Z",
+                source: "something", 
+                title: "something",
+                what: "something",
+                where: "somewhere",
+                who: "someone"
+            };
+
             return{
                 ...state,
                 id: action.response._id, 
                 title: action.response.title, 
-                currentEntry: action.response.entries[ 0 ],
-                data: action.response.entries
+                currentEntry: action.response.entries.length ?  action.response.entries[ 0 ] : dummyEntry,
+                data: action.response.entries.length ? action.response.entries : [ dummyEntry ]
             }
         }
 
