@@ -13,19 +13,21 @@ const TimelineReducer = ( state = initialState, action ) => {
     switch ( action.type ){
         case actionTypes.formSubmit:
         case actionTypes.getSelectedTimelineSuccess:{  
-            console.log( ' timelineReducer: response action for new TL ', action.response.entries[ 0 ] );
-
+            const recordDateNow = new Date(); 
+            const formatDate = (value) => {
+                    return value.getMonth()+1 + "/" + value.getDate() + "/" + value.getFullYear();
+                };
+            const todayDateString = formatDate( recordDateNow ); 
             const dummyEntry = {
-                content: "Dummy val",
-                date: "1/1/2018",
-                dateObject: "2018-03-25T04:00:00.000Z",
-                source: "something", 
-                title: "something",
-                what: "something",
-                where: "somewhere",
-                who: "someone"
+                content: "Initial Entry",
+                date: todayDateString,
+                dateObject: recordDateNow,
+                source: "Initial Entry", 
+                title: "Initial Entry",
+                what: "Initial Entry",
+                where: "Initial Entry",
+                who: "Initial Entry"
             };
-
             return{
                 ...state,
                 id: action.response._id, 
@@ -37,7 +39,6 @@ const TimelineReducer = ( state = initialState, action ) => {
 
         case actionTypes.entryUpdated:{
             const entries = state.data.slice();
-            console.log( '[ timelineReducer ] entries ', entries );
             const index = entries.findIndex( x => x._id === action.response._id );  
 
             entries[ index ] = action.response;
@@ -55,7 +56,6 @@ const TimelineReducer = ( state = initialState, action ) => {
 
         case actionTypes.entryDeleted:{
             const entries = state.data.slice();
-            console.log( '[ timelineReducer ] entries ', entries );
             const index = entries.findIndex( x => x._id === action.response._id );  
 
             entries.splice( index, 1 )

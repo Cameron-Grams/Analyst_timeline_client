@@ -21,6 +21,9 @@ button.deleteEntryButton:hover {
   background-color: red;
 }
 
+button.sendButton {
+  background-color: darkgreen;
+}
 button.sendButton:hover {
-  background-color: green;
+  background-color: #049682;
 }
