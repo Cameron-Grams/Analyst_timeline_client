@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux'; 
 import { Field, reduxForm } from 'redux-form';
 import { loadCurrentEntry } from '../../Actions/timelineActions';
-import renderField from '../../Components/RenderField/renderField'; 
+import renderField from '../../Components/RenderField/renderField';
+import { entryValidator as validate } from '../../Helpers/entryValidator'; 
+
 import renderDatePicker from '../../Components/RenderDatePicker/renderDatePicker'; 
 import moment from 'moment';
  
@@ -60,7 +62,8 @@ let EntryForm = ( props ) => {
 
 
 EntryForm = reduxForm({
-    form: 'currentEntryFromState' 
+    form: 'currentEntryFromState',
+    validate
   })( EntryForm ) 
   
 EntryForm = connect(

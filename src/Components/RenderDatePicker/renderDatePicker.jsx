@@ -55,7 +55,7 @@ export default class renderDatePicker extends React.Component {
         />
         {touched &&
           error &&
-          <span className="datepicker__error">
+          <span className="datePickerError error">
             {error}
           </span>}
       </div>

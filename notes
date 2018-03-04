@@ -7,32 +7,33 @@ needed to change the default react-router-redux to "react-router-redux": "^5.0.0
 23 Feb
 - method for sorting entries on the timeline call of the timeline router
 
-Problem:
+SOLEVED: Problem:
 moving back to the user-timelines drops the userTimeline information; theory is this is because the user information is moved by the 
 token, and the token does not have access to all the user profile, specifically the timelines...
 >>>> Wrong, the issue was with the ids for the timelines, not the full collection member being returned...fixed....?
 >>>> Second problem was the name of the property coming off of the db; needed to be sent timelines: userTimelines
 
 
-Problem:
+SOLEVED: Problem:
 the dashboard timeline graphic is still not updating after the new entry has been added to the timeline; theory is this is because
 the current DOM of the timeline has not re-rendered and drawn down the new data members
 >>>> used slice to copy the data property and manually update it in the timeline reducer
+
+SOLVED: Problem:
+fewer than full list of entries produces an error on entering new entry; how to create a "required" feature
+-backend validation with requiredFields ( mongoose validation: onto line 35 of new TL from router ), front validation helper functions ( Redux docs )
+>>>> front end redux-form requires the use of 'validate' by that specific name in order to use the HOC
+
+SOLVED: Problem:
+default first value for the create new timeline, default entry to start...
+>>>> Front end default values added as an option
+
 
 
 
 Problem:
 Inconsistent ordering of entries sorted chonologically; seen after first update remains the earliest on the timeline if a previous
 date was entered in the collection; Hisenbug...
-
-Problem:
-fewer than full list of entries produces an error on entering new entry; how to create a "required" feature
--backend validation with requiredFields ( mongoose validation: onto line 35 of new TL from router ), front validation helper functions ( Redux docs )
->>>> front end redux-form requires the use of 'validate' by that specific name in order to use the HOC
-
-Problem:
-default first value for the create new timeline, default entry to start...
->>>> Front end default values added as an option
 
 Problem:
 enter vs select send on the create new timeline feature
@@ -47,34 +48,12 @@ Problem:
 server stop on error: throng...
 
 
-
------------------------------------------------
-TODO:
-
--Error messages
-  -improper input
-    -validation of input
-
-
--Styling...
-
-
--Tests...
-
-
--Delete entries....
-
-
 ========================
+4 March
+-- separate format modules for the individual validations
 
 
-update entries
 
-added sort of new entries on return; problem with the storage by id
 
-added undefined to the profile loader to ensure the /user-timelines endpoint reloaded with user 
-  info
 
-added a call to the getSelectedTimeline with the timeline id after adding a new entry iot ensure
-  the timeline rendered with the added entry
 

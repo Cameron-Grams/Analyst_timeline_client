@@ -1,6 +1,9 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import Button from '../../Components/Button/button';
+import renderField from '../../Components/RenderField/renderField';
+import { timelineValidator as validate } from '../../Helpers/timelineValidator'; 
+
 
 let NewTimelineForm = props => {
     
@@ -8,8 +11,8 @@ let NewTimelineForm = props => {
 
       <form onSubmit={ props.handleSubmit }>
         <div className={ "formElement" } >
-            <label htmlFor="timelineTitle">Enter the theme of the Timeline</label>
-            <Field name="timelineTitle" component="input" type="text" />
+
+            <Field className={ "formElement" } name="timelineTitle" label={ "Enter Title of the Timeline" } component={ renderField } type="text" />
 
             <Button
              className={ "timelineOptions"}
@@ -23,7 +26,8 @@ let NewTimelineForm = props => {
 }
 
 NewTimelineForm = reduxForm({
-  form: 'createTimelineForm'
+  form: 'createTimelineForm',
+  validate
 })( NewTimelineForm )
 
 
