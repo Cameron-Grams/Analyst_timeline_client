@@ -8,6 +8,8 @@ import Button from '../../Components/Button/button';
 const Login = ( props ) => {  
 
     const authenticateUser = ( values ) => {
+        console.log( '[ login ] values submitted ', values );
+
         props.sendAuthentication( values ); 
     }
 

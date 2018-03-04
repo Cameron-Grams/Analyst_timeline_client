@@ -28,7 +28,7 @@ date was entered in the collection; Hisenbug...
 Problem:
 fewer than full list of entries produces an error on entering new entry; how to create a "required" feature
 -backend validation with requiredFields ( mongoose validation: onto line 35 of new TL from router ), front validation helper functions ( Redux docs )
-
+>>>> front end redux-form requires the use of 'validate' by that specific name in order to use the HOC
 
 Problem:
 default first value for the create new timeline, default entry to start...

@@ -1,6 +1,8 @@
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import renderField from '../../Components/RenderField/renderField';
+import { loginValidator as validate } from '../../Helpers/loginValidator'; 
+
 
 let LoginForm = props => {
 
@@ -14,7 +16,8 @@ let LoginForm = props => {
 }
 
 LoginForm = reduxForm({
-  form: 'loginForm'
+  form: 'loginForm',
+  validate
 })(LoginForm)
 
 export default LoginForm;
