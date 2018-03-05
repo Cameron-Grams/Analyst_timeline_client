@@ -42,7 +42,7 @@ Problem:
 validation of TL creation, no repeat TLs created...
 
 Problem:
-size of input- text vs textarea?
+size of input- text vs textarea? --- write second renderField
 
 Problem:
 server stop on error: throng...
