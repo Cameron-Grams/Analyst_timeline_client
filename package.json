@@ -2,7 +2,13 @@
   "name": "restful_timeline_client",
   "version": "0.1.0",
   "private": true,
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
   "dependencies": {
+    "babel": "^6.23.0",
     "moment": "^2.20.1",
     "prop-types": "^15.6.0",
     "radium": "^0.21.2",
@@ -34,7 +40,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
     "eject": "react-scripts eject"
   }
 }
