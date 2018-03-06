@@ -3,7 +3,7 @@ import configureStore from 'redux-mock-store';
 import asyncMiddleware from 'redux-thunk';
 import promiseMiddleware from '../Helpers/promise-middleware';
 
-import * as actions from './userActions';
+import * as actions from './actionTypes';
 
 import {
   fetchBasicInfo,
@@ -47,9 +47,10 @@ describe('User specific action creators', () => {
         expect( fetch ).toHaveBeenCalledWith(`${ endpoint }/api/users/register`,   {
           method: 'POST',
           body: JSON.stringify( newUser ),
-          headers: new Headers({
+          headers: {
+             Accept: 'application/json',
             'Content-Type': 'application/json'
-          })
+          }
         })
         expect( dispatchedActions[0]).toEqual({ type: actions.registrationUserTriggered });
         expect( dispatchedActions[1]).toEqual({ type: actions.registerUserSuccess, response});

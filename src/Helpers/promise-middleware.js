@@ -35,7 +35,7 @@ export default function PromiseMiddleware( { dispatch, getState } ) {
 
                 try {
                     if ( typeof onSuccess === 'function' ) {
-                        onSuccess( response, dispatch, getState, ...rest );
+                        onSuccess( response, dispatch, getState );
                     } else {
                         dispatch( { type: onSuccess, response, ...rest } );
                     }
