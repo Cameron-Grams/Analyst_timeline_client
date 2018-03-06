@@ -6,7 +6,8 @@ import promiseMiddleware from '../Helpers/promise-middleware';
 import * as actions from './userActions';
 
 import {
-  fetchBasicInfo
+  fetchBasicInfo,
+  registerNewUser
 } from './userActions';
 
 const middlewares = [
@@ -40,18 +41,18 @@ describe('User specific action creators', () => {
 
       fetch.mockResponseOnce( JSON.stringify( response ) )
 
-      return store.dispatch(userSignUp(newUser))
-      .then(() => {
+      return store.dispatch( registerNewUser( newUser ))
+      .then( () => {
         const dispatchedActions = store.getActions()
-        expect(fetch).toHaveBeenCalledWith(`${ endpoint }/api/users/register`,   {
+        expect( fetch ).toHaveBeenCalledWith(`${ endpoint }/api/users/register`,   {
           method: 'POST',
           body: JSON.stringify( newUser ),
           headers: new Headers({
             'Content-Type': 'application/json'
           })
-        });
-        expect(dispatchedActions[0]).toEqual({ type: actions.registrationUserTriggered });
-        expect(dispatchedActions[1]).toEqual({ type: actions.registerUserSuccess, response});
+        })
+        expect( dispatchedActions[0]).toEqual({ type: actions.registrationUserTriggered });
+        expect( dispatchedActions[1]).toEqual({ type: actions.registerUserSuccess, response});
       });
     });
   });

@@ -70,11 +70,11 @@ export function fetchBasicInfo(){
 
 const handleSuccessUserRegistration = ( response, dispatch ) => {
 
-    dispatch({
+    dispatch( {
         type: actionTypes.registerUserSuccess,
         response
     });
-    dispatch(push('/login'))
+    dispatch( push( '/login' ) )
 }
 
 export function registerNewUser( values ){
