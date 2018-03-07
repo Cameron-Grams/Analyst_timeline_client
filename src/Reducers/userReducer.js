@@ -18,7 +18,6 @@ const UserReducer = ( state = initialState, action ) => {
                 timelines: action.response.timelines
             }
         }
-
  
         case actionTypes.registerUserSuccess:{
             return{
@@ -43,7 +42,6 @@ const UserReducer = ( state = initialState, action ) => {
                 ]
             }
         }
-
         
         default:{
             return{

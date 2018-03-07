@@ -31,8 +31,6 @@ export default function PromiseMiddleware( { dispatch, getState } ) {
             .then( checkStatus )
             .then( parseJSON )
             .then(( response ) => {
-                console.log( '[pm midllewr ] response ', response ); 
-
                 try {
                     if ( typeof onSuccess === 'function' ) {
                         onSuccess( response, dispatch, getState );
