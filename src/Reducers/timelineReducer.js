@@ -50,10 +50,6 @@ const TimelineReducer = ( state = initialState, action ) => {
             }
         }
 
-
-
-
-
         case actionTypes.entryDeleted:{
             const entries = state.data.slice();
             const index = entries.findIndex( x => x._id === action.response._id );  
