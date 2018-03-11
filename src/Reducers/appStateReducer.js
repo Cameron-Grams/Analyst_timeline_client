@@ -63,6 +63,7 @@ const AppStateReducer = ( state = initialState, action ) => {
                 hasShowTimeline: !state.hasShowTimeline,
             }
         }
+
         case actionTypes.editEntry:{
             return{
                 ...state,
@@ -72,6 +73,7 @@ const AppStateReducer = ( state = initialState, action ) => {
                 hasShowCurrentEntry: true
             }
         }
+
         case actionTypes.addEntry:{
             return{
                 ...state,

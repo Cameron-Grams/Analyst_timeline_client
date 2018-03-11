@@ -9,6 +9,12 @@ const initialState = {
 
 describe( 'Manages user account activity', () => {
 
+    it( 'should register a new user', () => {
+        let state = UserReducer( initialState, { type: actions.registerUserSuccess } )
+
+        expect( state ).toEqual( initialState );
+    })
+
     it( 'Should log in a known user', () => {
         const demoUser = {
             userId: 1234,

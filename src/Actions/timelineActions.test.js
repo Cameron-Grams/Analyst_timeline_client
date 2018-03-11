@@ -147,7 +147,7 @@ describe( 'Actions specific to the timeline functions', () => {
             };
 
             const response = {
-                _id: 56789, 
+                _id: 56789-777, 
                 title: "New New New", 
                 currentEntry: values, 
                 data: [ values ]
@@ -174,7 +174,7 @@ describe( 'Actions specific to the timeline functions', () => {
 
         it( 'should update an existing entry on the timeline', () => {
             const store = mockStore({});
-            const entryId = 56789;
+            const entryId = 56789-999;
             const sendToken = 'dummy token';
             sessionStorage.setItem( 'token', sendToken );
 
@@ -216,7 +216,7 @@ describe( 'Actions specific to the timeline functions', () => {
 
         it( 'should delete an existing entry on the timeline', () => {
             const store = mockStore({});
-            const entryId = 56789;
+            const entryId = 56789-888;
             const timelineId = 27;
             const sendToken = 'dummy token';
             sessionStorage.setItem( 'token', sendToken );
@@ -261,6 +261,3 @@ describe( 'Actions specific to the timeline functions', () => {
 
 })
      
-
-
-

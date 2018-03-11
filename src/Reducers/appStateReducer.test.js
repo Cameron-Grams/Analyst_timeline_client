@@ -115,6 +115,169 @@ describe( 'the app state changes in response to events', () => {
     expect( state ).toEqual( responseState );
   } )
 
+  it( 'should acknowledge request for information has failed', () => {
+    const responseState = {
+        ...initialState,
+        hasRequestAuthentication: false,
+        isAuthenticated: false,
+        hasFailedAuthentication: true
+    };
+    let state = AppStateReducer( initialState, { type: actions.userBasicInfoFailed,
+        response: {
+            ...initialState,
+            hasRequestAuthentication: false,
+            isAuthenticated: false,
+            hasFailedAuthentication: true
+        } 
+    } );
+    expect( state ).toEqual( responseState );
+  })
 
+  it( 'should acknowledge request for information has failed', () => {
+    const responseState = {
+        ...initialState,
+        hasRequestAuthentication: false,
+        isAuthenticated: false,
+        hasFailedAuthentication: true
+    };
+    let state = AppStateReducer( initialState, { type: actions.userAuthenticationFailed,
+        response: {
+            ...initialState,
+            hasRequestAuthentication: false,
+            isAuthenticated: false,
+            hasFailedAuthentication: true
+        } 
+    } );
+    expect( state ).toEqual( responseState );
+  })
+
+  it( 'should change state to show all entries on command', () => {
+    const responseState = {
+        ...initialState,
+        hasShowAllEntries: true,
+        hasShowTimeline: false,
+    };
+    let state = AppStateReducer( initialState, { type: actions.showAllEntries,
+        response: {
+            ...initialState,
+            hasShowAllEntries: true,
+            hasShowTimeline: false
+        } 
+    } );
+    expect( state ).toEqual( responseState );
+  })
+
+  it( 'should change state to edit an entry on command', () => {
+    const responseState = {
+        ...initialState,
+        hasShowAllEntries: false,
+        hasShowTimeline: false,
+        isShowSingleEntry: true,
+        hasShowCurrentEntry: true
+    };
+    let state = AppStateReducer( initialState, { type: actions.editEntry,
+        response: {
+            ...initialState,
+            hasShowAllEntries: false,
+            hasShowTimeline: false,
+            isShowSingleEntry: true,
+            hasShowCurrentEntry: true
+        } 
+    } );
+    expect( state ).toEqual( responseState );
+  })
+
+  it( 'should change state to add an entry on command', () => {
+    const responseState = {
+        ...initialState,
+        hasShowAllEntries: false,
+        hasShowTimeline: false,
+        isShowSingleEntry: true
+    };
+    let state = AppStateReducer( initialState, { type: actions.addEntry,
+        response: {
+            ...initialState,
+            hasShowAllEntries: false,
+            hasShowTimeline: false,
+            isShowSingleEntry: true
+        } 
+    } );
+    expect( state ).toEqual( responseState );
+  } )
+
+  it( 'should change state to reflect an entry will be deleted on command', () => {
+    const responseState = {
+        ...initialState,
+        isShowSingleEntry: false,
+        hasShowCurrentEntry: false,
+        hasShowTimeline: true
+
+    };
+    let state = AppStateReducer( initialState, { type: actions.deleteEntryTriggered,
+        response: {
+            ...initialState,
+            isShowSingleEntry: false,
+            hasShowCurrentEntry: false,
+            hasShowTimeline: true
+        } 
+    } );
+    expect( state ).toEqual( responseState );
+  } )
+
+  it( 'should change state to reflect return to main timeine on command', () => {
+    const responseState = {
+        ...initialState,
+        isShowSingleEntry: false,
+        hasShowCurrentEntry: false,
+        hasShowTimeline: true
+
+    };
+    let state = AppStateReducer( initialState, { type: actions.returnMainTimeline,
+        response: {
+            ...initialState,
+            isShowSingleEntry: false,
+            hasShowCurrentEntry: false,
+            hasShowTimeline: true
+        } 
+    } );
+    expect( state ).toEqual( responseState );
+  } )
+  
+  it( 'should change state to reflect an entry updated on command', () => {
+    const responseState = {
+        ...initialState,
+        isShowSingleEntry: false,
+        hasShowCurrentEntry: false,
+        hasShowTimeline: true
+
+    };
+    let state = AppStateReducer( initialState, { type: actions.entryUpdated,
+        response: {
+            ...initialState,
+            isShowSingleEntry: false,
+            hasShowCurrentEntry: false,
+            hasShowTimeline: true
+        } 
+    } );
+    expect( state ).toEqual( responseState );
+  } )
+
+  it( 'should change state to reflect a new entry has been submitted on command', () => {
+    const responseState = {
+        ...initialState,
+        isShowSingleEntry: false,
+        hasShowCurrentEntry: false,
+        hasShowTimeline: true
+
+    };
+    let state = AppStateReducer( initialState, { type: actions.formSubmit,
+        response: {
+            ...initialState,
+            isShowSingleEntry: false,
+            hasShowCurrentEntry: false,
+            hasShowTimeline: true
+        } 
+    } );
+    expect( state ).toEqual( responseState );
+  } )
 })
-
