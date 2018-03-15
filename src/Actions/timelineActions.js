@@ -80,7 +80,6 @@ export function createNewTimeline( values, userId ){
     }
 }
 
-
 const submittedNewEntry = ( response, dispatch ) => {
     getSelectedTimeline( response._id ); 
     dispatch( {
@@ -167,4 +166,4 @@ const deletEntry = ( response, dispatch ) => {
         promise
     }
 
-}
+};
