@@ -41,6 +41,7 @@ const AppStateReducer = ( state = initialState, action ) => {
         case actionTypes.autenticationSuccess:{
             return{
                 ...state,
+                hasFailedAuthentication: false,
                 hasRequestAuthentication: false,
                 isAuthenticated: true,
             }
