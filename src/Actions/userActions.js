@@ -3,7 +3,7 @@ import { push } from 'react-router-redux';
 
 
 // const endpoint = "http://localhost:3030"; 
-const endpoint = "https://aqueous-fjord-19217.herokuapp.com/";
+const endpoint = "https://aqueous-fjord-19217.herokuapp.com";
 
 export function logoutUserSession(){
     sessionStorage.removeItem( "token" );
