@@ -165,5 +165,4 @@ const deletEntry = ( response, dispatch ) => {
         onFailure: actionTypes.deleteEntryFailure,
         promise
     }
-
 };
