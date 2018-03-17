@@ -20,6 +20,7 @@ const Login = ( props ) => {
             <h1>Log In to Work</h1>
             <LoginForm onSubmit={ authenticateUser } />
             <Button
+              className="regularButton"  
               sendPath={'/register' }
               buttonLable={ 'Register New User' } 
             />

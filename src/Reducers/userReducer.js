@@ -10,7 +10,8 @@ const UserReducer = ( state = initialState, action ) => {
     switch ( action.type ){
 
         case actionTypes.autenticationSuccess:
-        case actionTypes.returnUserBasicInfo:{
+        case actionTypes.returnUserBasicInfo:
+        case actionTypes.timelineDeleted:{ 
             return{
                 ...state,
                 userId: action.response._id,

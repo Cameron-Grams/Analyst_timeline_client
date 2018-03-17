@@ -44,14 +44,14 @@ h1{
   padding: 9px;
 }
 
-button{
+.regularButton{
   background-color: black;
   color: white;
   border: 1px solid transparent; 
   font-size: 1.2em;
 }
 
-button:hover{
+.regularButton:hover{
   background-color: blue;
 }
 @media ( min-width: 760px ){

@@ -18,7 +18,8 @@ let BuildOptions = ( props ) => {
             </Field>
 
            <Button
-             className={ "timelineOptions"}
+             className={ "regularButton" } 
+             divStyling={ "timelineOptions"}
              clickHandler={ handleSubmit }
              sendPath={ "/dashboard" }
              buttonLable={ 'Select Timeline' } /> 

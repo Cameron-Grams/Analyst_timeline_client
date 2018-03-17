@@ -81,7 +81,7 @@ class Dashboard extends React.Component{
 
         const entryForm = this.props.appState.isShowSingleEntry ?
             <div>
-                <button className={ "returnTimelinesButton" } onClick={ this.props.returnMainTimeline } >Return Main Timeline</button>
+                <button className={ "regularButton returnTimelinesButton" } onClick={ this.props.returnMainTimeline } >Return Main Timeline</button>
                 <EntryForm
                     useCurrentEntry={this.props.appState.hasShowCurrentEntry}
                     onSubmit={ ( values ) => this.returnEntry( values ) }

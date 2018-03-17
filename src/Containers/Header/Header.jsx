@@ -7,7 +7,8 @@ import './Header.css';
 const Header = ( props ) => {
     return(
         <div className="header" >
-            <Button className={ "header-third header-leftControl" } 
+            <Button className={ "regularButton " } 
+                divStyling={ "header-third header-leftControl"}
                 buttonLable={ "All Timelines" } 
                 sendPath={ '/user-timelines' } />
 
@@ -15,12 +16,14 @@ const Header = ( props ) => {
                 <h1 className="userName">{ props.user.name }</h1>
             </div>
 
-            <Button className={ " header-rightControl" } 
+            <Button className={ "css-deleteButton " } 
+                divStyling={ "header-rightControl"}
                 buttonLable={ "Delete Current Timeline" } 
                 sendPath={ "/delete-timeline" } />
 
 
-            <Button className={ "header-rightControl" } 
+            <Button className={ "regularButton" } 
+                divStyling={ "header-rightControl"}
                 buttonLable={ "Log Out" } 
                 clickHandler={ props.logoutUserSession } 
                 sendPath={ "/login" } />

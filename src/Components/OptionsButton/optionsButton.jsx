@@ -7,9 +7,9 @@ const Options = ( props ) => {
 
     return(
         <div className="displayBox" >
-            <button className={ "third " } onClick={ props.visibleEntries }>{ buttonName }</button>
-            <button className={ "third " } onClick={ props.editingShownEntry }>Edit Entry</button>
-            <button className={ "third " } onClick={ props.addNewEntry }>Add New Entry</button>
+            <button className={ "regularButton third " } onClick={ props.visibleEntries }>{ buttonName }</button>
+            <button className={ "regularButton third " } onClick={ props.editingShownEntry }>Edit Entry</button>
+            <button className={ "regularButton third " } onClick={ props.addNewEntry }>Add New Entry</button>
         </div>
     )
 }

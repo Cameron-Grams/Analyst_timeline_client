@@ -1,8 +1,8 @@
 import * as actionTypes from './actionTypes'; 
 import { push } from 'react-router-redux';
 
-// const endpoint = "http://localhost:3030"; 
-const endpoint = "https://aqueous-fjord-19217.herokuapp.com";
+const endpoint = "http://localhost:3030"; 
+// const endpoint = "https://aqueous-fjord-19217.herokuapp.com";
 
 export function loadCurrentEntry( entry ){
     return{
@@ -89,9 +89,10 @@ const timelineDeleted = ( response, dispatch ) => {
     dispatch( push( '/user-timelines' ) );
 }
 
-export function deleteCurrentTimeline( timelineId ){
+export function deleteCurrentTimeline( userId, timelineId ){
+    console.log( '[ timeline actions ] sending user id: ', userId ); 
     const sendToken = sessionStorage.getItem( "token" );
-    const promise = fetch( `${ endpoint }/api/timelines`,
+    const promise = fetch( `${ endpoint }/api/timelines/${ userId }`,
         {
         method: 'DELETE',
         headers: {

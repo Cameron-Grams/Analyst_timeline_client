@@ -24,7 +24,8 @@ let ThemeSelection = ( props ) => {
              onSubmit={ selectedTimeline } /> 
 
             <Button
-             className={ "timelineOptions"}
+             className={ "regularButton" }
+             divStyling={ "timelineOptions"}
              sendPath={ '/create-timeline'}
              buttonLable={ 'Add New Timeline' } /> 
 

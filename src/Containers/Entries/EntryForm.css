@@ -23,7 +23,11 @@ button.deleteEntryButton:hover {
 
 button.sendButton {
   background-color: #049682;
+  color: white;
+  border: 1px solid transparent; 
+  font-size: 1.2em;
 }
+
 button.sendButton:hover {
   background-color: #1fc619;
 }

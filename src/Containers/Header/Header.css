@@ -29,3 +29,15 @@
   display: inline-block;
   width: 16%;
 }
+
+.css-deleteButton{
+  background-color: black;
+  color: white;
+  border: 1px solid transparent; 
+  font-size: 1.2em;
+}
+
+
+.css-deleteButton:hover{
+  background-color: red; 
+}
