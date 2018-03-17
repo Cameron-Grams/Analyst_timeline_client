@@ -11,6 +11,7 @@ import Login from './Containers/Login/Login';
 import Register from './Containers/Register/Register'; 
 import Timelines from './Containers/Timelines/Timelines'; 
 import CreateTimeline from './Containers/Timelines/CreateTimeline'; 
+import DeleteTimeline from './Containers/DeleteTimeline/DeleteTimeline'; 
 import Dashboard from './Containers/Dashboard/Dashboard'; 
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
 
             <ProtectedRoute path="/user-timelines" component={ Timelines } />
             <ProtectedRoute path="/create-timeline" component={ CreateTimeline } />
+            <ProtectedRoute path="/delete-timeline" component={ DeleteTimeline } />
             <ProtectedRoute path="/dashboard/:timelineId" component={ Dashboard } />
           </ProfileLoader>
         </Switch>

@@ -15,7 +15,12 @@ const Header = ( props ) => {
                 <h1 className="userName">{ props.user.name }</h1>
             </div>
 
-            <Button className={ "header-third header-rightControl" } 
+            <Button className={ " header-rightControl" } 
+                buttonLable={ "Delete Current Timeline" } 
+                sendPath={ "/delete-timeline" } />
+
+
+            <Button className={ "header-rightControl" } 
                 buttonLable={ "Log Out" } 
                 clickHandler={ props.logoutUserSession } 
                 sendPath={ "/login" } />

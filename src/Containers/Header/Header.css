@@ -25,4 +25,7 @@
 .header-rightControl{
   text-align: right;
   padding-right: 10px;
+  vertical-align: center;
+  display: inline-block;
+  width: 16%;
 }

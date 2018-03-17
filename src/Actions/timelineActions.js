@@ -80,6 +80,53 @@ export function createNewTimeline( values, userId ){
     }
 }
 
+
+const timelineDeleted = ( response, dispatch ) => {
+    dispatch( { 
+        type: actionTypes.timelineDeleted,
+        response
+    })
+    dispatch( push( '/user-timelines' ) );
+}
+
+export function deleteCurrentTimeline( timelineId ){
+    const sendToken = sessionStorage.getItem( "token" );
+    const promise = fetch( `${ endpoint }/api/timelines`,
+        {
+        method: 'DELETE',
+        headers: {
+            Accept: 'application/json',
+            Authorization: sendToken,
+            'Content-Type': 'application/json',
+            },
+        body: JSON.stringify( { timelineId: timelineId } ),
+        } 
+    );   
+        
+    return {
+        onRequest: actionTypes.deleteTimelineTriggered,
+        onSuccess: timelineDeleted,
+        onFailure: actionTypes.deleteTimelineFailure,
+        promise
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const submittedNewEntry = ( response, dispatch ) => {
     getSelectedTimeline( response._id ); 
     dispatch( {
