@@ -30,6 +30,12 @@
   width: 16%;
 }
 
+.deleteSpaceHolder{
+  display: inline-block;
+  width: 16%;
+  color: black; 
+}
+
 .css-deleteButton{
   background-color: black;
   color: white;

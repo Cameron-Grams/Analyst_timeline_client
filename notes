@@ -72,4 +72,8 @@ warning messages: bad registration, login?
 
 user timelines in dropdown after delete
 
+app state changes for phases of delete timeline
+
+tests for new features; delete timeline- reducer, actions, endpoint
+
 Styling...

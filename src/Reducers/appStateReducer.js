@@ -4,6 +4,7 @@ const initialState = {
     hasRequestAuthentication: false,
     isAuthenticated: false,
     hasFailedAuthentication: false,
+    hasTimelineFocus: false,
     hasShowTimeline: true,
     hasShowAllEntries: false,
     isShowSingleEntry: false,
@@ -20,7 +21,14 @@ const AppStateReducer = ( state = initialState, action ) => {
             }
         }
 
-        case actionTypes.getSelectedTimelineSuccess:
+        case actionTypes.getSelectedTimelineSuccess:{  
+            return{
+                ...state,
+                isFetchingSelectedTimeline: initialState.isFetchingSelectedTimeline,
+                hasTimelineFocus: true
+            }
+        }
+
         case actionTypes.timlineRequestFailed:{
             return{
                 ...state,
@@ -28,6 +36,12 @@ const AppStateReducer = ( state = initialState, action ) => {
             }
         }
 
+       case actionTypes.timelineDeleted:{ 
+            return{
+                ...state,
+                hasTimelineFocus: false
+            }
+       }
 
         case actionTypes.requestBasicInfo: 
         case actionTypes.requestAuthentication:{

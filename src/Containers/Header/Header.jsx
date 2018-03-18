@@ -5,6 +5,14 @@ import Button from '../../Components/Button/button';
 import './Header.css'; 
 
 const Header = ( props ) => {
+
+    const DeleteButton = props.appState.hasTimelineFocus ? 
+            <Button className={ "css-deleteButton " } 
+                divStyling={ "header-rightControl"}
+                buttonLable={ "Delete Current Timeline" } 
+                sendPath={ "/delete-timeline" } />
+            : <div className={ "deleteSpaceHolder" }><p>_</p></div>; 
+
     return(
         <div className="header" >
             <Button className={ "regularButton " } 
@@ -16,11 +24,7 @@ const Header = ( props ) => {
                 <h1 className="userName">{ props.user.name }</h1>
             </div>
 
-            <Button className={ "css-deleteButton " } 
-                divStyling={ "header-rightControl"}
-                buttonLable={ "Delete Current Timeline" } 
-                sendPath={ "/delete-timeline" } />
-
+            { DeleteButton }
 
             <Button className={ "regularButton" } 
                 divStyling={ "header-rightControl"}
@@ -32,7 +36,8 @@ const Header = ( props ) => {
 }
 
 const mapStateToProps = ( state ) => ( {
-    user: state.user
+    user: state.user,
+    appState: state.appState
 } )
 
 export default connect( mapStateToProps, { logoutUserSession } )( Header ); 

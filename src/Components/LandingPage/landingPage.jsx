@@ -10,6 +10,7 @@ const LandingPage = () => {
           <h3>Explanation</h3>
         </div>
         <Button
+          className={ "regularButton" }
           sendPath={ '/login' }
           buttonLable={ 'Go Log In' } />
 
