@@ -79,3 +79,4 @@ export const formSubmit = 'SUBMIT_ENTRY_FORM';
 
 export const returnMainTimeline = 'RETURN_MAIN_TIMELINE'; 
 
+export const returnUserTImelines = 'RETURN_USER_TIMELINE'; 

@@ -62,6 +62,7 @@ const TimelineReducer = ( state = initialState, action ) => {
             }
         }
 
+        case actionTypes.timelineDeleted: 
         case actionTypes.newTimelineCreated:{
             return{
                 ...state

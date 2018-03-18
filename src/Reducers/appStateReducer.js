@@ -110,6 +110,13 @@ const AppStateReducer = ( state = initialState, action ) => {
             }
         }
 
+        case actionTypes.returnUserTImelines:{
+            return{
+                ...state,
+                hasTimelineFocus: initialState.hasTimelineFocus,
+            }
+        }
+
         default:{
             return{
                 ...state

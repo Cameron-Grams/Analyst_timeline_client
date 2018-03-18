@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { loadCurrentEntry } from '../../Actions/timelineActions';
 import renderField from '../../Components/RenderField/renderField';
+import renderFieldLarge from '../../Components/RenderField/renderFieldLarge';
 import { entryValidator as validate } from '../../Helpers/entryValidator'; 
 
 import renderDatePicker from '../../Components/RenderDatePicker/renderDatePicker'; 
@@ -27,11 +28,11 @@ let EntryForm = ( props ) => {
           <button className={ "sendButton" } type="submit">Send Entry</button>
           <button className={ "deleteEntryButton" } onClick={ props.deleteCurrentEntry } >Delete Entry</button>
           <Field className={ "formElement" } name="title" label={ "Title for the Entry" } component={ renderField } type="text" />
-          <Field className={ "formElement" } name="what" label={ "Enter what occurred" } component={ renderField } type="text" />
+          <Field className={ "formElement" } name="what" label={ "Enter what occurred" } component={ renderFieldLarge } type="text" />
           <Field className={ "formElement" } name="who" label={ "Enter who was involved" } component={ renderField } type="text" />
           <Field className={ "formElement" } name="where" label={ "Where did this happen?" } component={ renderField } type="text" />
           <Field className={ "formElement" } name="source" label={ "References?" } component={ renderField } type="text" />
-          <Field className={ "formElement" } name="content" label={ "Enter why this is significant" } component={ renderField } type="textarea" />
+          <Field className={ "formElement" } name="content" label={ "Enter why this is significant" } component={ renderFieldLarge } type="text" />
           
           { updateDate } 
 
