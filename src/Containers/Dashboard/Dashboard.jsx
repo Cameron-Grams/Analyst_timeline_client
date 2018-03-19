@@ -99,8 +99,7 @@ class Dashboard extends React.Component{
                    <div>
                         <Header userName={userName} />
 
-                        <div className="displayBox"  >
-                            <h1>This is the Timeline titled:</h1>
+                        <div className="displayBox upperBox"  >
                             <h2>{ summaryDescription }</h2>
                         </div>
 

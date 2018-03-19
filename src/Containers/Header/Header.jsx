@@ -7,13 +7,6 @@ import './Header.css';
 
 const Header = ( props ) => {
 
-    const DeleteButton = props.appState.hasTimelineFocus ? 
-            <Button className={ "css-deleteButton " } 
-                divStyling={ "header-rightControl"}
-                buttonLable={ "Delete Current Timeline" } 
-                sendPath={ "/delete-timeline" } />
-            : <div className={ "deleteSpaceHolder" }></div>; 
-
     return(
         <div className="header" >
             <Button className={ "regularButton " } 
@@ -25,8 +18,6 @@ const Header = ( props ) => {
             <div className="header-third header-centerText">
                 <h1 className="userName">{ props.user.name }</h1>
             </div>
-
-            { DeleteButton }
 
             <Button className={ "regularButton" } 
                 divStyling={ "header-rightControl"}

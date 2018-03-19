@@ -1,15 +1,15 @@
 .optionsBox{
   width: 100%;
-  background-color: #00474c; 
+  background-color: #222; 
   padding: 5px;
 }
 
 
 
-.third{
+.quarter{
     vertical-align: center;
     display: inline-block;
-    width: 33.3%;
+    width: 23%;
 }
 
 .optionsDisplayBox{
@@ -17,3 +17,17 @@
   margin: 10px auto;
 }
 
+
+.css-deleteButton{
+  display: inline;
+  background-color: #222;
+  color: white;
+  border: 1px solid transparent; 
+  border-radius: 5px;
+  font-size: 1.2em;
+}
+
+
+.css-deleteButton:hover{
+  background-color: red; 
+}
