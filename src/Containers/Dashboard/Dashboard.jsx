@@ -1,6 +1,5 @@
 import React  from 'react';
 import { connect } from 'react-redux';
-import DashboardElement from '../../Components/DashboardElement/dashboardElement';
 import Header from '../Header/Header';
 import Options from '../../Components/OptionsButton/optionsButton';
 import DisplayEntries from '../../Components/Entries/entriesDisplay';

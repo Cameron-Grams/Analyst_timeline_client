@@ -5,6 +5,7 @@ const initialState = {
     hasRequestAuthentication: false,
     isAuthenticated: false,
     hasFailedAuthentication: false,
+    hasTimelineFocus: false,
     hasShowTimeline: true,
     hasShowAllEntries: false,
     isShowSingleEntry: false,
@@ -30,12 +31,14 @@ describe( 'the app state changes in response to events', () => {
  it( 'registers a timeline request is no longer active',  () => {
     const responseState = {
         ...initialState,
-        isFetchingSelectedTimeline: false
+        isFetchingSelectedTimeline: false,
+        hasTimelineFocus: true
     };
     let state = AppStateReducer( initialState, { type: actions.getSelectedTimelineSuccess, 
         response: {
             ...initialState,
-            isFetchingSelectedTimeline: initialState.isFetchingSelectedTimeline
+            isFetchingSelectedTimeline: initialState.isFetchingSelectedTimeline,
+            hasTimelineFocus: true,
         } 
     } );
     expect( state ).toEqual( responseState );
