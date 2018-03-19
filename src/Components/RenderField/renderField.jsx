@@ -1,9 +1,9 @@
 import React from 'react'; 
 
-  const renderField = ( { className, type, label, input, meta: { touched, error } } ) => (
+  const renderField = ( { className, type, label, labelClassName, input, inputClassName, meta: { touched, error } } ) => (
     <div className={ className } >
-      <label>{ label }</label><span>  </span>
-      <input { ...input } type={ type } />
+      <label className={ `${ labelClassName}` } >{ label }</label><span>  </span>
+      <input className={ `${ inputClassName}` } { ...input } type={ type } />
       { touched && error && <span className="error" >{ error }</span> }
     </div>
   ); 

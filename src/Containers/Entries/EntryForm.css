@@ -1,3 +1,13 @@
+.outerEntryForm{
+  width: 100%;
+}
+
+.innerEntryForm{
+  width: 50%;
+  border: 1px solid black;
+  margin: auto;
+}
+
 .form{
   width: 40%;
   margin: 10% auto;
@@ -10,6 +20,18 @@
   margin: 10px;
 }
 
+.entryElement{
+  display: inline-block;
+  position: relative; 
+}
+
+.css-entryInput{
+  float: right;
+}
+
+.css-entryLabel{
+  float: left;
+}
 button.deleteEntryButton {
   background-color: #911507;
   color: white;

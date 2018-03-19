@@ -22,22 +22,25 @@ let EntryForm = ( props ) => {
         : ''; 
 
     return(
-      <div>
-          
+      <div className="outerEntryForm" >
+        <div className="innerEntryForm" >
         <form onSubmit={ handleSubmit }>
           <button className={ "sendButton" } type="submit">Send Entry</button>
           <button className={ "deleteEntryButton" } onClick={ props.deleteCurrentEntry } >Delete Entry</button>
-          <Field className={ "formElement" } name="title" label={ "Title for the Entry" } component={ renderField } type="text" />
-          <Field className={ "formElement" } name="what" label={ "Enter what occurred" } component={ renderFieldLarge } type="text" />
-          <Field className={ "formElement" } name="who" label={ "Enter who was involved" } component={ renderField } type="text" />
-          <Field className={ "formElement" } name="where" label={ "Where did this happen?" } component={ renderField } type="text" />
-          <Field className={ "formElement" } name="source" label={ "References?" } component={ renderField } type="text" />
-          <Field className={ "formElement" } name="content" label={ "Enter why this is significant" } component={ renderFieldLarge } type="text" />
+          <div className={ "entryElement" } ><Field className={ "formElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="title" label={ "Title for the Entry" } component={ renderField } type="text" /></div>
+          <div className={ "entryElement" } ><Field className={ "formElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="what" label={ "Enter what occurred" } component={ renderFieldLarge } type="text" /></div>
+          <div className={ "entryElement" } ><Field className={ "formElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="who" label={ "Enter who was involved" } component={ renderField } type="text" /></div>
+          <div className={ "entryElement" }><Field className={ "formElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="where" label={ "Where did this happen?" } component={ renderField } type="text" /></div>
+          <div className={ "entryElement" }><Field className={ "formElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="source" label={ "References?" } component={ renderField } type="text" /></div>
+          <div className={ "entryElement" }><Field className={ "formElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="content" label={ "Enter why this is significant" } component={ renderFieldLarge } type="text" /></div>
           
+          <div  className={ "entryElement" }>
           { updateDate } 
 
           <p>Enter the date of the event below using the Calendar</p>
+          </div>
 
+          <div>
           <Field
             label={ "when did this occur?" }
             name="date"
@@ -54,9 +57,10 @@ let EntryForm = ( props ) => {
             normalize={ value => (value ? moment(value).format('MM/DD/YYYY') : null)}
             component={renderDatePicker}
           />
-
+          </div>
           
         </form>
+        </div>
       </div>
     )
 }
