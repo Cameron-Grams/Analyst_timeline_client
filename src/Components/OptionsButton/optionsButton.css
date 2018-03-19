@@ -1,13 +1,19 @@
+.optionsBox{
+  width: 100%;
+  background-color: #00474c; 
+  padding: 5px;
+}
+
+
+
 .third{
     vertical-align: center;
     display: inline-block;
     width: 33.3%;
 }
 
-.displayBox{
-  width: 85%;
-  border: 1px solid black;
-  border-radius: 5px;
+.optionsDisplayBox{
+  width: 95%;
   margin: 10px auto;
 }
 

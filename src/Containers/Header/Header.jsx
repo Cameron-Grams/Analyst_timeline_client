@@ -12,7 +12,7 @@ const Header = ( props ) => {
                 divStyling={ "header-rightControl"}
                 buttonLable={ "Delete Current Timeline" } 
                 sendPath={ "/delete-timeline" } />
-            : <div className={ "deleteSpaceHolder" }><p>_</p></div>; 
+            : <div className={ "deleteSpaceHolder" }></div>; 
 
     return(
         <div className="header" >

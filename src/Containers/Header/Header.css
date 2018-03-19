@@ -6,7 +6,7 @@
 
 .header{
   width: 100%;
-  background-color: black;
+  background-color: #00474c;
   color: white;
   margin: 0;
 }
@@ -37,9 +37,11 @@
 }
 
 .css-deleteButton{
-  background-color: black;
+  background-color: #00474c;
   color: white;
   border: 1px solid transparent; 
+  border-radius: 5px;
+  padding: 2px;
   font-size: 1.2em;
 }
 

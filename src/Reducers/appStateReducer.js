@@ -4,6 +4,7 @@ const initialState = {
     hasRequestAuthentication: false,
     isAuthenticated: false,
     hasFailedAuthentication: false,
+    hasFailedRegistration: false,
     hasTimelineFocus: false,
     hasShowTimeline: true,
     hasShowAllEntries: false,
@@ -70,6 +71,21 @@ const AppStateReducer = ( state = initialState, action ) => {
                 hasFailedAuthentication: true
             }
         }
+
+        case actionTypes.registerUserSuccess:{
+            return{
+                ...state,
+                hasFailedRegistration: initialState.hasFailedRegistration,
+            }
+        }
+
+        case actionTypes.registrationUserFailure:{
+            return{
+                ...state,
+                hasFailedRegistration: true,
+            }
+        }
+
 
        case actionTypes.showAllEntries: {
             return {

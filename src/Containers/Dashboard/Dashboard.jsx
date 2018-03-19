@@ -100,9 +100,10 @@ class Dashboard extends React.Component{
                    <div>
                         <Header userName={userName} />
 
-                        <DashboardElement
-                            elementTitle={'Title of the Timeline'}
-                            elementContent={summaryDescription} />
+                        <div className="displayBox"  >
+                            <h1>This is the Timeline titled:</h1>
+                            <h2>{ summaryDescription }</h2>
+                        </div>
 
                         <Options
                             displayState={this.props.appState.hasShowAllEntries}

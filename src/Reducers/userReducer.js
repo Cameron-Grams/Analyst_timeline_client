@@ -19,12 +19,6 @@ const UserReducer = ( state = initialState, action ) => {
                 timelines: action.response.timelines
             }
         }
- 
-        case actionTypes.registerUserSuccess:{
-            return{
-                ...state,
-            }
-        }
 
         case actionTypes.logoutUserSession:{
             return {...state,
