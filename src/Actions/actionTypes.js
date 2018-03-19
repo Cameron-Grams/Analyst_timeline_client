@@ -43,6 +43,13 @@ export const createTimelineTriggered = 'CREATE_TIMELINE_STARTED'; // not used
 
 export const createTimelineFailure = 'CREATE_TIMELINE_FAILURE'; // not used 
 
+export const deleteTimelineTriggered = 'DELETE_TIMELINE_TRIGGERED';
+
+export const timelineDeleted = 'TIMELINE_DELETED'; 
+
+export const deleteTimelineFailure = 'DELETE_TIMELINE_FAILURE'; 
+
+
 //-------------- update entries on timeline
 export const updateEntryTriggered = 'UPDATE_ENTRY_TRIGGERED';
 
@@ -72,3 +79,4 @@ export const formSubmit = 'SUBMIT_ENTRY_FORM';
 
 export const returnMainTimeline = 'RETURN_MAIN_TIMELINE'; 
 
+export const returnUserTImelines = 'RETURN_USER_TIMELINE'; 

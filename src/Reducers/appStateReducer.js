@@ -4,6 +4,8 @@ const initialState = {
     hasRequestAuthentication: false,
     isAuthenticated: false,
     hasFailedAuthentication: false,
+    hasFailedRegistration: false,
+    hasTimelineFocus: false,
     hasShowTimeline: true,
     hasShowAllEntries: false,
     isShowSingleEntry: false,
@@ -20,7 +22,14 @@ const AppStateReducer = ( state = initialState, action ) => {
             }
         }
 
-        case actionTypes.getSelectedTimelineSuccess:
+        case actionTypes.getSelectedTimelineSuccess:{  
+            return{
+                ...state,
+                isFetchingSelectedTimeline: initialState.isFetchingSelectedTimeline,
+                hasTimelineFocus: true
+            }
+        }
+
         case actionTypes.timlineRequestFailed:{
             return{
                 ...state,
@@ -28,6 +37,12 @@ const AppStateReducer = ( state = initialState, action ) => {
             }
         }
 
+       case actionTypes.timelineDeleted:{ 
+            return{
+                ...state,
+                hasTimelineFocus: false
+            }
+       }
 
         case actionTypes.requestBasicInfo: 
         case actionTypes.requestAuthentication:{
@@ -41,6 +56,7 @@ const AppStateReducer = ( state = initialState, action ) => {
         case actionTypes.autenticationSuccess:{
             return{
                 ...state,
+                hasFailedAuthentication: false,
                 hasRequestAuthentication: false,
                 isAuthenticated: true,
             }
@@ -55,6 +71,21 @@ const AppStateReducer = ( state = initialState, action ) => {
                 hasFailedAuthentication: true
             }
         }
+
+        case actionTypes.registerUserSuccess:{
+            return{
+                ...state,
+                hasFailedRegistration: initialState.hasFailedRegistration,
+            }
+        }
+
+        case actionTypes.registrationUserFailure:{
+            return{
+                ...state,
+                hasFailedRegistration: true,
+            }
+        }
+
 
        case actionTypes.showAllEntries: {
             return {
@@ -92,6 +123,13 @@ const AppStateReducer = ( state = initialState, action ) => {
                 isShowSingleEntry: false,
                 hasShowCurrentEntry: false,
                 hasShowTimeline: true
+            }
+        }
+
+        case actionTypes.returnUserTImelines:{
+            return{
+                ...state,
+                hasTimelineFocus: initialState.hasTimelineFocus,
             }
         }
 

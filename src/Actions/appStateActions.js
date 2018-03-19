@@ -26,6 +26,11 @@ export function returnMainTimeline(){
     };
 };
 
+export function returnUserTImelines(){
+    return{
+        type: 'RETURN_USER_TIMELINE'
+    };
+};
 
 
 

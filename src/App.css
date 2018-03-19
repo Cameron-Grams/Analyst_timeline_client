@@ -44,15 +44,17 @@ h1{
   padding: 9px;
 }
 
-button{
-  background-color: black;
+.regularButton{
+  background-color: #00474c;
   color: white;
   border: 1px solid transparent; 
+  border-radius: 5px;
+  padding: 2px;
   font-size: 1.2em;
 }
 
-button:hover{
-  background-color: blue;
+.regularButton:hover{
+  background-color: #FF6800;
 }
 @media ( min-width: 760px ){
 }

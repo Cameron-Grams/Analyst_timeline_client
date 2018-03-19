@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 
 let Register = ( props ) => {
 
+    const failedRegistrationNotice = props.appState.registrationUserFailure ?
+        <div><h2>Registration failed, try again</h2></div>
+        : null; 
+
     const sendRegistration = ( values ) => {
         props.registerNewUser( values );  
     }
@@ -12,10 +16,14 @@ let Register = ( props ) => {
     return( 
         <div className={ "form" } id="registrationForm" >
             < RegistrationForm onSubmit={ sendRegistration } />
+            { failedRegistrationNotice }
         </div>
      )
 };
 
-Register = connect( null, { registerNewUser } )( Register );
+const mapStateToProps = ( state ) => ( {
+    appState: state.appState
+})
+Register = connect( mapStateToProps, { registerNewUser } )( Register );
 
 export default Register;

@@ -15,9 +15,10 @@ let NewTimelineForm = props => {
             <Field className={ "formElement" } name="timelineTitle" label={ "Enter Title of the Timeline" } component={ renderField } type="text" />
 
             <Button
-             className={ "timelineOptions"}
-             sendPath={ '/user-timelines'}
-             buttonLable={ 'Create Timeline' } /> 
+              className={ "regularButton" }
+              divStyling={ "timelineOptions"}
+              sendPath={ '/user-timelines'}
+              buttonLable={ 'Create Timeline' } /> 
 
         </div>
    

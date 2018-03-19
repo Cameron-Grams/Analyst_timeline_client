@@ -2,6 +2,7 @@ import * as actionTypes from './actionTypes';
 import { push } from 'react-router-redux';
 
 const endpoint = "http://localhost:3030"; 
+// const endpoint = "https://aqueous-fjord-19217.herokuapp.com";
 
 export function loadCurrentEntry( entry ){
     return{
@@ -78,6 +79,53 @@ export function createNewTimeline( values, userId ){
         promise
     }
 }
+
+
+const timelineDeleted = ( response, dispatch ) => {
+    dispatch( { 
+        type: actionTypes.timelineDeleted,
+        response
+    })
+    dispatch( push( '/user-timelines' ) );
+}
+
+export function deleteCurrentTimeline( userId, timelineId ){
+    console.log( '[ timeline actions ] sending user id: ', userId ); 
+    const sendToken = sessionStorage.getItem( "token" );
+    const promise = fetch( `${ endpoint }/api/timelines/${ userId }`,
+        {
+        method: 'DELETE',
+        headers: {
+            Accept: 'application/json',
+            Authorization: sendToken,
+            'Content-Type': 'application/json',
+            },
+        body: JSON.stringify( { timelineId: timelineId } ),
+        } 
+    );   
+        
+    return {
+        onRequest: actionTypes.deleteTimelineTriggered,
+        onSuccess: timelineDeleted,
+        onFailure: actionTypes.deleteTimelineFailure,
+        promise
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const submittedNewEntry = ( response, dispatch ) => {
@@ -165,5 +213,4 @@ const deletEntry = ( response, dispatch ) => {
         onFailure: actionTypes.deleteEntryFailure,
         promise
     }
-
-}
+};
