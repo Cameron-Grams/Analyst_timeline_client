@@ -10,13 +10,23 @@ const UserReducer = ( state = initialState, action ) => {
     switch ( action.type ){
 
         case actionTypes.autenticationSuccess:
-        case actionTypes.returnUserBasicInfo:
-        case actionTypes.timelineDeleted:{ 
+        case actionTypes.returnUserBasicInfo:{ 
             return{
                 ...state,
                 userId: action.response._id,
                 name: action.response.name,
                 timelines: action.response.timelines
+            }
+        }
+
+        case actionTypes.timelineDeleted:{
+            console.log( action.response )
+            const timelines = state.timelines;
+            const index = state.timelines.findIndex(  x => x._id === action.response._id )
+            timelines.splice( index, 1 )
+            return{
+                ...state,
+                timelines
             }
         }
 
