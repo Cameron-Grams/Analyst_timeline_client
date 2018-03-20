@@ -3,7 +3,7 @@
 }
 
 .innerEntryForm{
-  width: 50%;
+  width: 40%;
   border: 1px solid black;
   margin: auto;
 }
@@ -21,6 +21,15 @@
 }
 
 .entryElement{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.css-entryLabel{
+  margin-right: 75px; 
+}
+/*
+.entryElement{
   display: inline-block;
   position: relative; 
 }
@@ -32,6 +41,9 @@
 .css-entryLabel{
   float: left;
 }
+*/
+
+
 button.deleteEntryButton {
   background-color: #911507;
   color: white;
