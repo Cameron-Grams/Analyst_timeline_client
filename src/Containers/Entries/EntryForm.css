@@ -21,28 +21,34 @@
 }
 
 .entryElement{
-  display: flex;
-  justify-content: flex-end;
+  width: 100%;
+  font-size: 0;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
 }
 
-.css-entryLabel{
-  margin-right: 75px; 
-}
-/*
-.entryElement{
+.entryElement > .css-entryInput,
+.entryElement > .css-entryLabel{
   display: inline-block;
-  position: relative; 
+  width: 50%;
+  font-size: 16px;
+  padding: 0 10px;
+  vertical-align: middle;
 }
 
-.css-entryInput{
-  float: right;
+.entryElement > .css-entryInput{
+  text-align: right; 
 }
 
-.css-entryLabel{
-  float: left;
+.entryElement > .css-entryInput text,
+.entryElement > .css-entryInput textarea{
+  width: 80%;
 }
-*/
 
+.entryElement > .css-entryInput textarea{
+  height: 100px; 
+}
 
 button.deleteEntryButton {
   background-color: #911507;

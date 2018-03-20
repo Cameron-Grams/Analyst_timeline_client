@@ -27,12 +27,12 @@ let EntryForm = ( props ) => {
         <form onSubmit={ handleSubmit }>
           <button className={ "sendButton" } type="submit">Send Entry</button>
           <button className={ "deleteEntryButton" } onClick={ props.deleteCurrentEntry } >Delete Entry</button>
-          <div className={ "entryElement" } ><Field className={ "formElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="title" label={ "Title for the Entry" } component={ renderField } type="text" /></div>
-          <div className={ "entryElement" } ><Field className={ "formElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="what" label={ "Enter what occurred" } component={ renderFieldLarge } type="text" /></div>
-          <div className={ "entryElement" } ><Field className={ "formElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="who" label={ "Enter who was involved" } component={ renderField } type="text" /></div>
-          <div className={ "entryElement" }><Field className={ "formElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="where" label={ "Where did this happen?" } component={ renderField } type="text" /></div>
-          <div className={ "entryElement" }><Field className={ "formElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="source" label={ "References?" } component={ renderField } type="text" /></div>
-          <div className={ "entryElement" }><Field className={ "formElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="content" label={ "Enter why this is significant" } component={ renderFieldLarge } type="text" /></div>
+          <Field className={ "formElement entryElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="title" label={ "Title for the Entry" } component={ renderField } type="text" />
+          <Field className={ "formElement entryElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="what" label={ "Enter what occurred" } component={ renderFieldLarge } type="text" />
+          <Field className={ "formElement entryElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="who" label={ "Enter who was involved" } component={ renderField } type="text" />
+          <Field className={ "formElement entryElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="where" label={ "Where did this happen?" } component={ renderField } type="text" />
+          <Field className={ "formElement entryElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="source" label={ "References?" } component={ renderField } type="text" />
+          <Field className={ "formElement entryElement" } labelClassName={ "css-entryLabel" } inputClassName={ "css-entryInput" } name="content" label={ "Enter why this is significant" } component={ renderFieldLarge } type="text" />
           
           <div  className={ "entryElement" }>
           { updateDate } 
