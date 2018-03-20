@@ -57,7 +57,6 @@ export default class HorizontalTimelineContent extends React.Component {
         <div className='container' key={index}>
           <h3>{ entry.title }</h3>
           { entry.content } 
-          <h4>Timeline Entry</h4>
         </div>
       );
     });
