@@ -4,7 +4,6 @@
 
 .innerEntryForm{
   width: 40%;
-  border: 1px solid black;
   margin: auto;
 }
 
@@ -22,8 +21,8 @@
 
 .entryElement{
   width: 100%;
-  font-size: 0;
   border: 1px solid black;
+  color: black;
   padding: 10px;
   margin: 10px;
 }
