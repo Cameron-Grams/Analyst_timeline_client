@@ -1,6 +1,10 @@
 import * as actionTypes from '../Actions/actionTypes'; 
 
 const initialState = {
+    alertMessage: {
+        hasError: false,
+        message: ""
+    },
     hasRequestAuthentication: false,
     isAuthenticated: false,
     hasFailedAuthentication: false,

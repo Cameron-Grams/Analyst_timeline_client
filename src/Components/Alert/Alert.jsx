@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { resetAlertMessage } from '../../actions/';
+import { resetAlertMessage } from '../../Actions/appStateActions';
 
 import './Alert.css';
 
@@ -14,7 +14,7 @@ const Alert = props => {
         }, props.msToClose);
     }
     return(
-        <div className={`alert ${props.isError ? 'error' : 'success'}`}>
+        <div className={`alert ${props.hasError ? 'error' : 'success'}`}>
             {props.message}
             {!props.isSelfClosing &&
                 <span onClick={props.resetAlertMessage} className="close">X</span>
@@ -24,7 +24,7 @@ const Alert = props => {
 };
 
 Alert.defaultProps = {
-    isError: false,
+    hasError: false,
     closeHandler: null,
     msToClose: 4000,
     isSelfClosing: false,
@@ -32,7 +32,7 @@ Alert.defaultProps = {
 
 Alert.propTypes = {
     message: PropTypes.string.isRequired,
-    isError: PropTypes.bool,
+    hasError: PropTypes.bool,
     isSelfClosing: PropTypes.bool,
     closeHandler: PropTypes.func,
     msToClose: PropTypes.number,

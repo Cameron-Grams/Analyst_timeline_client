@@ -26,7 +26,19 @@ class GlobalContextLoader extends Component {
                 ( sessionStorage.getItem('token') && ( this.props.user.userId === null ) ) ?
                     < Waiting /> 
                 :
+
+                <div>
+                    {this.props.appState.alertMessage &&
+                        <div className="error">
+                            <Alert
+                                hasError={this.props.appState.alertMessage.hasError}
+                                message={this.props.appState.alertMessage.message}
+                            />
+                        </div>
+                    }
                     <div>{this.props.children}</div>
+                </div>
+
                 }
             </div>
         )
@@ -34,7 +46,8 @@ class GlobalContextLoader extends Component {
 }
 
 const mapStateToProps = ( state ) => ( { 
-    user: state.user
+    user: state.user,
+    appState: state.appState
 } );
 
 export default connect( mapStateToProps, { fetchBasicInfo, getSelectedTimeline, toUserTimelines } )( GlobalContextLoader ); 
