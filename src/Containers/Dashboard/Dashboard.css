@@ -2,7 +2,13 @@
   width: 85%;
   margin: 10px auto;
 }
-
+.upperBox{
+  width: 55%;
+  background-color: #222;
+  border-radius: 5px;
+  color: white;
+  padding: 15px;
+}
 .returnTimelinesButton{
   margin: 10px auto 10px; 
 }

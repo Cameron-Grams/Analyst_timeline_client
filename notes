@@ -77,3 +77,17 @@ app state changes for phases of delete timeline
 tests for new features; delete timeline- reducer, actions, endpoint
 
 Styling...
+<<<<<<< HEAD
+=======
+
+
+
+
+added:
+actionTypes.registrationUserFailure
+
+
+================================
+19 March
+error messages; bad timeline, registration, login
+>>>>>>> a6d5764f820ca5416b73d991778bad078bfdcf01

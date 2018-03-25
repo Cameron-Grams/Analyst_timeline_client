@@ -1,6 +1,5 @@
 import React  from 'react';
 import { connect } from 'react-redux';
-import DashboardElement from '../../Components/DashboardElement/dashboardElement';
 import Header from '../Header/Header';
 import Options from '../../Components/OptionsButton/optionsButton';
 import DisplayEntries from '../../Components/Entries/entriesDisplay';
@@ -100,8 +99,7 @@ class Dashboard extends React.Component{
                    <div>
                         <Header userName={userName} />
 
-                        <div className="displayBox"  >
-                            <h1>This is the Timeline titled:</h1>
+                        <div className="displayBox upperBox"  >
                             <h2>{ summaryDescription }</h2>
                         </div>
 

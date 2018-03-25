@@ -1,5 +1,6 @@
 import React from 'react';
 import './optionsButton.css'; 
+import { Link } from 'react-router-dom';
 
 const Options = ( props ) => {
 
@@ -8,12 +9,15 @@ const Options = ( props ) => {
     return(
         <div className={ "optionsBox" } >
         <div className="optionsDisplayBox" >
-            <button className={ "regularButton third " } onClick={ props.visibleEntries }>{ buttonName }</button>
-            <button className={ "regularButton third " } onClick={ props.editingShownEntry }>Edit Entry</button>
-            <button className={ "regularButton third " } onClick={ props.addNewEntry }>Add New Entry</button>
+            <button className={ "regularButton quarter " } onClick={ props.visibleEntries }>{ buttonName }</button>
+            <button className={ "regularButton quarter " } onClick={ props.editingShownEntry }>Edit Entry</button>
+            <button className={ "regularButton quarter " } onClick={ props.addNewEntry }>Add New Entry</button>
+            <button className={ "css-deleteButton quarter"} ><Link className={ "routingLink" } to={ "/delete-timeline" } >Delete Timeline</Link></button>
         </div>
         </div>
     )
 }
 
 export default Options;
+
+

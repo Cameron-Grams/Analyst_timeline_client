@@ -34,7 +34,7 @@ const DeleteTimeline = ( props ) => {
                 <Button className={ "css-deleteButton" } 
                     buttonLable={ "Delete Current Timeline" } 
                     clickHandler={ () => sendDelete() } 
-                    sendPath={ "/delete-timeline" } />
+                />
 
             </div>
         </div>
