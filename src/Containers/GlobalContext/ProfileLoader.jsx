@@ -5,7 +5,7 @@ import { getSelectedTimeline,  toUserTimelines } from '../../Actions/timelineAct
 import Waiting from '../../Components/Waiting/waiting'; 
 
 
-class ProfileLoader extends Component {
+class GlobalContextLoader extends Component {
 
     currentUserCheck(){
         return this.props.user.userId === null;
@@ -37,4 +37,4 @@ const mapStateToProps = ( state ) => ( {
     user: state.user
 } );
 
-export default connect( mapStateToProps, { fetchBasicInfo, getSelectedTimeline, toUserTimelines } )( ProfileLoader ); 
+export default connect( mapStateToProps, { fetchBasicInfo, getSelectedTimeline, toUserTimelines } )( GlobalContextLoader ); 

@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux'
 import { history } from './store';
 import ProtectedRoute from './Containers/ProtectedToken/ProtectedRoute';
-import ProfileLoader from './Containers/ProfileLoader/ProfileLoader';
+import GlobalContextLoader from './Containers/GlobalContext/GlobalContextLoader';
 
 import LandingPage from './Components/LandingPage/landingPage'; 
 import Login from './Containers/Login/Login'; 
@@ -20,7 +20,7 @@ class App extends Component {
       <div className="App">
       <ConnectedRouter history={ history }>  
         <Switch >      
-          <ProfileLoader >
+          <GlobalContextLoader >
             <Route exact path="/" component={ LandingPage } />
             <Route exact path="/login" component={ Login } />
             <Route exact path="/register" component={ Register } />
@@ -29,7 +29,7 @@ class App extends Component {
             <ProtectedRoute path="/create-timeline" component={ CreateTimeline } />
             <ProtectedRoute path="/delete-timeline" component={ DeleteTimeline } />
             <ProtectedRoute path="/dashboard/:timelineId" component={ Dashboard } />
-          </ProfileLoader>
+          </GlobalContextLoader>
         </Switch>
       </ConnectedRouter>
       </div>
