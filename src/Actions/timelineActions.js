@@ -1,8 +1,7 @@
 import * as actionTypes from './actionTypes'; 
 import { push } from 'react-router-redux';
+import { endpoint } from '../config/appConfig'; 
 
-const endpoint = "http://localhost:3030"; 
-// const endpoint = "https://aqueous-fjord-19217.herokuapp.com";
 
 export function loadCurrentEntry( entry ){
     return{

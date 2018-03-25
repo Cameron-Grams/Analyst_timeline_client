@@ -6,6 +6,7 @@ import { history } from './store';
 import ProtectedRoute from './Containers/ProtectedToken/ProtectedRoute';
 import GlobalContextLoader from './Containers/GlobalContext/GlobalContextLoader';
 
+import ErrorPage from './Components/ErrorPage/ErrorPage'; 
 import LandingPage from './Components/LandingPage/landingPage'; 
 import Login from './Containers/Login/Login'; 
 import Register from './Containers/Register/Register'; 
@@ -25,6 +26,7 @@ class App extends Component {
             <Route exact path="/login" component={ Login } />
             <Route exact path="/register" component={ Register } />
 
+            <ProtectedRoute path="/error-page" component={ ErrorPage } /> 
             <ProtectedRoute path="/user-timelines" component={ Timelines } />
             <ProtectedRoute path="/create-timeline" component={ CreateTimeline } />
             <ProtectedRoute path="/delete-timeline" component={ DeleteTimeline } />

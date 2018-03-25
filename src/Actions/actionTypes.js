@@ -80,3 +80,16 @@ export const formSubmit = 'SUBMIT_ENTRY_FORM';
 export const returnMainTimeline = 'RETURN_MAIN_TIMELINE'; 
 
 export const returnUserTImelines = 'RETURN_USER_TIMELINE'; 
+
+//============Middleware specific ====================
+
+export const UNAUTHORIZED_REDIRECT = 'UNAUTHORIZED_REDIRECT';
+
+export const FORBIDDEN_REDIRECT = 'FORBIDDEN_REDIRECT';
+
+export const NOT_FOUND_REDIRECT = 'NOT_FOUND_REDIRECT';
+
+export const SHOW_ALERT_MESSAGE = 'SHOW_ALERT_MESSAGE';
+
+export const SERVER_ERROR_REDIRECT = 'SERVER_ERROR_REDIRECT'; 
+
