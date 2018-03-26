@@ -1,10 +1,7 @@
 import * as actionTypes from '../Actions/actionTypes'; 
 
 const initialState = {
-    alertMessage: {
-        hasError: false,
-        message: ""
-    },
+    alertMessage: null,
     hasRequestAuthentication: false,
     isAuthenticated: false,
     hasFailedAuthentication: false,
@@ -80,7 +77,6 @@ const AppStateReducer = ( state = initialState, action ) => {
             return{
                 ...state,
                 hasFailedRegistration: initialState.hasFailedRegistration,
-                alertMessage: initialState.alertMessage
             }
         }
 
@@ -88,10 +84,6 @@ const AppStateReducer = ( state = initialState, action ) => {
             return{
                 ...state,
                 hasFailedRegistration: true,
-                alertMessage: {
-                        hasError: true,
-                        message: "Registration failed"
-                    }
             }
         }
 
@@ -147,6 +139,16 @@ const AppStateReducer = ( state = initialState, action ) => {
                 ...state,
                 alertMessage: initialState.alertMessage
             }
+        }
+
+        case actionTypes.SHOW_ALERT_MESSAGE: {
+            return {
+                ...state,
+                alertMessage: {
+                    hasError: true,
+                    message: action.response.generalMessage,
+                },
+            };
         }
 
         default:{
