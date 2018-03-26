@@ -80,6 +80,7 @@ const AppStateReducer = ( state = initialState, action ) => {
             return{
                 ...state,
                 hasFailedRegistration: initialState.hasFailedRegistration,
+                alertMessage: initialState.alertMessage
             }
         }
 
@@ -87,6 +88,10 @@ const AppStateReducer = ( state = initialState, action ) => {
             return{
                 ...state,
                 hasFailedRegistration: true,
+                alertMessage: {
+                        hasError: true,
+                        message: "Registration failed"
+                    }
             }
         }
 
@@ -134,6 +139,13 @@ const AppStateReducer = ( state = initialState, action ) => {
             return{
                 ...state,
                 hasTimelineFocus: initialState.hasTimelineFocus,
+            }
+        }
+
+        case actionTypes.RESET_ALERT_MESSAGE:{
+            return{
+                ...state,
+                alertMessage: initialState.alertMessage
             }
         }
 

@@ -8,16 +8,16 @@ import './Alert.css';
 
 const Alert = props => {
     const resultCloseHandler = props.closeHandler ? props.closeHandler : props.resetAlertMessage;
-    if (props.isSelfClosing) {
+    if ( props.isSelfClosing ) {
         setTimeout(() => {
             resultCloseHandler();
-        }, props.msToClose);
+        }, props.msToClose );
     }
     return(
-        <div className={`alert ${props.hasError ? 'error' : 'success'}`}>
-            {props.message}
-            {!props.isSelfClosing &&
-                <span onClick={props.resetAlertMessage} className="close">X</span>
+        <div className={ `alert ${ props.hasError ? 'error' : 'success' }` }>
+            { props.message }
+            { !props.isSelfClosing &&
+                <span onClick={ props.resetAlertMessage } className="close">X</span>
             }
         </div>
     )

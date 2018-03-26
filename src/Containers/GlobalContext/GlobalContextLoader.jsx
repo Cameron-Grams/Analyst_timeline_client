@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchBasicInfo } from '../../Actions/userActions'; 
 import { getSelectedTimeline,  toUserTimelines } from '../../Actions/timelineActions';
 import Waiting from '../../Components/Waiting/waiting'; 
-
+import Alert from '../../Components/Alert/Alert'; 
 
 class GlobalContextLoader extends Component {
 
