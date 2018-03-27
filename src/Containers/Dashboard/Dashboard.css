@@ -1,12 +1,13 @@
 .displayBox{
   width: 85%;
   margin: 10px auto;
+  color: white;
 }
 .upperBox{
   width: 55%;
-  background-color: #222;
+  background-color: #898888;
   border-radius: 5px;
-  color: white;
+  color: black;
   padding: 15px;
 }
 .returnTimelinesButton{

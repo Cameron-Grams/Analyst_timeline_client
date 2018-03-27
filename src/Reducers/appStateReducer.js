@@ -1,6 +1,7 @@
 import * as actionTypes from '../Actions/actionTypes'; 
 
 const initialState = {
+    alertMessage: null,
     hasRequestAuthentication: false,
     isAuthenticated: false,
     hasFailedAuthentication: false,
@@ -131,6 +132,23 @@ const AppStateReducer = ( state = initialState, action ) => {
                 ...state,
                 hasTimelineFocus: initialState.hasTimelineFocus,
             }
+        }
+
+        case actionTypes.RESET_ALERT_MESSAGE:{
+            return{
+                ...state,
+                alertMessage: initialState.alertMessage
+            }
+        }
+
+        case actionTypes.SHOW_ALERT_MESSAGE: {
+            return {
+                ...state,
+                alertMessage: {
+                    hasError: true,
+                    message: action.response.generalMessage,
+                },
+            };
         }
 
         default:{

@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { fetchBasicInfo } from '../../Actions/userActions'; 
 import { getSelectedTimeline,  toUserTimelines } from '../../Actions/timelineActions';
 import Waiting from '../../Components/Waiting/waiting'; 
+import Alert from '../../Components/Alert/Alert'; 
 
-
-class ProfileLoader extends Component {
+class GlobalContextLoader extends Component {
 
     currentUserCheck(){
         return this.props.user.userId === null;
@@ -26,7 +26,19 @@ class ProfileLoader extends Component {
                 ( sessionStorage.getItem('token') && ( this.props.user.userId === null ) ) ?
                     < Waiting /> 
                 :
+
+                <div>
+                    {this.props.appState.alertMessage &&
+                        <div className="error">
+                            <Alert
+                                hasError={this.props.appState.alertMessage.hasError}
+                                message={this.props.appState.alertMessage.message}
+                            />
+                        </div>
+                    }
                     <div>{this.props.children}</div>
+                </div>
+
                 }
             </div>
         )
@@ -34,7 +46,8 @@ class ProfileLoader extends Component {
 }
 
 const mapStateToProps = ( state ) => ( { 
-    user: state.user
+    user: state.user,
+    appState: state.appState
 } );
 
-export default connect( mapStateToProps, { fetchBasicInfo, getSelectedTimeline, toUserTimelines } )( ProfileLoader ); 
+export default connect( mapStateToProps, { fetchBasicInfo, getSelectedTimeline, toUserTimelines } )( GlobalContextLoader ); 
