@@ -96,7 +96,8 @@ class Dashboard extends React.Component{
                 { this.props.appState.isFetchingSelectedTimeline  ?
                     < Waiting /> 
                 :
-                   <div>
+                   <div >
+                       <div className={ "parentDashboardDisplay" } >
                         <Header userName={userName} />
 
                         <div className="displayBox upperBox"  >
@@ -108,6 +109,7 @@ class Dashboard extends React.Component{
                             visibleEntries={this.props.showAllEntries}
                             editingShownEntry={this.props.editEntry}
                             addNewEntry={this.props.addEntry} />
+                       </div>
 
                         {entryForm}
                         {elements}
