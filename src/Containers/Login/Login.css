@@ -1,0 +1,13 @@
+.demoDetails{
+    width: 20%;
+    margin: auto;
+}
+
+.detailItems{
+    float: left;
+    margin: 5px;
+}
+
+.demoFont{
+    color: white;
+}

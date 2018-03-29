@@ -69,7 +69,11 @@ const AppStateReducer = ( state = initialState, action ) => {
                 ...state,
                 hasRequestAuthentication: false,
                 isAuthenticated: false,
-                hasFailedAuthentication: true
+                hasFailedAuthentication: true,
+                alertMessage: {
+                    hasError: true,
+                    message: action.response.message,
+                }
             }
         }
 
@@ -146,7 +150,7 @@ const AppStateReducer = ( state = initialState, action ) => {
                 ...state,
                 alertMessage: {
                     hasError: true,
-                    message: action.response.generalMessage,
+                    message: action.response.message,
                 },
             };
         }
