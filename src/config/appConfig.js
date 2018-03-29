@@ -1,4 +1,9 @@
 export const endpoint = "https://aqueous-fjord-19217.herokuapp.com";
+<<<<<<< HEAD
+=======
+
+// export const endpoint = "http://localhost:3030";
+>>>>>>> workbranch
 
 // export const endpoint = "http://localhost:3030";
 
