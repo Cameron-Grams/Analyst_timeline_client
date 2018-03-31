@@ -1,16 +1,18 @@
 .parentDashboardDisplay{
-  background-color: #222;
+  background-color: #000133;
 }
 
-
 .displayBox{
-  width: 85%;
-  margin: 10px auto;
-  color: white;
+  width: 75%;
+  margin: 50px auto;
+  padding: 10px;
+  background-color: #B29100;
+  color: black;
+  border: 1px solid black;
 }
 .upperBox{
   width: 55%;
-  background-color: #898888;
+  background-color: #FFCF00;
   border-radius: 5px;
   color: black;
   padding: 15px;

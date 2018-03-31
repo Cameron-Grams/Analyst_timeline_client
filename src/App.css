@@ -13,7 +13,7 @@ ul{
   width: 40%;
   margin: 10% auto;
   padding: 15px;
-  border: 1px solid black;
+  background-color: #B29100;
   border-radius: 9px;
 }
 
@@ -45,16 +45,16 @@ h1{
 }
 
 .regularButton{
-  background-color: #222;
+  background-color: #000133;
   color: white;
   border: 1px solid transparent; 
   border-radius: 5px;
-  padding: 2px;
+  padding: 2px 5px;
   font-size: 1.2em;
 }
 
 .regularButton:hover{
-  background-color: #FF6800;
+  background-color: #44ff03;
 }
 @media ( min-width: 760px ){
 }

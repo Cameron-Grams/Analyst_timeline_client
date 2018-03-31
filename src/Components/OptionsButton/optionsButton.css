@@ -1,6 +1,6 @@
 .optionsBox{
   width: 100%;
-  background-color: #222; 
+  background-color: #000133; 
   padding: 5px;
 }
 
@@ -20,7 +20,7 @@
 
 .css-deleteButton{
   display: inline;
-  background-color: #222;
+  background-color: #000133;
   color: white;
   border: 1px solid transparent; 
   border-radius: 5px;

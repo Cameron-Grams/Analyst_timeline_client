@@ -17,22 +17,24 @@ const Login = ( props ) => {
             <Waiting />
             <p>Stand by for Log In validation</p>
         </div> :
-        <div>
+        <div className={ "loginDiv" }>
 
             <h1>Log In to Work</h1>
                 <LoginForm onSubmit={ authenticateUser } />
-                <Button
+               
+            <p>To log in with the demonstration account use:</p>
+            <p >Email: <span className="demoFont" >demo@demo.com</span></p>
+            <p >Password: <span className="demoFont" >demo</span></p>
+
+            <Button
                 className="regularButton"  
                 sendPath={'/register' }
                 buttonLable={ 'Register New User' } 
                 />
 
 
-            <p>To log in with the demonstration account use:</p>
-                <ul className={ "demoDetails"   } >
-                    <li className={ "detailItems" } >Email: <span className={ "demoFont" }>demo@demo.com</span></li>
-                    <li className={ "detailItems" } >Password: <span className={ "demoFont" }>demo</span></li>
-                </ul>
+
+
         </div>;
 
     const failedLogin = props.appState.hasFailedAuthentication ?

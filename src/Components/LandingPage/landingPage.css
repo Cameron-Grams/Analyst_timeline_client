@@ -1,11 +1,7 @@
-.loginDiv{
+.landingDiv{
     margin: 5% auto;
-    padding: 7px;
+    padding: 27px;
     background-color: #B29100;
     width: 40%;
     border-radius: 5px;
-}
-
-.demoFont{
-    color: white;
 }
