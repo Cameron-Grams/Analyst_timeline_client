@@ -2,6 +2,7 @@ import * as actionTypes from '../Actions/actionTypes';
 
 const initialState = {
     alertMessage: null,
+    isLoaderVisibile: false,
     hasRequestAuthentication: false,
     isAuthenticated: false,
     hasFailedAuthentication: false,
@@ -16,6 +17,24 @@ const initialState = {
 
 const AppStateReducer = ( state = initialState, action ) => {
     switch ( action.type ){
+
+        case actionTypes.HIDE_GLOBAL_LOADER:{
+            return{
+                ...state,
+                isLoaderVisibile: initialState.isLoaderVisibile
+            }
+        }
+
+        case actionTypes.SHOW_GLOBAL_LOADER:{
+            return{
+                ...state,
+                isLoaderVisibile: true
+            }
+        }
+
+
+
+
         case actionTypes.requestTimeline:{
             return{
                 ...state,
@@ -63,9 +82,9 @@ const AppStateReducer = ( state = initialState, action ) => {
             }
         }
 
-        case actionTypes.SHOW_ALERT_MESSAGE: 
-        case actionTypes.userBasicInfoFailed: 
-        case actionTypes.userAuthenticationFailed:{
+        case actionTypes.SHOW_ALERT_MESSAGE: { 
+ //       case actionTypes.userBasicInfoFailed: 
+ //       case actionTypes.userAuthenticationFailed:{
             console.log( '[ appStateReducer ] on fail: ', action.response );
 
             return{
@@ -160,9 +179,8 @@ const AppStateReducer = ( state = initialState, action ) => {
 export default AppStateReducer;
 
 
+
 /*
-
-
         case actionTypes.SHOW_ALERT_MESSAGE: {
             return {
                 ...state,
@@ -172,5 +190,4 @@ export default AppStateReducer;
                 },
             };
         }
-
-*/ 
+*/

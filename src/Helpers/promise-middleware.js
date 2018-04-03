@@ -48,10 +48,13 @@ export default function promiseMiddleware({ dispatch, getState }) {
             dispatch({ type: onRequest, ...rest });
         }
 
+        dispatch({type: actionTypes.SHOW_GLOBAL_LOADER } );
+
         return promise
             .catch((error, ...rest) => {
                 console.log(error, rest)
                 dispatch({type: actionTypes.NOT_FOUND_REDIRECT});
+                dispatch({type: actionTypes.HIDE_GLOBAL_LOADER } );
                 dispatch(push(appConfig.NOT_FOUND_ENDPOINT));
                 throw new Error('Network failure', error.message);
             })
@@ -64,6 +67,9 @@ export default function promiseMiddleware({ dispatch, getState }) {
                     } else {
                         dispatch({ type: onSuccess, response, ...rest });
                     }
+
+                dispatch({type: actionTypes.HIDE_GLOBAL_LOADER } );
+
                 } catch (e) {
                     e.message = `Action success error: ${e.message}`;
                     e.type = 'ActionError';
@@ -79,6 +85,9 @@ export default function promiseMiddleware({ dispatch, getState }) {
                         console.log( '[ promise-middleware ] error response in catch: ', error ); 
                         dispatch({ type: onFailure, error: error.response, ...rest });
                     }
+
+                dispatch({type: actionTypes.HIDE_GLOBAL_LOADER } );
+
                 } else {
                     throw error;
                 }

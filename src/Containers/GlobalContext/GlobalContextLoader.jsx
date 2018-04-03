@@ -22,8 +22,8 @@ class GlobalContextLoader extends Component {
     render() {
         return (
             <div>
-                { 
-                ( sessionStorage.getItem('token') && ( this.props.user.userId === null ) ) ?
+               { 
+                ( this.props.appState.isLoaderVisible || ( sessionStorage.getItem('token') && ( this.props.user.userId === null ) ) ) ?
                     < Waiting /> 
                 :
 
