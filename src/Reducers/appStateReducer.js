@@ -63,8 +63,11 @@ const AppStateReducer = ( state = initialState, action ) => {
             }
         }
 
+        case actionTypes.SHOW_ALERT_MESSAGE: 
         case actionTypes.userBasicInfoFailed: 
         case actionTypes.userAuthenticationFailed:{
+            console.log( '[ appStateReducer ] on fail: ', action.response );
+
             return{
                 ...state,
                 hasRequestAuthentication: false,
@@ -144,6 +147,21 @@ const AppStateReducer = ( state = initialState, action ) => {
                 alertMessage: initialState.alertMessage
             }
         }
+       default:{
+            return{
+                ...state
+            }
+        }
+    }
+}
+
+
+
+export default AppStateReducer;
+
+
+/*
+
 
         case actionTypes.SHOW_ALERT_MESSAGE: {
             return {
@@ -155,14 +173,4 @@ const AppStateReducer = ( state = initialState, action ) => {
             };
         }
 
-        default:{
-            return{
-                ...state
-            }
-        }
-    }
-}
-
-
-
-export default AppStateReducer;
+*/ 
