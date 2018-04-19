@@ -32,9 +32,6 @@ const AppStateReducer = ( state = initialState, action ) => {
             }
         }
 
-
-
-
         case actionTypes.requestTimeline:{
             return{
                 ...state,

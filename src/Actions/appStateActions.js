@@ -32,7 +32,6 @@ export function returnUserTImelines(){
     };
 };
 
-
 export function resetAlertMessage(){
     return{
         type: 'RESET_ALERT_MESSAGE'

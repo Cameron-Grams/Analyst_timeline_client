@@ -1,5 +1,8 @@
 //=========User Actions ===========================
 
+
+
+
 export const requestAuthentication = 'REQUEST_AUTHENTICATION';
 
 export const autenticationSuccess = 'SUCCESSFUL_AUTHENTICTION'; 
@@ -21,6 +24,10 @@ export const registrationUserFailure = 'USER_REGISTRATION_FAILURE';  // not used
 export const logoutUserSession = 'LOGOUT_SESSION'; 
 
 //===========Timeline Actions =====================
+
+
+
+
 export const requestTimeline = 'REQUEST_TIMELINE';  // not used outside of reducer 
 
 export const getSelectedTimelineSuccess = 'FETCH_SELECTED_TIMELINE_SUCCESS';
@@ -68,6 +75,9 @@ export const deleteEntryFailure = 'DELETE_ENTRY_FAILURE';
 
 
 //==========App State Actions =====================
+
+
+
 
 export const showAllEntries = 'SHOW_ALL_ENTRIES'; 
 

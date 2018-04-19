@@ -5,6 +5,7 @@ import './Login.css';
 import { sendAuthentication } from '../../Actions/userActions'; 
 import Button from '../../Components/Button/button';
 import Waiting from '../../Components/Waiting/waiting'; 
+import Countdelay from './Countdelay'; 
 
 const Login = ( props ) => {  
 
@@ -15,7 +16,8 @@ const Login = ( props ) => {
     const loginMessage = props.appState.hasRequestAuthentication ?
         <div>
             <Waiting />
-            <p>Stand by for Log In validation</p>
+            <p>Validation and Data Retrieval in progress.</p>
+            < Countdelay />
         </div> :
         <div className={ "loginDiv" }>
 
