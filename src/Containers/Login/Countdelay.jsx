@@ -4,16 +4,15 @@ import { connect } from 'react-redux';
 class Countdelay extends React.Component{
     constructor( props ){
         super( props );
+        this.state = {
+            currentCount: 0,
+        }
     }
 
-    state = {
-            currentCountTimer: null,
-            currentCount: 0
-    }
+   
 
     componentDidMount(){
-        let timer = setInterval( this.advanceCount, 1000 );
-        this.setState( { currentCountTimer: timer } ); 
+        this.timer = setInterval( this.advanceCount.bind( this ), 1000 );
         console.log( '[ countdelay ] current state: ', this.state );
     }
     
@@ -23,20 +22,21 @@ class Countdelay extends React.Component{
         } )
     }
 
+    componentWillUnmount(){
+        clearInterval( this.timer );
+        this.setState( { currentCount: 0 } ) 
+
+    }
 
     render(){
-
-        if ( this.props.appState.isAuthenticated || this.props.appState.hasFailedAuthentication ){
-            this.clearInterval( this.state.currentCountTimer );
-            this.setState( { currentCount: 0 } ) 
-        }
 
         return(
             <div>
                 { this.props.appState.hasRequestAuthentication && 
                 <div> 
-                <div>{ this.state.currentCount }</div>
-                    <p>If the count reaches 50 please refresh the screen</p>
+                <div className="css-currentCount" >{ this.state.currentCount }</div>
+                <p>If the count reaches 50 please refresh the screen</p>
+                <p>and log in again.  Thank you.</p>
                 </div>
                 }
             </div>

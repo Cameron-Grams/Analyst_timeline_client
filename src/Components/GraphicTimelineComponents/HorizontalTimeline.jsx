@@ -163,6 +163,8 @@ HorizontalTimeline.defaultProps = {
   linePadding: Constants.TIMELINE_PADDING,
   labelWidth: Constants.DATE_WIDTH,
   // --- STYLING ---
+  
+
   styles: {
     outline: '#dfdfdf',
     background: '#f8f8f8',

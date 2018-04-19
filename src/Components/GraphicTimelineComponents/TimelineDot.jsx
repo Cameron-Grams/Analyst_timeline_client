@@ -49,11 +49,11 @@ const dots = {
    * @param {object} styles User passed styles ( foreground, background etc info
    */
   present: (styles) => ({
-    backgroundColor: styles.foreground,
-    border: `2px solid ${styles.foreground}`,
+    backgroundColor: '#c40f05',
+    border: `2px solid #c40f05`,
   }),
 };
-
+//     border: `2px solid ${styles.foreground}` ; original coloring with the low-res background
 
 /**
  * The markup for one single dot on the timeline

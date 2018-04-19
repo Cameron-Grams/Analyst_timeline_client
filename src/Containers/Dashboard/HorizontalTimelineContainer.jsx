@@ -13,6 +13,7 @@ export default class HorizontalTimelineContent extends React.Component {
       previous: 0,
 
       // timelineConfig
+      //  
       minEventPadding: 20,
       maxEventPadding: 120,
       linePadding: 100,
