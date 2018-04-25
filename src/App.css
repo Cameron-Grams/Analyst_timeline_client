@@ -54,7 +54,8 @@ h1{
 }
 
 .regularButton:hover{
-  background-color: #44ff03;
+  background-color: #0005ff;
 }
+
 @media ( min-width: 760px ){
 }
