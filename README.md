@@ -3,6 +3,11 @@ https://travis-ci.org/Cameron-Grams/third_timeline_client.svg?branch=master)](ht
 
 
 
-# RESTFUL Timeline Client
+# Timeline Client
 
-This is the Analyst's Timeline application.  It is a work in progress and still not complete.  
+This is the Analyst's Timeline built to organize research. An analyst can establish a theme for research in a given area by creating a timeline, and then populate the timeline with significant events that develop their understanding of the topic.  
+
+![alt-text][screenshot]
+
+[screenshot]: https://s3.us-east-2.amazonaws.com/cameronprofilephotos/analystTimeline2.png "Screen shot of Analyst's Timeline" 
+
