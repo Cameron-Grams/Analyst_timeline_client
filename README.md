@@ -13,3 +13,4 @@ This is the Analyst's Timeline built to organize research. An analyst can establ
 
 [screenshot]: https://s3.us-east-2.amazonaws.com/cameronprofilephotos/analystTimeline2.png "Screen shot of Analyst's Timeline" 
 
+The site application itself was built using React and Redux to manage overall app state.  It is hosted on Netlify for the client and Heroku for the server, and makes use of the mLab cloud based MongoDB hosting.
