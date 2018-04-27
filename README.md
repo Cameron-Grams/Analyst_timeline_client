@@ -2,7 +2,6 @@
 https://travis-ci.org/Cameron-Grams/third_timeline_client.svg?branch=master)](https://travis-ci.org/Cameron-Grams/third_timeline_client)
 
 
-
 # Analyst Timeline Client
 
 [The Live Site]( https://amazing-davinci-10dc21.netlify.com/login )
