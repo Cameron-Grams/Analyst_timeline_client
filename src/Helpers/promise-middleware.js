@@ -36,22 +36,22 @@ const checkStatus = (dispatch, response) => {
 
 export default function promiseMiddleware({ dispatch, getState }) {
     return next => (action) => {
-        const { promise, onRequest, onSuccess, onFailure, ...rest } = action;
+        const { promise, onRequest, onSuccess, onFailure } = action;
         if (!promise) {
             // if action dispatched is not a promise, just send it to the next processor
             return next(action);
         }
 
         if (typeof onRequest === 'function') {
-            onRequest(dispatch, getState, ...rest);
+            onRequest(dispatch, getState );
         } else {
-            dispatch({ type: onRequest, ...rest });
+            dispatch({ type: onRequest });
         }
 
         dispatch({type: actionTypes.SHOW_GLOBAL_LOADER } );
 
         return promise
-            .catch((error, ...rest) => {
+            .catch((error ) => {
                 console.log(error, rest)
                 dispatch({type: actionTypes.NOT_FOUND_REDIRECT});
                 dispatch({type: actionTypes.HIDE_GLOBAL_LOADER } );
@@ -63,9 +63,9 @@ export default function promiseMiddleware({ dispatch, getState }) {
             .then((response) => {
                 try {
                     if (typeof onSuccess === 'function') {
-                        onSuccess(response, dispatch, getState, ...rest);
+                        onSuccess(response, dispatch, getState, );
                     } else {
-                        dispatch({ type: onSuccess, response, ...rest });
+                        dispatch({ type: onSuccess, response,  });
                     }
 
                 dispatch({type: actionTypes.HIDE_GLOBAL_LOADER } );
@@ -80,10 +80,10 @@ export default function promiseMiddleware({ dispatch, getState }) {
                 console.log( '[ promise-middleware ] error: ', error ); 
                 if (error.type !== 'ActionError' || error.type === 'Unauthorized') {
                     if (typeof onFailure === 'function') {
-                        onFailure(error.response, dispatch, getState, ...rest);
+                        onFailure(error.response, dispatch, getState, );
                     } else {
                         console.log( '[ promise-middleware ] error response in catch: ', error ); 
-                        dispatch({ type: onFailure, error: error.response, ...rest });
+                        dispatch({ type: onFailure, error: error.response,  });
                     }
 
                 dispatch({type: actionTypes.HIDE_GLOBAL_LOADER } );
