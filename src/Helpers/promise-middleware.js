@@ -61,6 +61,14 @@ export default function promiseMiddleware({ dispatch, getState }) {
             .then(checkStatus.bind(null, dispatch))
             .then(parseJSON)
             .then((response) => {
+
+                if ( response.isTesting ){
+                    console.log( "[promise-middleware ] HERE IS THE ACTION: ", response ); 
+                }
+
+
+
+
                 try {
                     if (typeof onSuccess === 'function') {
                         onSuccess(response, dispatch, getState, );

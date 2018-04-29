@@ -1,4 +1,4 @@
-export const endpoint = "https://aqueous-fjord-19217.herokuapp.com";
+export const endpoint =  "http://localhost:3030" || "https://aqueous-fjord-19217.herokuapp.com";
 
 // export const endpoint = "http://localhost:3030";
 
