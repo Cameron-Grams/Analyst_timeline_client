@@ -48,7 +48,8 @@ export default function promiseMiddleware({ dispatch, getState }) {
             dispatch({ type: onRequest });
         }
 
-        dispatch({type: actionTypes.SHOW_GLOBAL_LOADER } );
+
+//         dispatch({type: actionTypes.SHOW_GLOBAL_LOADER } );
 
         return promise
             .catch((error ) => {
@@ -66,7 +67,7 @@ export default function promiseMiddleware({ dispatch, getState }) {
                     console.log( "[promise-middleware ] HERE IS THE ACTION: ", response ); 
                 }
 
-
+                console.log( "[ promise middleware ] action is: ", response ); 
 
 
                 try {
