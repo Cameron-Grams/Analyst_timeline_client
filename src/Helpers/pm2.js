@@ -20,6 +20,7 @@ const checkStatus = (dispatch, response) => {
         dispatch(push(appConfig.NOT_FOUND_ENDPOINT));
     } else if (response.status >= 400 && response.status < 500) {
         response.json().then((data) => {
+            console.log( '[ promise-middleware ] data from 400: ', data ); 
             dispatch({type: actionTypes.SHOW_ALERT_MESSAGE, response: data});
         });
     } else if (response.status >= 500 && response.status < 600) {
@@ -76,10 +77,12 @@ export default function promiseMiddleware({ dispatch, getState }) {
                 }
             })
             .catch((error) => {
+                console.log( '[ promise-middleware ] error: ', error ); 
                 if (error.type !== 'ActionError' || error.type === 'Unauthorized') {
                     if (typeof onFailure === 'function') {
                         onFailure(error.response, dispatch, getState, ...rest);
                     } else {
+                        console.log( '[ promise-middleware ] error response in catch: ', error ); 
                         dispatch({ type: onFailure, error: error.response, ...rest });
                     }
 
