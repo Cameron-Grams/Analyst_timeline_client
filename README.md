@@ -1,8 +1,9 @@
-[![Build Status](
+# Analyst Timeline Client
+
+## Build Status: [![Build Status](
 https://travis-ci.org/Cameron-Grams/third_timeline_client.svg?branch=master)](https://travis-ci.org/Cameron-Grams/third_timeline_client)
 
-
-# Analyst Timeline Client
+* As of 2 May still having problems with the tests due to a new configuration with the promise-middleware
 
 [The Live Site]( https://amazing-davinci-10dc21.netlify.com/login )
 
