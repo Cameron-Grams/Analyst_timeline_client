@@ -80,8 +80,6 @@ const AppStateReducer = ( state = initialState, action ) => {
         }
 
         case actionTypes.SHOW_ALERT_MESSAGE: { 
- //       case actionTypes.userBasicInfoFailed: 
- //       case actionTypes.userAuthenticationFailed:{
             console.log( '[ appStateReducer ] on fail: ', action.response );
 
             return{

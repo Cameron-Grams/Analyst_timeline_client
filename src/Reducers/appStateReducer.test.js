@@ -121,39 +121,22 @@ describe( 'the app state changes in response to events', () => {
   it( 'should acknowledge request for information has failed', () => {
     const responseState = {
         ...initialState,
-        hasRequestAuthentication: false,
-        isAuthenticated: false,
-        hasFailedAuthentication: true
-    };
-    let state = AppStateReducer( initialState, { type: actions.userBasicInfoFailed,
-        response: {
-            ...initialState,
             hasRequestAuthentication: false,
             isAuthenticated: false,
-            hasFailedAuthentication: true
+            hasFailedAuthentication: true,
+            alertMessage: {
+                hasError: true,
+                message: "lorm ipsum",
+            }
+    };
+
+    let state = AppStateReducer( initialState, { type: actions.SHOW_ALERT_MESSAGE,
+        response: {
+            message: "lorm ipsum"
         } 
     } );
     expect( state ).toEqual( responseState );
   })
-
-  it( 'should acknowledge request for information has failed', () => {
-    const responseState = {
-        ...initialState,
-        hasRequestAuthentication: false,
-        isAuthenticated: false,
-        hasFailedAuthentication: true
-    };
-    let state = AppStateReducer( initialState, { type: actions.userAuthenticationFailed,
-        response: {
-            ...initialState,
-            hasRequestAuthentication: false,
-            isAuthenticated: false,
-            hasFailedAuthentication: true
-        } 
-    } );
-    expect( state ).toEqual( responseState );
-  })
-
   it( 'should change state to show all entries on command', () => {
     const responseState = {
         ...initialState,
