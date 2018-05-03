@@ -53,7 +53,7 @@ describe('User specific action creators', () => {
           }
         })
         expect( dispatchedActions[0]).toEqual({ type: actions.registrationUserTriggered });
-        expect( dispatchedActions[1]).toEqual({ type: actions.registerUserSuccess, response});
+        expect( dispatchedActions[2]).toEqual({ type: actions.registerUserSuccess, response});
       });
     });
   });
@@ -83,7 +83,7 @@ describe('User specific action creators', () => {
           }
         })
         expect( dispatchedActions[0]).toEqual({ type: actions.requestAuthentication });
-        expect( dispatchedActions[1]).toEqual({ type: actions.autenticationSuccess, response});
+        expect( dispatchedActions[2]).toEqual({ type: actions.autenticationSuccess, response});
       });
     });
   });
@@ -118,11 +118,10 @@ describe('User specific action creators', () => {
             Accept: 'application/json',
             Authorization: `${ sendToken }`,
             'Content-Type': 'application/json',
-
           }
         })
         expect( dispatchedActions[0]).toEqual({ type: actions.requestBasicInfo });
-        expect( dispatchedActions[1]).toEqual({ type: actions.returnUserBasicInfo, response});
+        expect( dispatchedActions[2]).toEqual({ type: actions.returnUserBasicInfo, response});
       });
     });
   });

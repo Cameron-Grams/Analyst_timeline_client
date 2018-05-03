@@ -36,13 +36,14 @@ const checkStatus = (dispatch, response) => {
 export default function promiseMiddleware({ dispatch, getState }) {
     return next => (action) => {
         const { promise, onRequest, onSuccess, onFailure, ...rest } = action;
+
         if (!promise) {
             // if action dispatched is not a promise, just send it to the next processor
             return next(action);
         }
 
         if (typeof onRequest === 'function') {
-            onRequest(dispatch, getState, ...rest);
+            onRequest(dispatch, getState);
         } else {
             dispatch({ type: onRequest, ...rest });
         }
@@ -62,7 +63,7 @@ export default function promiseMiddleware({ dispatch, getState }) {
             .then((response) => {
                 try {
                     if (typeof onSuccess === 'function') {
-                        onSuccess(response, dispatch, getState, ...rest);
+                        onSuccess(response, dispatch, getState );
                     } else {
                         dispatch({ type: onSuccess, response, ...rest });
                     }
@@ -78,7 +79,7 @@ export default function promiseMiddleware({ dispatch, getState }) {
             .catch((error) => {
                 if (error.type !== 'ActionError' || error.type === 'Unauthorized') {
                     if (typeof onFailure === 'function') {
-                        onFailure(error.response, dispatch, getState, ...rest);
+                        onFailure(error.response, dispatch, getState );
                     } else {
                         dispatch({ type: onFailure, error: error.response, ...rest });
                     }

@@ -87,7 +87,7 @@ describe( 'Actions specific to the timeline functions', () => {
                     body: JSON.stringify( { timelineId: timelineId } )
                 })
             expect( dispatchedActions[0]).toEqual({ type: actions.requestTimeline });
-            expect( dispatchedActions[1]).toEqual({ type: actions.getSelectedTimelineSuccess, response});
+            expect( dispatchedActions[2]).toEqual({ type: actions.getSelectedTimelineSuccess, response});
             })
         })
     
@@ -122,7 +122,7 @@ describe( 'Actions specific to the timeline functions', () => {
                     body: JSON.stringify( values )
                 })
             expect( dispatchedActions[0]).toEqual({ type: actions.createTimelineTriggered });
-            expect( dispatchedActions[1]).toEqual({ type: actions.newTimelineCreated, response});
+            expect( dispatchedActions[2]).toEqual({ type: actions.newTimelineCreated, response});
             })
         })
     })
@@ -168,7 +168,7 @@ describe( 'Actions specific to the timeline functions', () => {
                     body: JSON.stringify( values )
                 })
             expect( dispatchedActions[0]).toEqual({ type: actions.newEntrySubmitted });
-            expect( dispatchedActions[1]).toEqual({ type: actions.formSubmit, response});
+            expect( dispatchedActions[2]).toEqual({ type: actions.formSubmit, response});
             })
         })
 
@@ -210,7 +210,7 @@ describe( 'Actions specific to the timeline functions', () => {
                     body: JSON.stringify( values )
                 })
             expect( dispatchedActions[0]).toEqual({ type: actions.updateEntryTriggered });
-            expect( dispatchedActions[1]).toEqual({ type: actions.entryUpdated, response});
+            expect( dispatchedActions[2]).toEqual({ type: actions.entryUpdated, response});
             })
         })
 
@@ -253,7 +253,7 @@ describe( 'Actions specific to the timeline functions', () => {
                     body: JSON.stringify( { entryId: entryId, timelineId: timelineId } )
                 })
             expect( dispatchedActions[0]).toEqual({ type: actions.deleteEntryTriggered });
-            expect( dispatchedActions[1]).toEqual({ type: actions.entryDeleted, response});
+            expect( dispatchedActions[2]).toEqual({ type: actions.entryDeleted, response});
             })
         })
         
