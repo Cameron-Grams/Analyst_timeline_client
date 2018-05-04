@@ -2,6 +2,12 @@
     margin: 5% auto;
     padding: 27px;
     background-color: #B29100;
-    width: 40%;
+    width: 85%;
     border-radius: 5px;
+}
+
+@media only screen and ( min-width: 760px ) {
+    .landingDiv{
+        width: 40%;
+    }
 }

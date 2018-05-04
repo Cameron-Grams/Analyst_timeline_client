@@ -3,7 +3,7 @@
 }
 
 .innerEntryForm{
-  width: 40%;
+  width: 85%;
   margin: auto;
 }
 
@@ -31,7 +31,7 @@
 .entryElement > .css-entryInput,
 .entryElement > .css-entryLabel{
   display: inline-block;
-  width: 50%;
+  width: 85%;
   font-size: 16px;
   padding: 0 10px;
   vertical-align: middle;
@@ -70,4 +70,15 @@ button.sendButton {
 
 button.sendButton:hover {
   background-color: #4dbc1c;
+}
+
+@media only screen and ( min-width: 900px ) {
+    .entryElement > .css-entryInput,
+    .entryElement > .css-entryLabel{
+        width: 40%;
+    }
+
+    .innerEntryForm{
+        width: 40%;
+    }
 }
