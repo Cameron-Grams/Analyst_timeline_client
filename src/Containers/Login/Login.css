@@ -1,13 +1,13 @@
 .loginDiv{
     margin: 5% auto;
     padding: 7px;
-    background-color: #B29100;
+    background-color: #d4d6d8;
     width: 85%;
     border-radius: 5px;
 }
 
 .demoFont{
-    color: white;
+    color: red;
 }
 
 .css-currentCount{

@@ -23,7 +23,7 @@ export default class HorizontalTimelineContent extends React.Component {
       slidingMotionStiffness: 150,
       slidingMotionDamping: 25,
       stylesBackground: '#f8f8f8',
-      stylesForeground: '#7b9d6f',
+      stylesForeground: '#d84b4b',
       stylesOutline: '#dfdfdf',
       isTouchEnabled: true,
       isKeyboardEnabled: true,
