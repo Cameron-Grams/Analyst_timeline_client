@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 let CreateTimeline = ( props ) => {
 
     const sendNewTimeline = ( values ) => {
+        console.log( 'in create timeline with values: ', values );
+
         props.createNewTimeline( values, props.user.userId );  
     }
 
