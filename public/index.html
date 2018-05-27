@@ -12,6 +12,21 @@
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
+    <div id="background" ></div>
     <div id="root"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
+    <script>
+      var background = document.getElementById( "background" ); 
+
+      var pattern = Trianglify({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+      background.appendChild(pattern.canvas())
+    </script>
+
+
   </body>
 </html>
+
